@@ -65,6 +65,7 @@
                             </div>
                         </div>
                     </form>
+                    <a href="{{ route('store_auth.login') }}">ストアログイン</a>
                 </div>
             </div>
         </div>
