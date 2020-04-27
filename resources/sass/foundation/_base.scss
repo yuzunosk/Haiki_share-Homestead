@@ -1,0 +1,204 @@
+// ==============================
+// 変数
+// ==============================
+@import url('https://fonts.googleapis.com/earlyaccess/notosansjapanese.css');
+ 
+
+$base-color__primary: #eec71f;
+$base-color__secondary: #fff;
+$sub-color__primary: #d16c15;
+$sub-color__secondary: #fffde5;
+$third-color__primary: #c30064;
+$third-color__secondary: #d16d74;
+
+$font-color__default: #333;
+
+
+$font-size_root: 10px;
+$font-size__sm:  12px;
+$font-size__default: 16px;
+$font-size__l:   18px;
+$font-size__xl:  20px;
+$font-size__xxl: 30px;
+$font-size__3l:  36px;
+$font-size__4l:  60px;
+$font-size__5l: 100px;
+
+
+$space__s:   8px;
+$space__m:   10px;
+$space__l:   15px;
+$space__xl:  25px;
+$space__xxl: 40px;
+$space__3l:  50px;
+$space__4l:  70px;
+
+$font-family__default: "Noto Sans Japanese";
+
+$content-width__default: 1200px;
+
+// マップ型変数を使うと便利
+$breakpoints: (
+  "sm": "screen and (max-width: 414px)",
+  "md": "screen and (max-width: 768px)",
+  "lg": "screen and (max-width: 1000px)",
+  "xl": "screen and (max-width: 1200px)",
+) !default;
+
+// ==============================
+// mixin
+// ==============================
+// map-get()の第一引数に変数名、第二引数にマップ型のキーを渡すと、マップ型の値が返る
+// #{}は「インターポーレーション」といって、演算できない箇所、変数使えない箇所でも使えるようにするものcalcなどでよく使う
+// http://book.scss.jp/code/c4/08.html
+@mixin mq($breakpoint: sm) {
+  @media #{map-get($breakpoints, $breakpoint)} {
+    @content;
+  }
+}
+
+// ==============================
+// base
+// ==============================
+
+html,
+body {
+  width: 100%;
+  color: $font-color__default;
+  font-size: $font-size__default;
+  line-height: 1.6;
+  font-family: $font-family__default; // TODO:リファクタ必要
+
+  text-size-adjust: 100%;
+  letter-spacing: 0.1em;
+  font-size: $font-size_root;
+}
+
+p,
+a {
+  -webkit-font-smoothing: antialiased;
+}
+
+a {
+  color: $font-color__default;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+a:hover {
+  color: $font-color__default;
+  transition: 0.3s;
+  text-decoration: none;
+}
+
+ul,
+li {
+  list-style: none;
+}
+
+img {
+  vertical-align: bottom;
+  // width: 50%;
+}
+
+// ==============================
+// mixin
+// ==============================
+// @mixinは関数のようなものを作れる
+// ----------------------------------------------------------
+// 09__疑似要素初期化
+@mixin icon-ini {
+  content: "";
+  display: inline-block;
+}
+
+// 13__ie11only
+// ----------------------------------------------------------
+@mixin ie11only {
+  @media all and (-ms-high-contrast: none), print {
+    @content;
+  }
+}
+
+@mixin ie11only_sm {
+  @media screen and (max-width: $breakPoint - 1) and (-ms-high-contrast: none) {
+    @content;
+  }
+}
+
+@mixin ie11only_lg {
+  @media screen and (min-width: $breakPoint) and (-ms-high-contrast: none) {
+    @content;
+  }
+}
+
+// ----------------------------------------------------------
+//position用
+// ----------------------------------------------------------
+@mixin absPosition($top: auto, $right: auto, $bottom: auto, $left: auto) {
+  position: absolute;
+  bottom: $bottom;
+  left: $left;
+  right: $right;
+  top: $top;
+}
+
+// -----------------------------------------------------------------------------
+// 07__くの字矢印 ※ 左から大きさ、太さ、色、方向 use include arrow(10, 2, #000, right)
+// -----------------------------------------------------------------------------
+@mixin arrow($width, $bold, $color, $deg) {
+  @include icon-ini;
+
+  border-color: $color;
+  border-style: solid;
+  border-width: 0 #{$bold}px #{$bold}px 0;
+  height: #{$width}px;
+  vertical-align: middle;
+  width: #{$width}px;
+  //角度
+  @if ($deg == "left") {
+    transform: rotate(135deg);
+  } @else if ($deg == "top") {
+    transform: rotate(225deg);
+  } @else if ($deg == "right") {
+    transform: rotate(-45deg);
+  } @else if ($deg == "bottom") {
+    transform: rotate(45deg);
+  }
+
+  @include ie11only() {
+    margin-bottom: 1px !important;
+  }
+}
+// -----------------------------------------------------------------------------
+// 17__first, notfirst  ※include first{ // ここに記述 }といった
+// include first()   ：一番最初
+// include notfirst()：一番最初以外
+// include last()    ：一番最後
+// include notlast() ：一番最後以外
+// -----------------------------------------------------------------------------
+@mixin first {
+  &:first-of-type {
+    @content;
+  }
+}
+
+@mixin notfirst {
+  &:not(:first-of-type) {
+    @content;
+  }
+}
+
+// 18__last, notlast
+// ----------------------------------------------------------
+@mixin last {
+  &:last-of-type {
+    @content;
+  }
+}
+
+@mixin notlast {
+  &:not(:last-of-type) {
+    @content;
+  }
+}
