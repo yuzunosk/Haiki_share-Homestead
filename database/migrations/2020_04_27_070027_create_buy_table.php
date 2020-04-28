@@ -19,7 +19,6 @@ class CreateBuyTable extends Migration
             $table->unsignedBigInteger('buy_user_id');
             $table->datetime('buy_date');
             $table->boolean('delete_flg')->default(false);
-            $table->datetime('create_at');
             $table->timestamps();
                 });
     }

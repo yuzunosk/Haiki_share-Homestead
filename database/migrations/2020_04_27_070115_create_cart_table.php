@@ -18,7 +18,6 @@ class CreateCartTable extends Migration
             $table->unsignedBigInteger('product_id');
             $table->unsignedBigInteger('user_id');
             $table->boolean('delete_flg')->default(false);
-            $table->datetime('create_at');
             $table->timestamps();
                 });
     }

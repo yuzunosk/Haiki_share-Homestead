@@ -22,7 +22,6 @@ class CreateProductsTable extends Migration
             $table->string('pic')->nullable();
             $table->unsignedBigInteger('store_id');
             $table->boolean('delete_flg')->default(false);
-            $table->datetime('create_at');
             $table->timestamps();
         });
     }

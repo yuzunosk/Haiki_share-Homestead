@@ -15,11 +15,15 @@ class CreateStoresTable extends Migration
     {
         Schema::create('stores', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->text('connection');
-            $table->text('queue');
-            $table->longText('payload');
-            $table->longText('exception');
-            $table->timestamp('failed_at')->useCurrent();
+            $table->string('name');
+            $table->string('branch_name');
+            $table->string('email')->unique();
+            $table->string('address')->nullable();
+            $table->timestamp('email_verified_at')->nullable();
+            $table->string('password',);
+            $table->boolean('delete_flg')->default(false);
+            $table->rememberToken();
+            $table->timestamps();
         });
     }
 

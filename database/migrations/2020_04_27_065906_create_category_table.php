@@ -17,7 +17,6 @@ class CreateCategoryTable extends Migration
             $table->bigIncrements('id');
             $table->string('name');
             $table->boolean('delete_flg')->default(false);
-            $table->datetime('create_at');
             $table->timestamps();        });
     }
 

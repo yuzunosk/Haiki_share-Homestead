@@ -22,7 +22,6 @@ class CreateUsersTable extends Migration
             $table->string('password',);
             $table->boolean('delete_flg')->default(false);
             $table->rememberToken();
-            $table->datetime('create_at');
             $table->timestamps();
         });
     }

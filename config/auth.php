@@ -44,6 +44,11 @@ return [
             'driver' => 'session',
             'provider' => 'users',
         ],
+        // Store用認証追加
+        'store' => [
+            'driver' => 'session',
+            'provider' => 'stores',
+        ],
         'api' => [
             'driver' => 'token',
             'provider' => 'users',
@@ -71,7 +76,11 @@ return [
     'providers' => [
         'users' => [
             'driver' => 'eloquent',
-            'model' => App\User::class,
+            'model' => App\Models\User::class,
+        ],
+        'stores' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\Store::class,
         ],
         // 'users' => [
         //     'driver' => 'database',
@@ -100,6 +109,13 @@ return [
             'table' => 'password_resets',
             'expire' => 60,
         ],
+        'stores' => [
+            'provider' => 'stores',
+            'table' => 'password_resets',
+            'expire' => 60,
+        ]
     ],
+
+    'password_timeout' => 10800,
 
 ];

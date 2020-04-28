@@ -11,10 +11,43 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
-Auth::routes();
+// use Illuminate\Support\Facades\Auth;
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+//ユーザー
+Route::namespace('User')->prefix('user')->name('user.')->group(function () {
+
+    // ログイン認証関連
+    Auth::routes([
+        'register' => true,
+        'reset'    => true,
+        'verify'   => false,
+    ]);
+
+    //ログイン認証後
+    Route::middleware('auth:user')->group(function(){
+
+    //TOPページ
+    Route::resource('home', 'HomeController', ['only' => 'index']);
+    });
+});
+
+// 管理者
+Route::namespace('Store')->prefix('store')->name('store.')->group(function () {
+
+
+    //ログイン認証関連
+    Auth::routes([
+        'register' => true,
+        'reset'    => true,
+        'verify'   => false,
+        ]);
+
+    //ログイン認証後
+    Route::middleware('auth:store')->group(function(){
+
+    //TOPページ
+    Route::resource('home', 'HomeController', ['only' => 'index']);
+    });
+});

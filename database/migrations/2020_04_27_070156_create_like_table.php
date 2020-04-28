@@ -19,7 +19,6 @@ class CreateLikeTable extends Migration
             $table->unsignedBigInteger('like_user_id');
             $table->unsignedBigInteger('like_point');
             $table->boolean('delete_flg')->default(false);
-            $table->datetime('create_at');
             $table->timestamps();        });
     }
 
