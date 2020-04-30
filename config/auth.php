@@ -106,12 +106,12 @@ return [
     'passwords' => [
         'users' => [
             'provider' => 'users',
-            'table' => 'password_resets',
+            'table' => 'users',
             'expire' => 60,
         ],
         'stores' => [
             'provider' => 'stores',
-            'table' => 'password_resets',
+            'table' => 'stores',
             'expire' => 60,
         ]
     ],

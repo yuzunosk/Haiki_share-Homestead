@@ -13,6 +13,8 @@
 
 // use Illuminate\Support\Facades\Auth;
 
+use App\Http\Controllers\ProductController;
+
 Route::get('/home', 'HomeController@index')->name('home');
 
 //ユーザー
@@ -25,11 +27,17 @@ Route::namespace('User')->prefix('user')->name('user.')->group(function () {
         'verify'   => false,
     ]);
 
-    //ログイン認証後
-    Route::middleware('auth:user')->group(function(){
+    //user password reset routes
+    Route::post('/password/email', 'Auth\UserForgotPasswordController@sendResetLinkEmail')->name('password.email');
+    Route::get('/password/reset', 'Auth\UserForgotPasswordController@showLinkRequestForm')->name('password.request');
+    Route::post('/password/reset', 'Auth\UserResetPasswordController@reset');
+    Route::get('/password/reset/{token}', 'Auth\UserResetPasswordController@showResetForm')->name('password.reset');
 
-    //TOPページ
-    Route::resource('home', 'HomeController', ['only' => 'index']);
+    //ログイン認証後
+    Route::middleware('auth:user')->group(function () {
+
+        //TOPページ
+        Route::resource('home', 'HomeController', ['only' => 'index']);
     });
 });
 
@@ -42,12 +50,22 @@ Route::namespace('Store')->prefix('store')->name('store.')->group(function () {
         'register' => true,
         'reset'    => true,
         'verify'   => false,
-        ]);
+    ]);
+
+    //store password reset routes
+    Route::post('/password/email', 'Auth\StoreForgotPasswordController@sendResetLinkEmail')->name('password.email');
+    Route::get('/password/reset', 'Auth\StoreForgotPasswordController@showLinkRequestForm')->name('password.request');
+    Route::post('/password/reset', 'Auth\StoreResetPasswordController@reset');
+    Route::get('/password/reset/{token}', 'Auth\StoreResetPasswordController@showResetForm')->name('password.reset');
 
     //ログイン認証後
-    Route::middleware('auth:store')->group(function(){
+    Route::middleware('auth:store')->group(function () {
 
-    //TOPページ
-    Route::resource('home', 'HomeController', ['only' => 'index']);
+        //TOPページ
+        Route::resource('home', 'HomeController', ['only' => 'index']);
+        //商品関係ルーティング
+        Route::get('product/new', 'ProductController@new')->name('product.new');
+        Route::post('product/update', 'ProductController@create')->name('product.update');
+        Route::get('product/index', 'ProductController@index')->name('product.index');
     });
 });
