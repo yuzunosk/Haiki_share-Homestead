@@ -42,17 +42,19 @@ class UserResetPasswordController extends Controller
         $this->middleware('guest:user');
     }
 
-    public function showResetForm(Request $request、$token = null)
-    { 
+    public function showResetForm(Request $request, $token = null)
+    {
         return view('user.auth.passwords.user-reset')
-            -> with(['email' => $request->email]
-            );
-        }
-    protected function guard() {
-        return Auth::guard('user');
-    }
-    protected function  broker(){
-        return password::brolker('users');
+            ->with(['email' => $request->email]);
     }
 
+    protected function guard()
+    {
+        return Auth::guard('user');
+    }
+
+    protected function  broker()
+    {
+        return password::brolker('users');
+    }
 }

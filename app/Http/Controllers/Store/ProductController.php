@@ -22,7 +22,7 @@ class ProductController extends Controller
      */
     public function index()
     {
-        //
+        return view('product.index');
     }
 
     /**
@@ -50,6 +50,7 @@ class ProductController extends Controller
         } else {
             $product->pic = null;
         }
+
         $product->name         = $request->name;
         $product->category     = $request->category;
         $product->price        = $request->price;

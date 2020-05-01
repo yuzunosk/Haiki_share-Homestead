@@ -8,7 +8,7 @@
                 <div class="">{{ __('Product New') }}</div>
 
                 <div class="">
-                    <form method="POST" action="/store/product/update">
+                    <form method="POST" action="{{ route('store.product.create') }}">
                         @csrf
 
                         <!-- 名前     -->
@@ -117,18 +117,6 @@
                             </div>
                         </div>
                         <!-- ストアID END  -->
-
-                        <div class="">
-                            <div class="">
-                                <div class="">
-                                    <input class="" type="checkbox" store_id="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
-
-                                    <label class="" for="remember">
-                                        {{ __('Remember Me') }}
-                                    </label>
-                                </div>
-                            </div>
-                        </div>
 
                         <div class=>
                             <div class="">

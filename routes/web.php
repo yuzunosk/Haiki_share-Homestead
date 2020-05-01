@@ -64,8 +64,8 @@ Route::namespace('Store')->prefix('store')->name('store.')->group(function () {
         //TOPページ
         Route::resource('home', 'HomeController', ['only' => 'index']);
         //商品関係ルーティング
-        Route::get('product/new', 'ProductController@new')->name('product.new');
-        Route::post('product/update', 'ProductController@create')->name('product.update');
-        Route::get('product/index', 'ProductController@index')->name('product.index');
+        Route::get('/product/new', 'ProductController@new')->name('product.new');
+        Route::post('/product', 'ProductController@create')->name('product.create');
+        Route::get('/product/index', 'ProductController@index')->name('product.index');
     });
 });

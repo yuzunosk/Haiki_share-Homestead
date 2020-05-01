@@ -42,16 +42,19 @@ class StoreResetPasswordController extends Controller
         $this->middleware('guest:store');
     }
 
-    public function showResetForm(Request $request、$token = null){ 
+    public function showResetForm(Request $request, $token = null)
+    {
         return view('store.auth.passwords.store-reset')
-            -> with(['email' => $request->email]
+            ->with(
+                ['email' => $request->email]
             );
-        }
-    protected function guard() {
+    }
+    protected function guard()
+    {
         return Auth::guard('store');
     }
-    protected function  broker(){
+    protected function  broker()
+    {
         return password::brolker('stores');
     }
-
 }
