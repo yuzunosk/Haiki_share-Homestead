@@ -35,11 +35,11 @@
                             <div class="">
                                 <select name="category" id="category">
                                     <option value="999">-- 選択してください --</option>
-                                    <option value="0">パン</option>
-                                    <option value="1">おにぎり</option>
-                                    <option value="2">サンドイッチ</option>
-                                    <option value="3">お弁当</option>
-                                    <option value="4">スイーツ</option>
+                                    <option value="パン">パン</option>
+                                    <option value="おにぎり">おにぎり</option>
+                                    <option value="サンドイッチ">サンドイッチ</option>
+                                    <option value="お弁当">お弁当</option>
+                                    <option value="スイーツ">スイーツ</option>
                                 </select>
 
                                 @error('category')

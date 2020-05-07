@@ -3,12 +3,13 @@
 @section('content')
 
 @if (session('status'))
-    <div class="alert alert-success" role="alert">
-        {{ session('status') }}
-    </div>
+<div class="alert alert-success" role="alert">
+    {{ session('status') }}
+</div>
 @endif
 <div>
-    <div id="example">
+    <!-- reactを読み込む -->
+    <div id="user_mypage">
     </div>
 
     <div class="warraper">

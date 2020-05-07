@@ -6,7 +6,8 @@ use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\ResetsPasswords;
 use Illuminate\Http\Request;
 use Password;
-use Auth;
+use Illuminate\Support\Facades\Auth;
+
 
 
 

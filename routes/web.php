@@ -16,6 +16,7 @@
 use App\Http\Controllers\ProductController;
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/mail', 'MailSendController@send');
 
 //ユーザー
 Route::namespace('User')->prefix('user')->name('user.')->group(function () {
@@ -66,6 +67,8 @@ Route::namespace('Store')->prefix('store')->name('store.')->group(function () {
         //商品関係ルーティング
         Route::get('/product/new', 'ProductController@new')->name('product.new');
         Route::post('/product', 'ProductController@create')->name('product.create');
-        Route::get('/product/index', 'ProductController@index')->name('product.index');
+        Route::get('/product/index/', 'ProductController@index')->name('product.index');
+        Route::get('/product/{id}/edit', 'ProductController@edit')->name('product.edit');
+        Route::get('/product/{id}/delete', 'ProductController@destroy')->name('product.delete');
     });
 });
