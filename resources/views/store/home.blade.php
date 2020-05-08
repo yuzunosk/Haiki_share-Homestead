@@ -1,5 +1,6 @@
 @extends('layouts.store.app')
 
+
 @section('content')
 
 @if (session('status'))
@@ -9,9 +10,8 @@
 @endif
 <div>
     <!-- reactを読み込む -->
-    <div id="store_mypage">
+    <div id="storeApp">
+        <storehome-component :productDatas="{{ $productData }}"></storehome-component>
     </div>
 </div>
-
-
 @endsection

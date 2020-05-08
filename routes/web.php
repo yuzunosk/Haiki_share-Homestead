@@ -60,7 +60,7 @@ Route::namespace('Store')->prefix('store')->name('store.')->group(function () {
     Route::get('/password/reset/{token}', 'Auth\StoreResetPasswordController@showResetForm')->name('password.reset');
 
     //ログイン認証後
-    Route::middleware('auth:store')->group(function () {
+    Route::middleware('auth:store',)->group(function () {
 
         //TOPページ
         Route::resource('home', 'HomeController', ['only' => 'index']);

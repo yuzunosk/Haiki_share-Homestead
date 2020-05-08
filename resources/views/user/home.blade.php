@@ -8,12 +8,9 @@
 </div>
 @endif
 <div>
-    <!-- reactを読み込む -->
-    <div id="user_mypage">
-    </div>
-
-    <div class="warraper">
-
+    <!-- vueを読み込む -->
+    <div id="userApp">
+        <userhome-component :buyDatas="{{ $buyData }}"></userhome-component>
     </div>
 </div>
 

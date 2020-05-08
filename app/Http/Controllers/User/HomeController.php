@@ -4,9 +4,13 @@ namespace App\Http\Controllers\User;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\models\User;
+use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Auth;
+
 
 class HomeController extends Controller
-{   
+{
 
     public function __construct()
 
@@ -20,7 +24,16 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('user.home');
+        //現在ログインしているユーザーのデータを取得する
+        $userData      = Auth::user();
+        $id             = $userData->id;
+        //storeのコピーなので要修正
+        $buyData    = User::find($id)->orderBy('id', 'desc')->limit(5)->get();
+        Log::info('ログインストアデータ:' . $userData);
+        Log::info('ストアid:' . $id);
+        Log::info('取得プロダクトデータ:' . $buyData);
+
+        return view('user.home', compact(['userData', 'buyData']));
     }
 
     /**

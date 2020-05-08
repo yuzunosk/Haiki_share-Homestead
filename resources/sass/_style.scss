@@ -3,10 +3,54 @@
 // ==========================================================
 
 // リセットCSS
-@import "./foundation/reset";
+@import "./Foundation/reset";
 // baseCSS 変数 mixin 定義
-@import "./foundation/base";
+@import "./Foundation/base";
 
+// ==========================================================================
+// Foundation
+// ==========================================================================
 
+@import "./Foundation/_reset";
+@import "./Foundation/_base";
 
+// ==========================================================================
+// Layout
+// ==========================================================================
 
+@import "./Layout/_footer";
+@import "./Layout/_header";
+@import "./Layout/_main";
+@import "./Layout/_sidebar";
+
+// ==========================================================================
+// Object
+// ==========================================================================
+
+// -----------------------------------------------------------------
+// Component
+// -----------------------------------------------------------------
+
+@import "./Object/Component/_button";
+@import "./Object/Component/_grid";
+@import "./Object/Component/_card";
+@import "./Object/Component/_input";
+@import "./Object/Component/_gallery";
+@import "./Object/Component/_nav";
+
+// -----------------------------------------------------------------
+// Project
+// -----------------------------------------------------------------
+@import "./Object/Project/_articles";
+@import "./Object/Project/_profile";
+// -----------------------------------------------------------------
+// Utility
+// -----------------------------------------------------------------
+
+@import "./Object/Utility/_align";
+@import "./Object/Utility/_margin";
+@import "./Object/Utility/_position";
+@import "./Object/Utility/_size";
+@import "./Object/Utility/_text";
+@import "./Object/Utility/_block";
+@import "./Object/Utility/_display";
