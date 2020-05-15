@@ -4,5 +4,35 @@
 .u_site {
     &--title {
         font-size: $font-size__xl;
+        font-weight: bold;
+        color: #d16c15;
+    }
+}
+//デフォルトのフォントサイズ 16px
+// ---------------------------
+.u_fs {
+    &__default {
+        font-size: $font-size__default;
+    }
+
+    &__text {
+        &--title {
+            font-size: $font-size__xl;
+        }
+    }
+}
+
+// -----------------------------
+// アイコン サイズ
+// -----------------------------
+.icon {
+    &--sm {
+        width: 20px;
+        height: 20px;
+    }
+
+    &--md {
+        width: 200px;
+        height: 200px;
     }
 }

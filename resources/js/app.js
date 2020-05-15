@@ -5,6 +5,7 @@
  */
 
 require("./bootstrap");
+require("./partial");
 
 window.Vue = require("vue");
 

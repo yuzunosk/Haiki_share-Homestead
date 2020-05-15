@@ -25,5 +25,10 @@
     "Product sellby": "賞味期限",
     "Product store_id": "ストアID",
     "Dashboard": "ダッシュボード",
-    "You are logged in!": "あなたはログインしました！"
+    "You are logged in!": "あなたはログインしました！",
+    "Singin": "新規登録",
+    "Logout": "ログアウト",
+    "Mypage": "マイページ",
+    "Product Edit": "登録商品の編集",
+    "Updated": "更新しました"
 }

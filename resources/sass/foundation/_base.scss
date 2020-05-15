@@ -1,8 +1,7 @@
 // ==============================
 // 変数
 // ==============================
-@import url('https://fonts.googleapis.com/earlyaccess/notosansjapanese.css');
- 
+@import url("https://fonts.googleapis.com/earlyaccess/notosansjapanese.css");
 
 $base-color__primary: #eec71f;
 $base-color__secondary: #fff;
@@ -10,28 +9,27 @@ $sub-color__primary: #d16c15;
 $sub-color__secondary: #fffde5;
 $third-color__primary: #c30064;
 $third-color__secondary: #d16d74;
+$footer-color__primary: #4a4a4a;
 
 $font-color__default: #333;
 
-
-$font-size_root: 10px;
-$font-size__sm:  12px;
+$font-size__root: 10px;
+$font-size__sm: 12px;
 $font-size__default: 16px;
-$font-size__l:   18px;
-$font-size__xl:  20px;
+$font-size__l: 18px;
+$font-size__xl: 20px;
 $font-size__xxl: 30px;
-$font-size__3l:  36px;
-$font-size__4l:  60px;
+$font-size__3l: 36px;
+$font-size__4l: 60px;
 $font-size__5l: 100px;
 
-
-$space__s:   8px;
-$space__m:   10px;
-$space__l:   15px;
-$space__xl:  25px;
-$space__xxl: 40px;
-$space__3l:  50px;
-$space__4l:  70px;
+$space__s: 8px;
+$space__m: 10px;
+$space__l: 15px;
+$space__xl: 25px;
+$space__xxl: 30px;
+$space__3l: 50px;
+$space__4l: 70px;
 
 $font-family__default: "Noto Sans Japanese";
 
@@ -71,7 +69,7 @@ body {
 
   text-size-adjust: 100%;
   letter-spacing: 0.1em;
-  font-size: $font-size_root;
+  font-size: $font-size__root;
 }
 
 p,

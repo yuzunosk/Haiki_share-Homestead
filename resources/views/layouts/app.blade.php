@@ -21,7 +21,7 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
 
-<body>
+<body class="l_site__area">
     <div id="app">
 
         <!-- フラッシュメッセージ -->
@@ -82,6 +82,10 @@
             @yield('content')
         </main>
     </div>
+
+    <footer>
+
+    </footer>
 </body>
 
 </html>

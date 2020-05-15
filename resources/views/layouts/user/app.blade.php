@@ -21,59 +21,68 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
 
-<body>
-    <div id="app">
+<body class="l_site__area">
+    <div class="l-site__warapper">
         <nav class="l-header">
-            <div class="l-header__title">
+            <div>
                 <a class="u_site--title u_display--center" href="{{ url('/') }}">
                     {{ config('app.name', 'Laravel') }}
                 </a>
             </div>
-            <div>
+            <div class="l-header__nav">
+                <!-- ログインしてなければ表示 -->
+                @unless(Auth::guard('user')->check())
+                <div class="c_nav-menu">
+                    <li class="u_display--center fs__default text-color--default">
+                        <a class="nav-link" href="{{ route('user.login') }}">{{ __('Login') }}</a>
+                    </li>
+                    <li class="u_display--center fs__default text-color--default">
+                        <a class="nav-link" href="{{ route('user.register') }}">{{ __('Singin') }}</a>
+                    </li>
 
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <!-- Left Side Of Navbar -->
-                    <ul class="navbar-nav mr-auto">
-
-                    </ul>
-                    <!-- Right Side Of Navbar -->
-                    <ul class="navbar-nav ml-auto">
-                        <!-- Authentication Links -->
-                        @unless (Auth::guard('store')->check())
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ route('store.login') }}">{{ __('Login') }}</a>
-                        </li>
-                        @if (Route::has('store.register'))
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ route('store.register') }}">{{ __('Register') }}</a>
-                        </li>
-                        @endif
-                        @else
-                        <li class="nav-item dropdown">
-                            <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                {{ Auth::user()->name }} <span class="caret"></span>
-                            </a>
-
-                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="{{ route('store.logout') }}" onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                    {{ __('Logout') }}
-                                </a>
-
-                                <form id="logout-form" action="{{ route('store.logout') }}" method="POST" style="display: none;">
-                                    @csrf
-                                </form>
-                            </div>
-                        </li>
-                        @endunless
-                    </ul>
                 </div>
+                @endunless
+                @if(Auth::guard('user')->check())
+                <div class="c_nav-menu">
+                    <form id="logout-form" action="{{ route('user.logout') }}" method="POST">
+                        @csrf
+                        <li class="u_display--center u_fs__default text-color--default">
+                            <button type="submit" class="nav-link" href="{{ route('user.logout') }}">{{ __('Logout') }}</button>
+                        </li>
+                    </form>
+                </div>
+                @endif
             </div>
         </nav>
 
-        <main class="py-4">
-            @yield('content')
-        </main>
+        <div id="app" class="l_main__container">
+
+            <main class="">
+                @yield('content')
+            </main>
+        </div>
+
+
+
+
+
+        <footer class="l_footer">
+            <div class=" l_footer__container">
+                <div class="l_footer__layout--top u_display--center">
+                    <img class="icon--md" src="/storage/img/HaikiShare_rogo.png" alt="">
+
+                </div>
+                <div class="l_footer__layout--bottom u_display--center--column">
+                    <div class="u_img__unit">
+                        <!-- 画像を作る -->
+                        <img class="img__icon icon--sm" src="/storage/img/email-iconA.png" alt="">
+                        <span class="u_white--text text-size__def mb-30">contact</span>
+                    </div>
+                    <h5 class="u_white--text text-size__min mb-30">©︎2020 yuzunosk website, inc.</h5>
+                </div>
+            </div>
+        </footer>
+
     </div>
 </body>
 

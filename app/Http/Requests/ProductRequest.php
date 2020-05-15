@@ -26,9 +26,9 @@ class ProductRequest extends FormRequest
         return [
             'name'     => 'required|max:255|string',
             'category' => 'required|string',
-            'price'    => 'min:0|numeric|required|max:99999999',
+            'price'    => 'min:1|numeric|required|max:99999999',
             'sellby'   => 'date|required',
-            'pic'      => 'image|file|image|max:10240|nullable',
+            'pic'      => 'file|image|max:10240|nullable',
             'store_id' => 'required'
 
         ];
@@ -43,7 +43,7 @@ class ProductRequest extends FormRequest
             'category.string'    => 'カテゴリーは文字で入力して下さい',
             'price.required'     => '値段は必須入力です',
             'price.numeric'      => '値段は数値で入力してください',
-            'price.min'          => '値段は0以上で入力してください',
+            'price.min'          => '値段は1円以上で入力してください',
             'price.max'          => '値段が高すぎます',
             'sellby.required'    => 'sellbyは必須入力です',
             'sellby.date'        => 'sellbyは日付の形で入力してください',

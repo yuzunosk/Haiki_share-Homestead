@@ -1,0 +1,17 @@
+// -----------------------------
+// サイト内 テキスト関連
+// -----------------------------
+.text-color--default {
+    color: $sub-color__primary;
+}
+
+.u_white--text {
+    color: #fff;
+}
+
+.text-size__def {
+    font-size: $font-size__default;
+}
+.text-size__min {
+    font-size: $font-size__root;
+}

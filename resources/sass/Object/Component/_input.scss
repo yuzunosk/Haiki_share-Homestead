@@ -1,0 +1,29 @@
+// -----------------------------
+// input 関連
+// -----------------------------
+.c_input {
+    &--default {
+        border: 2px solid $footer-color__primary;
+        border-radius: 5px;
+        padding: 0 10px;
+        width: 200px;
+        height: 40px;
+        text-align: end;
+    }
+    &--error-msg {
+        font-size: 10px;
+        color: red;
+    }
+}
+
+// -----------------------------
+// js で使用している
+// -----------------------------
+.c_input {
+    &--drop-over {
+        border: 3px dashed #ccc;
+    }
+    &--prev-img {
+        width: 100%;
+    }
+}

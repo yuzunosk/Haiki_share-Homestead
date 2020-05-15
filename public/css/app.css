@@ -11640,21 +11640,199 @@ img {
   vertical-align: bottom;
 }
 
-.l-header {
+.l_footer {
+  grid-area: footer;
+  width: 100%;
+  height: 350px;
+  background-color: #4a4a4a;
+}
+
+.l_footer__container {
   display: grid;
+  width: 100%;
+  height: 100%;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 70% 1fr;
+}
+
+.l_footer__layout--top {
+  grid-column: 2/2;
+  grid-row: 1/1;
+}
+
+.l_footer__layout--bottom {
+  grid-column: 2/2;
+  grid-row: 2/2;
+}
+
+.l-header {
+  background-color: #eec71f;
+  display: grid;
+  grid-area: header;
   grid-template-columns: 35% 5fr 5fr;
   height: 70px;
-  margin: 0 auto;
-  max-width: 1280px;
   width: 100%;
+  color: #d16c15;
 }
 
 .l-header__title {
   grid-column: 1;
 }
 
+.l-header__nav {
+  grid-column: 3;
+}
+
+.l_site__area {
+  width: 100%;
+}
+
+.l-site__warapper {
+  display: grid;
+  min-height: 100vh;
+  margin: 0 auto;
+  width: 100%;
+  grid-template: "header" 70px "main" 1fr "footer" 20%/100%;
+}
+
+.l_main__container {
+  grid-area: main;
+}
+
+.l_input__container {
+  display: grid;
+  height: 100%;
+  margin: 10vh 20%;
+  grid-template: "...... ...... ......  ......   ......" "...... ......   top   ......   ......" 100px "...... name   ......  category ......" 100px "...... price  ......  store_id ......" 100px "...... sellby ......  date     ......" 100px "...... pic    ......  ......   ......" 300px "...... ...... bottom  ......   ......" 100px "...... ...... ......  ......   ......"/auto 40% 20% 40% auto;
+  border: 3px solid #333;
+  border-radius: 10px;
+}
+
+.l_input__product--title {
+  grid-area: top;
+}
+
+.l_input__product--name {
+  grid-area: name;
+}
+
+.l_input__product--category {
+  grid-area: category;
+}
+
+.l_input__product--price {
+  grid-area: price;
+}
+
+.l_input__product--store_id {
+  grid-area: store_id;
+}
+
+.l_input__product--sellby {
+  grid-area: sellby;
+}
+
+.l_input__product--pic {
+  grid-area: pic;
+  position: relative;
+}
+
+.l_input__product--submit {
+  grid-area: bottom;
+}
+
+.btn {
+  border: 2px solid #333;
+  border-radius: 5px;
+  font-size: 16px;
+  padding: 6px 20px;
+  width: 160px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.c_input--default {
+  border: 2px solid #4a4a4a;
+  border-radius: 5px;
+  padding: 0 10px;
+  width: 200px;
+  height: 40px;
+  text-align: end;
+}
+
+.c_input--error-msg {
+  font-size: 10px;
+  color: red;
+}
+
+.c_input--drop-over {
+  border: 3px dashed #ccc;
+}
+
+.c_input--prev-img {
+  width: 100%;
+}
+
+.c_nav-menu {
+  display: flex;
+  height: 100%;
+  width: 100%;
+  justify-content: space-evenly;
+}
+
+.ml-30 {
+  margin-left: 30px;
+}
+
+.mb-30 {
+  margin-bottom: 30px;
+}
+
+.u_position_center {
+  position: absolute;
+  top: 50%;
+  left: 17%;
+}
+
 .u_site--title {
   font-size: 20px;
+  font-weight: bold;
+  color: #d16c15;
+}
+
+.u_fs__default {
+  font-size: 16px;
+}
+
+.u_fs__text--title {
+  font-size: 20px;
+}
+
+.icon--sm {
+  width: 20px;
+  height: 20px;
+}
+
+.icon--md {
+  width: 200px;
+  height: 200px;
+}
+
+.text-color--default {
+  color: #d16c15;
+}
+
+.u_white--text {
+  color: #fff;
+}
+
+.text-size__def {
+  font-size: 16px;
+}
+
+.text-size__min {
+  font-size: 10px;
 }
 
 .u_display--center {
@@ -11662,5 +11840,43 @@ img {
   justify-content: center;
   align-items: center;
   height: 100%;
+}
+
+.u_display--center--column {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  height: 100%;
+  flex-direction: column;
+}
+
+.u_display--start--column {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: flex-start;
+  height: 100%;
+  flex-direction: column;
+}
+
+.u_ds--block {
+  display: inline-block;
+}
+
+.u_text--space {
+  letter-spacing: 1.3px;
+}
+
+.u_parent--100 {
+  width: 100%;
+  height: 100%;
+}
+
+.display-n {
+  display: none;
+}
+
+.bg-gray {
+  background-color: #eee;
+  border-radius: 10px;
 }
 

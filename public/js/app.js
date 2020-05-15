@@ -50142,6 +50142,8 @@ module.exports = function(module) {
  */
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
+__webpack_require__(/*! ./partial */ "./resources/js/partial.js");
+
 window.Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.js");
 /**
  * The following block of code may be used to automatically register your
@@ -50557,6 +50559,58 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_UserMypage_vue_vue_type_template_id_03729791___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
+
+/***/ }),
+
+/***/ "./resources/js/partial.js":
+/*!*********************************!*\
+  !*** ./resources/js/partial.js ***!
+  \*********************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+// =================
+// DOM取得
+// =================
+var dropArea = document.getElementById("js-dropArea");
+var changeFile = document.getElementById("js-changeFile"); // =================
+// 処理
+// =================
+// ---画像ライブビューア ---
+
+dropArea.addEventListener("dragover", function (e) {
+  // console.log("ドラッグしました。");
+  e.preventDefault();
+  e.stopPropagation();
+  this.classList.add("c_input--drop-over");
+});
+dropArea.addEventListener("dragleave", function (e) {
+  // console.log("ドラッグしました。");
+  e.preventDefault();
+  e.stopPropagation();
+  this.classList.remove("c_input--drop-over");
+});
+changeFile.addEventListener("change", function () {
+  // alert("内容の変更がありました。");
+  var file = this.files[0]; //変更されたファイル情報の取得
+
+  console.log({
+    file: file
+  });
+  var img = this.nextElementSibling;
+  console.log({
+    img: img
+  }); // fileを読み込むオブジェクト
+
+  var fileReader = new FileReader(); // fileReaderメソッドを使用し、imgのsrc要素にセットする
+
+  fileReader.onload = function (e) {
+    img.setAttribute("src", event.target.result).show();
+  }; // 画像を読み込む
+
+
+  fileReader.readAsDataURL(file);
+});
 
 /***/ }),
 

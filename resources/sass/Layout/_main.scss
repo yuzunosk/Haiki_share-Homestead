@@ -1,0 +1,76 @@
+// -------------------------------
+// Site 全体のレイアウト
+// -------------------------------
+.l_site__area {
+    width: 100%;
+}
+.l-site__warapper {
+    display: grid;
+    min-height: 100vh;
+    margin: 0 auto;
+    width: 100%;
+    grid-template:
+        "header" 70px
+        "main" 1fr
+        "footer" 20%
+        /100%;
+}
+.l_main__container {
+    grid-area: main;
+}
+// -------------------------
+//インプットフォームの外枠
+// -------------------------
+.l_input {
+    &__container {
+        display: grid;
+        height: 100%;
+        margin: 10vh 20%;
+        grid-template:
+            "...... ...... ......  ......   ......"
+            "...... ......   top   ......   ......" 100px
+            "...... name   ......  category ......" 100px
+            "...... price  ......  store_id ......" 100px
+            "...... sellby ......  date     ......" 100px
+            "...... pic    ......  ......   ......" 300px
+            "...... ...... bottom  ......   ......" 100px
+            "...... ...... ......  ......   ......"
+            / auto 40% 20% 40% auto;
+        border: 3px solid #333;
+        border-radius: 10px;
+    }
+    &__product {
+        &--title {
+            grid-area: top;
+        }
+
+        &--name {
+            grid-area: name;
+        }
+
+        &--category {
+            grid-area: category;
+        }
+
+        &--price {
+            grid-area: price;
+        }
+
+        &--store_id {
+            grid-area: store_id;
+        }
+
+        &--sellby {
+            grid-area: sellby;
+        }
+
+        &--pic {
+            grid-area: pic;
+            position: relative;
+        }
+
+        &--submit {
+            grid-area: bottom;
+        }
+    }
+}

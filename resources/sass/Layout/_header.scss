@@ -2,14 +2,19 @@
 //  header
 // ====================================
 .l-header {
+    background-color: #eec71f;
     display: grid;
+    grid-area: header;
     grid-template-columns: 35% 5fr 5fr;
     height: 70px;
-    margin: 0 auto;
-    max-width: 1280px;
     width: 100%;
+    color: $sub-color__primary;
 
     &__title {
         grid-column: 1;
+    }
+
+    &__nav {
+        grid-column: 3;
     }
 }

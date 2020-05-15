@@ -9,10 +9,11 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
 
 
+
 use App\Http\Requests\ProductRequest;
 
 use App\models\Product;
-
+use App\models\Category;
 
 class ProductController extends Controller
 {
@@ -62,8 +63,16 @@ class ProductController extends Controller
                 $products = Product::orderBy($sort, 'desc')->paginate(6);
             }
         } else {
-            //ソート情報がないので、id順に降順で並べる
-            $products = Product::orderBy('id', 'asc')->paginate(6);
+            //Session['sort']がnullの場合
+            if (!is_null($order)) {
+                //Session['order']がnullではない場合
+                //情報を取得し、並び替える
+                //ソート情報がないので、id順に降順で並べる
+                $products = Product::orderBy('id', $order)->paginate(6);
+            } else {
+                //ソート情報もなく、オーダー情報もない場合降順で並べる
+                $products = Product::orderBy('id', 'desc')->paginate(6);
+            }
         }
         //ORMを使いproductデータを取得し、変数に収納する
         // Log::info('プロダクトデータ:' . $products);
@@ -78,22 +87,31 @@ class ProductController extends Controller
      */
     public function create(ProductRequest $request)
     {
+        Log::info('「「「「「「「「「「「「「「「「「「');
+        Log::info('---------登録処理開始-----------');
+        Log::info('」」」」」」」」」」」」」」」」」」');
+
+
+        //ファイルデータが確認したい時にコメントアウト
+        // dd($request->file('pic'));
+
         //一つずつ入れた方が後の変更に対応しやすい
         $product = new Product;
 
         //ファイル・リサイズを行う
         //リクエストにファイルデータがある場合
-        if ($request->file('pic')) {
-            Log::info('ファイル名:' . $request->file('pic'));
+        if ($request->pic) {
+            Log::info('ファイル名:' . $request->pic);
 
-            $file = $request->file('pic');
+            $tmppath = $_FILES['pic']['tmp_name'];
 
             //アップロードされるファイル名を取得
-            $filename = $file->getClientOriginalName();
+            $filename = hash_file('sha1', $tmppath);
 
             //storeAs以降パス,保存名,使用するルート
-            $product->pic = $request->file('pic')->storeAs('images', $filename, ['disk' => 'public']);
+            $product->pic = $request->pic->storeAs('images', $filename, ['disk' => 'public']);
         } else {
+            //ファイルがなかった場合nullをいれる
             $product->pic = null;
         }
 
@@ -130,7 +148,8 @@ class ProductController extends Controller
     public function new()
     {
         //productディレクトリのnewファイルを読み込む
-        return view('product.new');
+        $categorys = Category::all();
+        return view('product.new', compact('categorys'));
     }
 
     /**
@@ -144,8 +163,12 @@ class ProductController extends Controller
         //idを元にDBからproductデータを検出し、変数へ収納
         $productData = Product::find($id);
         Log::info('プロダクトデータ:' . $productData);
+        //productディレクトリのnewファイルを読み込む
+        $categorys = Category::all();
+        Log::info('カテゴリーデータ:' . $categorys);
 
-        return view('product.edit', compact('productData'));
+
+        return view('product.edit', compact(['productData', 'categorys']));
     }
 
     /**
@@ -155,9 +178,52 @@ class ProductController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(ProductRequest $request, $id)
     {
-        //
+        // GETパラメータが数字かどうかをチェックする
+        //事前にチェックする事で無駄なアクセスを減らせる
+        if (!ctype_digit($id)) {
+            return redirect('/chanpions')->with('flash_message', __('Invalid operation was performed.'));
+        }
+
+        Log::info('「「「「「「「「「「「「「「「「「「');
+        Log::info('---------編集処理開始-----------');
+        Log::info('」」」」」」」」」」」」」」」」」」');
+
+        //ファイルデータが確認したい時にコメントアウト
+        // dd($request->file('pic'));
+
+        //idを元にデータを探してきて、変数へ収納する
+        $product = Product::find($id);
+
+        //ファイル・リサイズを行う
+        //リクエストにファイルデータがある場合
+        if ($request->pic) {
+            Log::info('ファイル名:' . $request->pic);
+
+            $tmppath = $_FILES['pic']['tmp_name'];
+
+            //アップロードされるファイル名を取得
+            $filename = hash_file('sha1', $tmppath);
+
+            //storeAs以降パス,保存名,使用するルート
+            $product->pic = $request->pic->storeAs('images', $filename, ['disk' => 'public']);
+        } else {
+            //ファイルがなかった場合nullをいれる
+            $product->pic = null;
+        }
+
+        $product->name         = $request->name;
+        $product->category     = $request->category;
+        $product->price        = $request->price;
+        $product->sellby       = $request->sellby;
+        $product->store_id     = $request->store_id;
+
+        $product->save();
+        Log::info('保存する中身の確認：' . $product);
+
+        //リダイレクトする、その際にフラッシュメッセージを入れておく
+        return redirect()->route('store.product.index')->with('flash_message', __('Updated'));
     }
 
     /**
