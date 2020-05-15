@@ -69,6 +69,7 @@ Route::namespace('Store')->prefix('store')->name('store.')->group(function () {
         Route::post('/product', 'ProductController@create')->name('product.create');
         Route::get('/product/index/', 'ProductController@index')->name('product.index');
         Route::get('/product/{id}/edit', 'ProductController@edit')->name('product.edit');
+        Route::post('/product/{id}', 'ProductController@update')->name('product.update');
         Route::get('/product/{id}/delete', 'ProductController@destroy')->name('product.delete');
     });
 });

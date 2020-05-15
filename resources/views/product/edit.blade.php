@@ -2,13 +2,13 @@
 
 @section('content')
 
-<!-- idデータを渡す -->
-<form method="POST" action="{{ route('store.product.create' , $productData->id) }}" enctype="multipart/form-data">
+<form method="POST" action="{{ route('store.product.update', $productData->id) }}" enctype="multipart/form-data">
     @csrf
 
     <div class="l_input__container u_fs__default u_text--space">
 
-        <div class="l_input__product--title  u_display--center u_fs__text--title">{{ __('Product Edit') }}</div>
+        <div class="l_input__product--title  u_display--center u_fs__text--title">{{ __('Product New') }}</div>
+
         <!-- 名前     -->
         <div class="l_input__product--name  u_display--start--column ml-30">
             <label class="u_ds--block" for="name" class="">{{ __('Product Name') }}</label>
@@ -19,20 +19,7 @@
             @enderror
 
             <div class="">
-                <input class="c_input--default" id="name" type="text" class=" @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
-            </div>
-        </div>
-        <!-- 名前     -->
-        <div class="l_input__product--name  u_display--start--column ml-30">
-            <label class="u_ds--block" for="name" class="">{{ __('Product Name') }}</label>
-            @error('name')
-            <span class="c_input--error-msg" role="alert">
-                <strong>{{ $message }}</strong>
-            </span>
-            @enderror
-
-            <div class="">
-                <input class="c_input--default" id="name" type="text" class=" @error('name') is-invalid @enderror" name="name" value="{{ old('name', $productData->name) }}" autocomplete="name" autofocus>
+                <input class="c_input--default" id="name" type="text" class=" @error('name') is-invalid @enderror" name="name" value="{{ old('name', $productData->name) }}" required autocomplete="name" autofocus>
             </div>
         </div>
         <!-- 名前 END  -->
@@ -128,7 +115,7 @@
 
                 <input type="hidden" name="MAX_FILE_SIZE">
                 <input id="js-changeFile" class="u_parent--100 display-n" type="file" name="pic" class="input-file">
-                <img src="{{ old('pic' ,  $productData->pic) }}" alt="ドロップされた画像" class="c_input--prev-img">
+                <img src="{{ old('pic' ,  '/storage/' . $productData->pic) }}" alt="ドロップされた画像" class="c_input--prev-img">
 
             </label>
         </div>
@@ -138,15 +125,10 @@
 
         <div class="l_input__product--submit u_display--center">
             <button class="btn" type="submit" class="">
-                {{ __('Register') }}
+                {{ __('Update') }}
             </button>
         </div>
 
-
+    </div>
 </form>
-</div>
-</div>
-</div>
-</div>
-</div>
 @endsection

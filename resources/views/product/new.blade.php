@@ -9,6 +9,8 @@
 
         <div class="l_input__product--title  u_display--center u_fs__text--title">{{ __('Product New') }}</div>
         <!-- 名前     -->
+
+
         <div class="l_input__product--name  u_display--start--column ml-30">
             <label class="u_ds--block" for="name" class="">{{ __('Product Name') }}</label>
             @error('name')
