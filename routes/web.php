@@ -39,10 +39,14 @@ Route::namespace('User')->prefix('user')->name('user.')->group(function () {
 
         //TOPページ
         Route::resource('home', 'HomeController', ['only' => 'index']);
+        //ユーザープロフィール編集
+        Route::get('/profile/edit/{id}', 'UserProfileController@edit')->name('profile.edit');
+        Route::post('/profile/{id}', 'UserProfileController@update')->name('profile.update');
+        Route::get('/profile/{id}/delete', 'UserProfileController@destroy')->name('profile.delete');
     });
 });
 
-// 管理者
+// ストア管理者
 Route::namespace('Store')->prefix('store')->name('store.')->group(function () {
 
 
@@ -64,10 +68,15 @@ Route::namespace('Store')->prefix('store')->name('store.')->group(function () {
 
         //TOPページ
         Route::resource('home', 'HomeController', ['only' => 'index']);
+        //ストアプロフィール編集
+        Route::get('/profile/edit/{id}', 'StoreProfileController@edit')->name('profile.edit');
+        Route::post('/profile/{id}', 'StoreProfileController@update')->name('profile.update');
+        Route::get('/profile/{id}/delete', 'StoreProfileController@destroy')->name('profile.delete');
+
         //商品関係ルーティング
         Route::get('/product/new', 'ProductController@new')->name('product.new');
         Route::post('/product', 'ProductController@create')->name('product.create');
-        Route::get('/product/index/', 'ProductController@index')->name('product.index');
+        Route::get('/product/index', 'ProductController@index')->name('product.index');
         Route::get('/product/{id}/edit', 'ProductController@edit')->name('product.edit');
         Route::post('/product/{id}', 'ProductController@update')->name('product.update');
         Route::get('/product/{id}/delete', 'ProductController@destroy')->name('product.delete');

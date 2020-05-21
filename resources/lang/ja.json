@@ -31,5 +31,11 @@
     "Mypage": "マイページ",
     "Product Edit": "登録商品の編集",
     "Updated": "更新しました",
-    "Update": "更新する"
+    "Update": "更新する",
+    "Invalid operation was performed": "無効な操作が実行されました",
+    "Profile Edit": "プロフィール編集",
+    "Store Name": "店舗名",
+    "Branch Name": "支店名",
+    "Address": "住所",
+    "Return": "戻る"
 }

@@ -24,6 +24,10 @@ class ProductController extends Controller
      */
     public function index(Request $request)
     {
+        Log::info('「「「「「「「「「「「「「「「「「「');
+        Log::info('--------一覧表示ページ----------');
+        Log::info('」」」」」」」」」」」」」」」」」」');
+
         //requestされているか確認
         Log::info($request->sort);
         Log::info($request->order);
@@ -147,6 +151,9 @@ class ProductController extends Controller
      */
     public function new()
     {
+        Log::info('「「「「「「「「「「「「「「「「「「');
+        Log::info('--------新規登録ページ----------');
+        Log::info('」」」」」」」」」」」」」」」」」」');
         //productディレクトリのnewファイルを読み込む
         $categorys = Category::all();
         return view('product.new', compact('categorys'));
@@ -160,12 +167,16 @@ class ProductController extends Controller
      */
     public function edit($id)
     {
+        Log::info('「「「「「「「「「「「「「「「「「「');
+        Log::info('----------更新ページ------------');
+        Log::info('」」」」」」」」」」」」」」」」」」');
+
         //idを元にDBからproductデータを検出し、変数へ収納
         $productData = Product::find($id);
-        Log::info('プロダクトデータ:' . $productData);
+        // Log::info('プロダクトデータ:' . $productData);
         //productディレクトリのnewファイルを読み込む
         $categorys = Category::all();
-        Log::info('カテゴリーデータ:' . $categorys);
+        // Log::info('カテゴリーデータ:' . $categorys);
 
 
         return view('product.edit', compact(['productData', 'categorys']));
@@ -180,15 +191,15 @@ class ProductController extends Controller
      */
     public function update(ProductRequest $request, $id)
     {
+        Log::info('「「「「「「「「「「「「「「「「「「');
+        Log::info('-----プロダクト更新処理開始-------');
+        Log::info('」」」」」」」」」」」」」」」」」」');
         // GETパラメータが数字かどうかをチェックする
         //事前にチェックする事で無駄なアクセスを減らせる
         if (!ctype_digit($id)) {
-            return redirect('/chanpions')->with('flash_message', __('Invalid operation was performed.'));
+            return redirect()->route('store.product.index')->with('flash_message', __('Invalid operation was performed.'));
         }
 
-        Log::info('「「「「「「「「「「「「「「「「「「');
-        Log::info('---------更新処理開始-----------');
-        Log::info('」」」」」」」」」」」」」」」」」」');
 
         //ファイルデータが確認したい時にコメントアウト
         // dd($request->file('pic'));

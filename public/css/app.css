@@ -11702,7 +11702,7 @@ img {
 .l_input__container {
   display: grid;
   height: 100%;
-  margin: 10vh 20%;
+  margin: 10vh 15%;
   grid-template: "...... ...... ......  ......   ......" "...... ......   top   ......   ......" 100px "...... name   ......  category ......" 100px "...... price  ......  store_id ......" 100px "...... sellby ......  date     ......" 100px "...... pic    ......  ......   ......" 300px "...... ...... bottom  ......   ......" 100px "...... ...... ......  ......   ......"/auto 40% 20% 40% auto;
   border: 3px solid #333;
   border-radius: 10px;
@@ -11741,6 +11741,150 @@ img {
   grid-area: bottom;
 }
 
+.l_home__container {
+  display: grid;
+  height: 100%;
+  margin: 10vh 15%;
+  grid-template: " menu  " 160px " ......" 50px " main  " 800px/100%;
+}
+
+.l_home__menu {
+  grid-area: menu;
+  border: 3px solid #333;
+  border-radius: 10px;
+  display: grid;
+  padding: 20px;
+  grid-template: "..... title  ..... " 30% "..... .....  ..... " 20% "left  center right " 1fr/33% 1fr 33%;
+}
+
+.l_home__menu--title {
+  grid-area: title;
+}
+
+.l_home__menu--link-left {
+  grid-area: left;
+}
+
+.l_home__menu--link-center {
+  grid-area: center;
+}
+
+.l_home__menu--link-right {
+  grid-area: right;
+}
+
+.l_home__main {
+  grid-area: main;
+  border: 3px solid #333;
+  border-radius: 10px;
+  padding: 20px;
+  display: grid;
+  grid-template: "..... ..... ....." 2fr "..... setA  ....." 200px "..... ..... ....." 1fr "..... setB  ....." 200px "..... ..... ....." 2fr/auto 100% auto;
+}
+
+.l_home__main--setA {
+  grid-area: setA;
+}
+
+.l_home__main--setB {
+  grid-area: setB;
+}
+
+.l_profile__container {
+  display: grid;
+  height: 100%;
+  width: 60%;
+  margin: 10vh auto;
+  border: 3px solid #333;
+  border-radius: 10px;
+  grid-template: " head  " 160px " main  " 1fr " foot  " 80px " return " 80px/100%;
+}
+
+.l_profile__store_form__container {
+  display: grid;
+  margin: 5vh 15%;
+  grid-template: "name   " 100px ".....  " 30px "b_name " 100px ".....  " 30px "email  " 50px ".....  " 30px "address" 100px ".....  " 30px "pass   " 50px/100%;
+}
+
+.l_profile__form--unit {
+  display: grid;
+  grid-template: "text form" 100%/30% 70%;
+}
+
+.l_profile--title {
+  grid-area: head;
+}
+
+.l_profile--main {
+  grid-area: main;
+}
+
+.l_profile--foot {
+  grid-area: foot;
+}
+
+.l_profile--return {
+  grid-area: return;
+}
+
+.l_profile--name {
+  grid-area: name;
+}
+
+.l_profile--b_name {
+  grid-area: b_name;
+}
+
+.l_profile--email {
+  grid-area: email;
+}
+
+.l_profile--address {
+  grid-area: address;
+}
+
+.l_profile--pass {
+  grid-area: pass;
+}
+
+.l_profile--text {
+  grid-area: text;
+}
+
+.l_profile--form {
+  grid-area: form;
+}
+
+.c_new__Arrival__list {
+  display: grid;
+  grid-template: "title ..... info " 30px "..... ..... ....." 20px "group group group" 150px/1fr 1fr 1fr;
+}
+
+.c_new__Arrival--title {
+  grid-area: title;
+}
+
+.c_new__Arrival--info {
+  grid-area: info;
+}
+
+.c_new__Arrival--group {
+  grid-area: group;
+}
+
+.c_new__Arrival--unit {
+  display: grid;
+  grid-template: "img" 100px "text" 20px/150px;
+}
+
+.c_new__Arrival--unit--text {
+  grid-area: text;
+}
+
+.c_new__Arrival--unit--img {
+  grid-area: img;
+}
+
 .btn {
   border: 2px solid #333;
   border-radius: 5px;
@@ -11756,9 +11900,18 @@ img {
   border: 2px solid #4a4a4a;
   border-radius: 5px;
   padding: 0 10px;
-  width: 200px;
+  width: 100%;
   height: 40px;
-  text-align: end;
+  text-align: left;
+}
+
+.c_input--textArea {
+  border: 2px solid #4a4a4a;
+  border-radius: 5px;
+  padding: 0 10px;
+  width: 100%;
+  height: 80px;
+  text-align: left;
 }
 
 .c_input--error-msg {
@@ -11801,21 +11954,21 @@ img {
   color: #d16c15;
 }
 
-.u_fs__default {
+.u_font__default {
   font-size: 16px;
 }
 
-.u_fs__text--title {
+.u_font__text--title {
   font-size: 20px;
 }
 
-.icon--sm {
+.u_size__icon--sm {
   width: 20px;
   height: 20px;
 }
 
-.icon--md {
-  width: 200px;
+.u_size__icon--md {
+  width: 190px;
   height: 200px;
 }
 
@@ -11840,6 +11993,7 @@ img {
   justify-content: center;
   align-items: center;
   height: 100%;
+  flex-direction: row;
 }
 
 .u_display--center--column {
@@ -11850,10 +12004,42 @@ img {
   flex-direction: column;
 }
 
-.u_display--start--column {
+.u_display--center-noh {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.u_display--Jstart {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: row;
+}
+
+.u_display--Jstart--Astart {
+  align-items: flex-start;
+}
+
+.u_display--Jstart--column {
   display: flex;
   justify-content: space-evenly;
   align-items: flex-start;
+  height: 100%;
+  flex-direction: column;
+}
+
+.u_display--end {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  flex-direction: row;
+}
+
+.u_display--end--column {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
   height: 100%;
   flex-direction: column;
 }
@@ -11871,12 +12057,16 @@ img {
   height: 100%;
 }
 
-.display-n {
+.u_display-n {
   display: none;
 }
 
 .bg-gray {
   background-color: #eee;
   border-radius: 10px;
+}
+
+.u_text--align {
+  text-align: center;
 }
 

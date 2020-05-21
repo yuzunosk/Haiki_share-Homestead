@@ -19,13 +19,13 @@
     grid-area: main;
 }
 // -------------------------
-//インプットフォームの外枠
+// input form
 // -------------------------
 .l_input {
     &__container {
         display: grid;
         height: 100%;
-        margin: 10vh 20%;
+        margin: 10vh 15%;
         grid-template:
             "...... ...... ......  ......   ......"
             "...... ......   top   ......   ......" 100px
@@ -72,5 +72,160 @@
         &--submit {
             grid-area: bottom;
         }
+    }
+}
+
+// -------------------------
+// home
+// -------------------------
+.l_home {
+    &__container {
+        display: grid;
+        height: 100%;
+        margin: 10vh 15%;
+        grid-template:
+            " menu  " 160px
+            " ......" 50px
+            " main  " 800px
+            / 100%;
+    }
+
+    &__menu {
+        grid-area: menu;
+        border: 3px solid #333;
+        border-radius: 10px;
+        display: grid;
+        padding: 20px;
+        grid-template:
+            "..... title  ..... " 30%
+            "..... .....  ..... " 20%
+            "left  center right " 1fr
+            /33% 1fr 33%;
+
+        &--title {
+            grid-area: title;
+        }
+
+        &--link {
+            &-left {
+                grid-area: left;
+            }
+
+            &-center {
+                grid-area: center;
+            }
+
+            &-right {
+                grid-area: right;
+            }
+        }
+    }
+
+    &__main {
+        grid-area: main;
+        border: 3px solid #333;
+        border-radius: 10px;
+        padding: 20px;
+        display: grid;
+        grid-template:
+            "..... ..... ....." 2fr
+            "..... setA  ....." 200px
+            "..... ..... ....." 1fr
+            "..... setB  ....." 200px
+            "..... ..... ....." 2fr
+            / auto 100% auto;
+
+        &--setA {
+            grid-area: setA;
+        }
+
+        &--setB {
+            grid-area: setB;
+        }
+    }
+}
+// -------------------------
+// profile
+// -------------------------
+.l_profile {
+    &__container {
+        display: grid;
+        height: 100%;
+        width: 60%;
+        margin: 10vh auto;
+        border: 3px solid #333;
+        border-radius: 10px;
+        grid-template:
+            " head  " 160px
+            " main  " 1fr
+            " foot  " 80px
+            " return " 80px
+            / 100%;
+    }
+
+    &__store_form__container {
+        display: grid;
+        margin: 5vh 15%;
+        grid-template:
+            "name   " 100px
+            ".....  " 30px
+            "b_name " 100px
+            ".....  " 30px
+            "email  " 50px
+            ".....  " 30px
+            "address" 100px
+            ".....  " 30px
+            "pass   " 50px
+            /100%;
+    }
+    &__form--unit {
+        display: grid;
+        grid-template:
+            "text form" 100%
+            / 30% 70%;
+    }
+
+    &--title {
+        grid-area: head;
+    }
+
+    &--main {
+        grid-area: main;
+    }
+
+    &--foot {
+        grid-area: foot;
+    }
+
+    &--return {
+        grid-area: return;
+    }
+
+    &--name {
+        grid-area: name;
+    }
+
+    &--b_name {
+        grid-area: b_name;
+    }
+
+    &--email {
+        grid-area: email;
+    }
+
+    &--address {
+        grid-area: address;
+    }
+
+    &--pass {
+        grid-area: pass;
+    }
+
+    &--text {
+        grid-area: text;
+    }
+
+    &--form {
+        grid-area: form;
     }
 }

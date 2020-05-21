@@ -1,0 +1,41 @@
+// -----------------------------
+// arrival list 関連
+// -----------------------------
+.c_new__Arrival {
+    &__list {
+        display: grid;
+        grid-template:
+            "title ..... info " 30px
+            "..... ..... ....." 20px
+            "group group group" 150px
+            /1fr 1fr 1fr;
+    }
+
+    &--title {
+        grid-area: title;
+    }
+
+    &--info {
+        grid-area: info;
+    }
+
+    &--group {
+        grid-area: group;
+    }
+
+    &--unit {
+        display: grid;
+        grid-template:
+            "img" 100px
+            "text" 20px
+            / 150px;
+
+        &--text {
+            grid-area: text;
+        }
+
+        &--img {
+            grid-area: img;
+        }
+    }
+}

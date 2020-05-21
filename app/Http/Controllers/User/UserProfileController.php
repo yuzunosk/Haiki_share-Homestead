@@ -4,19 +4,14 @@ namespace App\Http\Controllers\User;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+
 use App\models\User;
+
 use Illuminate\Support\Facades\Log;
-use Illuminate\Support\Facades\Auth;
+use App\Http\Requests\UserProfileRequest;
 
-
-class HomeController extends Controller
+class UserProfileController extends Controller
 {
-
-    public function __construct()
-
-    {
-        $this->middleware('auth:user');
-    }
     /**
      * Display a listing of the resource.
      *
@@ -24,18 +19,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        //現在ログインしているユーザーのデータを取得する
-        $userData      = Auth::user();
-        $id             = $userData->id;
-        //buyDataとgoodDataはまだ未完成
-        $buyData    = User::find($id)->orderBy('id', 'desc')->limit(5)->get();
-        $goodData   = User::find($id)->orderBy('id', 'desc')->limit(5)->get();
-        Log::info('ログインストアデータ:' . $userData);
-        Log::info('ストアid:' . $id);
-        Log::info('購入データ:' . $buyData);
-        Log::info('いいねデータ:' . $goodData);
-
-        return view('user.home', compact(['userData', 'buyData', 'goodData']));
+        //
     }
 
     /**
@@ -49,12 +33,12 @@ class HomeController extends Controller
     }
 
     /**
-     * user a newly created resource in storage.
+     * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function user(Request $request)
+    public function store(Request $request)
     {
         //
     }
@@ -78,7 +62,20 @@ class HomeController extends Controller
      */
     public function edit($id)
     {
-        //
+        Log::info('「「「「「「「「「「「「「「「「「「「「');
+        Log::info('------ユーザープロフィール編集--------');
+        Log::info('」」」」」」」」」」」」」」」」」」」」');
+
+        //idかどうか判定
+        if (!ctype_digit($id)) {
+            return redirect()->route('user.home')->with('flash_message', __('Invalid operation was performed'));
+        }
+
+        $userData = User::find($id);
+        Log::info('取得したデータ：' . $userData);
+
+
+        return view('user.prof_edit', compact('userData'));
     }
 
     /**

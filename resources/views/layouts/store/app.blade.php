@@ -11,7 +11,6 @@
     <title>{{ config('app.name', 'Laravel') }}</title>
 
     <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}" defer></script>
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -23,6 +22,14 @@
 
 <body class="l_site__area">
     <div class="l-site__warapper">
+
+        <!-- フラッシュメッセージ -->
+        @if (session('flash_message'))
+        <div class="alert alert-primary text-center" role="alert">
+            {{ session('flash_message') }}
+        </div>
+        @endif
+
         <nav class="l-header">
             <div>
                 <a class="u_site--title u_display--center" href="{{ url('/') }}">
@@ -33,10 +40,10 @@
                 <!-- ログインしてなければ表示 -->
                 @unless(Auth::guard('store')->check())
                 <div class="c_nav-menu">
-                    <li class="u_display--center u_fs__default text-color--default">
+                    <li class="u_display--center u_font__default text-color--default">
                         <a class="nav-link" href="{{ route('store.login') }}">{{ __('Login') }}</a>
                     </li>
-                    <li class="u_display--center u_fs__default text-color--default">
+                    <li class="u_display--center u_font__default text-color--default">
                         <a class="nav-link" href="{{ route('store.register') }}">{{ __('Singin') }}</a>
                     </li>
 
@@ -46,7 +53,7 @@
                 <div class="c_nav-menu">
                     <form id="logout-form" action="{{ route('store.logout') }}" method="POST">
                         @csrf
-                        <li class="u_display--center u_fs__default text-color--default">
+                        <li class="u_display--center u_font__default text-color--default">
                             <button type="submit" class="nav-link" href="{{ route('store.logout') }}">{{ __('Logout') }}</button>
                         </li>
                     </form>
@@ -66,12 +73,12 @@
         <footer class="l_footer">
             <div class=" l_footer__container">
                 <div class="l_footer__layout--top u_display--center">
-                    <img class="icon--md" src="/storage/img/HaikiYasan_Logo.png" alt="">
+                    <img class="u_size__icon--md" src="/storage/img/HaikiYasan_Logo.png" alt="">
 
                 </div>
                 <div class="l_footer__layout--bottom u_display--center--column">
                     <div class="u_img__unit">
-                        <img class="img__icon icon--sm" src="/storage/img/email-iconA.png" alt="">
+                        <img class="img__icon u_size__icon--sm" src="/storage/img/email-iconA.png" alt="">
                         <span class="u_white--text text-size__def mb-30">contact</span>
                     </div>
                     <h5 class="u_white--text text-size__min mb-30">©︎2020 yuzunosk website, inc.</h5>
@@ -81,6 +88,8 @@
 
     </div>
 
+
+    <script src="{{ asset('js/app.js') }}"></script>
 </body>
 
 </html>

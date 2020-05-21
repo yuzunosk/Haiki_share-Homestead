@@ -10,7 +10,7 @@
 }
 //デフォルトのフォントサイズ 16px
 // ---------------------------
-.u_fs {
+.u_font {
     &__default {
         font-size: $font-size__default;
     }
@@ -25,14 +25,14 @@
 // -----------------------------
 // アイコン サイズ
 // -----------------------------
-.icon {
+.u_size__icon {
     &--sm {
         width: 20px;
         height: 20px;
     }
 
     &--md {
-        width: 200px;
+        width: 190px;
         height: 200px;
     }
 }

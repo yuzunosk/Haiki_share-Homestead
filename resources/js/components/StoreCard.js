@@ -1,4 +1,3 @@
-
 export default class Card extends Component {
     constructor(props) {
         super(props);
