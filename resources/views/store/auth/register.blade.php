@@ -1,77 +1,123 @@
-@extends('layouts.store.app')
+@extends('layouts.user.app')
 
 @section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Register') }}</div>
 
-                <div class="card-body">
-                    <form method="POST" action="{{ route('store.register') }}">
-                        @csrf
+<form method="POST" action="" enctype="multipart/form-data">
+    @csrf
 
-                        <div class="form-group row">
-                            <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Name') }}</label>
+    <div class="l_register__container u_font__default u_text--space">
 
-                            <div class="col-md-6">
-                                <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
+        <div class="l_profile--title  u_display--center u_font__text--title">{{ __('Register') }}</div>
 
-                                @error('name')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
+        <!-- 入力フォーム枠 -->
+        <div class="l_register__store__container l_profile--main">
 
-                        <div class="form-group row">
-                            <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
+            <!-- 名前     -->
 
-                            <div class="col-md-6">
-                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
+            <div class="l_register--name   l_profile__form--unit">
+                <div class="l_profile--text">
+                    <label class="u_ds--block" for="name" class="">{{ __('Store Name') }}</label>
+                    @error('name')
+                    <span class="c_input--error-msg" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                    @enderror
+                </div>
 
-                                @error('email')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
-
-                        <div class="form-group row">
-                            <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
-
-                                @error('password')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
-
-                        <div class="form-group row">
-                            <label for="password-confirm" class="col-md-4 col-form-label text-md-right">{{ __('Confirm Password') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
-                            </div>
-                        </div>
-
-                        <div class="form-group row mb-0">
-                            <div class="col-md-6 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
-                                    {{ __('Register') }}
-                                </button>
-                            </div>
-                        </div>
-                    </form>
+                <div class="l_profile--form">
+                    <textarea class="c_input--textArea" id="name" class=" @error('name') is-invalid @enderror" name="name">{{ old('name') }}</textarea>
                 </div>
             </div>
+            <!-- 名前 END  -->
+
+            <!-- 支店名    -->
+
+            <div class="l_register--b_name   l_profile__form--unit">
+
+                <div class="l_profile--text">
+                    <label class="u_ds--block" for="branch_name" class="">{{ __('Branch Name') }}</label>
+                    @error('name')
+                    <span class="c_input--error-msg" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                    @enderror
+                </div>
+                <div class="l_profile--form">
+                    <textarea class="c_input--textArea" id="branch_name" class=" @error('branch_name') is-invalid @enderror" name="branch_name" autofocus>{{ old('branch_name') }}</textarea>
+                </div>
+            </div>
+            <!-- 支店名 END  -->
+
+
+            <!-- email     -->
+
+            <div class="l_register--email   l_profile__form--unit">
+                <div class="l_profile--text">
+                    <label class="u_ds--block" for="email" class="">{{ __('Email') }}</label>
+                    @error('email')
+                    <span class="c_input--error-msg" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                    @enderror
+                </div>
+                <div class="l_profile--form">
+                    <input class="c_input--default" id="email" type="text" class=" @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" autofocus>
+                </div>
+            </div>
+            <!-- email END  -->
+
+
+            <!-- パスワード     -->
+
+            <div class="l_register--pass   l_profile__form--unit">
+                <div class="l_profile--text">
+                    <label class="u_ds--block" for="password" class="">{{ __('Password') }}</label>
+                    @error('password')
+                    <span class="c_input--error-msg" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                    @enderror
+                </div>
+                <div class="l_profile--form">
+                    <input class="c_input--default" id="password" type="password" class=" @error('password') is-invalid @enderror" name="password" autofocus>
+                </div>
+            </div>
+            <!-- パスワード  END   -->
+
+            <!-- パスワード確認 -->
+            <div class="l_register--re_pass l_profile__form--unit">
+                <div class="l_profile--text">
+                    <label for="password-confirm" class="u_ds--block">{{ __('Confirm Password') }}</label>
+                    @error('re_pass')
+                    <span class="c_input--error-msg" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                    @enderror
+                </div>
+
+
+                <div class="l_profile--form">
+                    <input class="c_input--default" id="password-confirm" type="password" name="password_confirmation" required>
+                </div>
+            </div>
+            <!-- パスワード確認 END -->
+
+
         </div>
+
+
+
+
+
+        <div class="l_register--foot u_display--center">
+            <button class="btn" type="submit" class="">
+                {{ __('Register') }}
+            </button>
+        </div>
+        <!-- 入力フォーム枠 END -->
+
+
+
     </div>
-</div>
+</form>
 @endsection

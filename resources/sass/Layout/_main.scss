@@ -19,6 +19,145 @@
     grid-area: main;
 }
 // -------------------------
+// register
+// -------------------------
+.l_register {
+    &__container {
+        display: grid;
+        height: 100%;
+        width: 60%;
+        margin: 10vh auto;
+        border: 3px solid #333;
+        border-radius: 10px;
+        grid-template:
+            " head  " 160px
+            " main  " 1fr
+            " foot  " 80px
+            / 100%;
+    }
+
+    &__user__container {
+        display: grid;
+        margin: 5vh 15%;
+        grid-template:
+            "name   " 50px
+            ".....  " 30px
+            "email  " 50px
+            ".....  " 30px
+            "pass   " 50px
+            ".....  " 30px
+            "re_pass" 50px
+            /100%;
+    }
+
+    &__store__container {
+        display: grid;
+        margin: 5vh 15%;
+        grid-template:
+            "name  " 100px
+            "..... " 30px
+            "b_name" 100px
+            "..... " 30px
+            "email " 50px
+            "..... " 30px
+            "pass  " 50px
+            "..... " 30px
+            "re_pass" 50px
+            /100%;
+    }
+
+    &--title {
+        grid-area: head;
+    }
+
+    &--main {
+        grid-area: main;
+    }
+
+    &--foot {
+        grid-area: foot;
+    }
+
+    &--name {
+        grid-area: name;
+    }
+
+    &--b_name {
+        grid-area: b_name;
+    }
+
+    &--email {
+        grid-area: email;
+    }
+
+    &--pass {
+        grid-area: pass;
+    }
+
+    &--re_pass {
+        grid-area: re_pass;
+    }
+}
+// -------------------------
+// login
+// -------------------------
+.l_login {
+    &__container {
+        display: grid;
+        height: 100%;
+        width: 60%;
+        margin: 10vh auto;
+        border: 3px solid #333;
+        border-radius: 10px;
+        grid-template:
+            " head  " 160px
+            " main  " 1fr
+            " foot  " 80px
+            / 100%;
+    }
+    &__form__container {
+        display: grid;
+        margin: 5vh 15%;
+        grid-template:
+            "email  " 50px
+            ".....  " 30px
+            "pass   " 50px
+            ".....  " 30px
+            "keep   " 50px
+            ".....  " 30px
+            "forgot " 50px
+            / 100%;
+    }
+
+    &--title {
+        grid-area: head;
+    }
+
+    &--main {
+        grid-area: main;
+    }
+
+    &--foot {
+        grid-area: foot;
+    }
+
+    &--email {
+        grid-area: email;
+    }
+
+    &--pass {
+        grid-area: pass;
+    }
+
+    &--keep {
+        grid-area: keep;
+    }
+
+    &--forgot {
+        grid-area: forgot;
+    }
+}
+// -------------------------
 // input form
 // -------------------------
 .l_input {
@@ -39,6 +178,13 @@
         border: 3px solid #333;
         border-radius: 10px;
     }
+    &--check {
+        display: grid;
+        grid-template:
+            "box text" 50px
+            / 15% 85%;
+    }
+
     &__product {
         &--title {
             grid-area: top;
@@ -178,11 +324,26 @@
             "pass   " 50px
             /100%;
     }
+
+    &__user_form__container {
+        display: grid;
+        margin: 5vh 15%;
+        grid-template:
+            "name   " 50px
+            ".....  " 30px
+            "email  " 50px
+            ".....  " 30px
+            "address" 100px
+            ".....  " 30px
+            "pass   " 50px
+            /100%;
+    }
+
     &__form--unit {
         display: grid;
         grid-template:
             "text form" 100%
-            / 30% 70%;
+            / 40% 60%;
     }
 
     &--title {

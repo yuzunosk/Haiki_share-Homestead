@@ -24,6 +24,10 @@ class HomeController extends Controller
      */
     public function index()
     {
+        Log::info('「「「「「「「「「「「「「「「「「「「「');
+        Log::info('----------ユーザーホーム------------');
+        Log::info('」」」」」」」」」」」」」」」」」」」」');
+
         //現在ログインしているユーザーのデータを取得する
         $userData      = Auth::user();
         $id             = $userData->id;

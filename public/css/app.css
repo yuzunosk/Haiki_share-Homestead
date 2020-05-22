@@ -11699,6 +11699,104 @@ img {
   grid-area: main;
 }
 
+.l_register__container {
+  display: grid;
+  height: 100%;
+  width: 60%;
+  margin: 10vh auto;
+  border: 3px solid #333;
+  border-radius: 10px;
+  grid-template: " head  " 160px " main  " 1fr " foot  " 80px/100%;
+}
+
+.l_register__user__container {
+  display: grid;
+  margin: 5vh 15%;
+  grid-template: "name   " 50px ".....  " 30px "email  " 50px ".....  " 30px "pass   " 50px ".....  " 30px "re_pass" 50px/100%;
+}
+
+.l_register__store__container {
+  display: grid;
+  margin: 5vh 15%;
+  grid-template: "name  " 100px "..... " 30px "b_name" 100px "..... " 30px "email " 50px "..... " 30px "pass  " 50px "..... " 30px "re_pass" 50px/100%;
+}
+
+.l_register--title {
+  grid-area: head;
+}
+
+.l_register--main {
+  grid-area: main;
+}
+
+.l_register--foot {
+  grid-area: foot;
+}
+
+.l_register--name {
+  grid-area: name;
+}
+
+.l_register--b_name {
+  grid-area: b_name;
+}
+
+.l_register--email {
+  grid-area: email;
+}
+
+.l_register--pass {
+  grid-area: pass;
+}
+
+.l_register--re_pass {
+  grid-area: re_pass;
+}
+
+.l_login__container {
+  display: grid;
+  height: 100%;
+  width: 60%;
+  margin: 10vh auto;
+  border: 3px solid #333;
+  border-radius: 10px;
+  grid-template: " head  " 160px " main  " 1fr " foot  " 80px/100%;
+}
+
+.l_login__form__container {
+  display: grid;
+  margin: 5vh 15%;
+  grid-template: "email  " 50px ".....  " 30px "pass   " 50px ".....  " 30px "keep   " 50px ".....  " 30px "forgot " 50px/100%;
+}
+
+.l_login--title {
+  grid-area: head;
+}
+
+.l_login--main {
+  grid-area: main;
+}
+
+.l_login--foot {
+  grid-area: foot;
+}
+
+.l_login--email {
+  grid-area: email;
+}
+
+.l_login--pass {
+  grid-area: pass;
+}
+
+.l_login--keep {
+  grid-area: keep;
+}
+
+.l_login--forgot {
+  grid-area: forgot;
+}
+
 .l_input__container {
   display: grid;
   height: 100%;
@@ -11706,6 +11804,11 @@ img {
   grid-template: "...... ...... ......  ......   ......" "...... ......   top   ......   ......" 100px "...... name   ......  category ......" 100px "...... price  ......  store_id ......" 100px "...... sellby ......  date     ......" 100px "...... pic    ......  ......   ......" 300px "...... ...... bottom  ......   ......" 100px "...... ...... ......  ......   ......"/auto 40% 20% 40% auto;
   border: 3px solid #333;
   border-radius: 10px;
+}
+
+.l_input--check {
+  display: grid;
+  grid-template: "box text" 50px/15% 85%;
 }
 
 .l_input__product--title {
@@ -11806,9 +11909,15 @@ img {
   grid-template: "name   " 100px ".....  " 30px "b_name " 100px ".....  " 30px "email  " 50px ".....  " 30px "address" 100px ".....  " 30px "pass   " 50px/100%;
 }
 
+.l_profile__user_form__container {
+  display: grid;
+  margin: 5vh 15%;
+  grid-template: "name   " 50px ".....  " 30px "email  " 50px ".....  " 30px "address" 100px ".....  " 30px "pass   " 50px/100%;
+}
+
 .l_profile__form--unit {
   display: grid;
-  grid-template: "text form" 100%/30% 70%;
+  grid-template: "text form" 100%/40% 60%;
 }
 
 .l_profile--title {

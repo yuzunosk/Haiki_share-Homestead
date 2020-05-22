@@ -16,7 +16,7 @@
 
             <div class="l_profile--name   l_profile__form--unit">
                 <div class="l_profile--text">
-                    <label class="u_ds--block" for="name" class="">{{ __('user Name') }}</label>
+                    <label class="u_ds--block" for="name" class="">{{ __('User Name') }}</label>
                     @error('name')
                     <span class="c_input--error-msg" role="alert">
                         <strong>{{ $message }}</strong>
@@ -25,7 +25,7 @@
                 </div>
 
                 <div class="l_profile--form">
-                    <textarea class="c_input--textArea" id="name" class=" @error('name') is-invalid @enderror" name="name">{{ old('name' , $userData->name) }}</textarea>
+                    <input class="c_input--default" id="name" class=" @error('name') is-invalid @enderror" name="name" value="{{old('name' , $userData->name) }}" autofocus>
                 </div>
             </div>
             <!-- 名前 END  -->
@@ -90,7 +90,7 @@
 
         <div class="l_profile--foot u_display--center">
             <button class="btn" type="submit" class="">
-                {{ __('Register') }}
+                {{ __('Update') }}
             </button>
         </div>
         <!-- 入力フォーム枠 END -->

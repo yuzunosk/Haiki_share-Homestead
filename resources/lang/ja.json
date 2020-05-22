@@ -37,5 +37,7 @@
     "Store Name": "店舗名",
     "Branch Name": "支店名",
     "Address": "住所",
-    "Return": "戻る"
+    "Return": "戻る",
+    "User Name": "ユーザーネーム",
+    "User Login": "ユーザーログイン"
 }

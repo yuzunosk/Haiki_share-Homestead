@@ -87,8 +87,30 @@ class UserProfileController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        Log::info('「「「「「「「「「「「「「「「「「「「「');
+        Log::info('----ユーザープロフィール更新処理開始----');
+        Log::info('」」」」」」」」」」」」」」」」」」」」');
+        //idかどうか判定
+        if (!ctype_digit($id)) {
+            Log::info('正しいidではありません');
+            return redirect('/store/home')->with('flash_message', __('Invalid operation was performed'));
+        }
+
+        //storeデータを取得し変数へと収納する
+        $userData =  User::find($id);
+
+        //後に変更がしやすいよう一つ一つ代入していく
+        $userData->name         = $request->name;
+        $userData->email        = $request->email;
+        $userData->address      = $request->address;
+        $userData->password     = $request->password;
+
+        $userData->save();
+        Log::info('保存する中身の確認：' . $userData);
+
+        return redirect('/user/home')->with('flash_message', __('Profile Updated'));
     }
+
 
     /**
      * Remove the specified resource from storage.
