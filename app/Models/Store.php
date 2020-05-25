@@ -19,7 +19,7 @@ class Store extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password', 'address',
+        'name', 'branch_name', 'email', 'password', 'address',
     ];
 
     /**
@@ -43,6 +43,7 @@ class Store extends Authenticatable
     public function products()
     {
         //productとの1対多のリレーション
+        //いくつものpuroductを持っている
         return $this->hasMany('App\Models\Product');
     }
 }

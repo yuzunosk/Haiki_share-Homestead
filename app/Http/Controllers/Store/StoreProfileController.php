@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Store;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-
+use Illuminate\Support\Facades\Hash;
 use App\models\Store;
 
 use Illuminate\Support\Facades\Log;
@@ -70,7 +70,7 @@ class StoreProfileController extends Controller
 
         //idかどうか判定
         if (!ctype_digit($id)) {
-            return redirect()->route('store.home')->with('flash_message', __('Invalid operation was performed'));
+            return redirect('/store/home')->with('flash_message', __('Invalid operation was performed'));
         }
 
         $storeData = Store::find($id);
@@ -106,7 +106,8 @@ class StoreProfileController extends Controller
         $storeData->branch_name  = $request->branch_name;
         $storeData->email        = $request->email;
         $storeData->address      = $request->address;
-        $storeData->password     = $request->password;
+        $storeData->password     = Hash::make($request->password);
+
 
         $storeData->save();
         Log::info('保存する中身の確認：' . $storeData);

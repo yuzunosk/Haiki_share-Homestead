@@ -288,6 +288,17 @@
         &--setB {
             grid-area: setB;
         }
+
+        &__stick--unit {
+            grid-area: main;
+            border: 3px solid #333;
+            border-radius: 10px;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            height: 100%;
+        }
     }
 }
 // -------------------------
@@ -388,5 +399,190 @@
 
     &--form {
         grid-area: form;
+    }
+}
+// -------------------------
+// Detail
+// -------------------------
+.l_detail {
+    &__container {
+        display: grid;
+        // border: 2px solid #333;
+        border-radius: 10px;
+        margin: 100px 60px;
+        grid-template:
+            " main  " 2.5fr
+            " info  " 1fr
+            / 100%;
+    }
+
+    &--main {
+        grid-area: main;
+        display: grid;
+        grid-template:
+            "hero info" 100%
+            / 60% 40%;
+
+        &--hero {
+            grid-area: hero;
+        }
+
+        &--info {
+            grid-area: info;
+            display: grid;
+            grid-template:
+                "title" 1fr
+                "info" 2fr
+                "foot" 1fr
+                /100%;
+
+            &--title {
+                grid-area: title;
+            }
+
+            &--info {
+                grid-area: info;
+            }
+
+            &--foot {
+                grid-area: foot;
+            }
+        }
+
+        &--info__container {
+            display: grid;
+            grid-template:
+                "title    title  " 20%
+                ".......  ......." 30px
+                "category expiration" 20%
+                ".......  ......." 15px
+                "price-l  price-r" 40%
+                ".......  ......." 20px
+                / 50% 50%;
+
+            &--title {
+                grid-area: title;
+            }
+
+            &--category {
+                grid-area: category;
+            }
+
+            &--expiration {
+                grid-area: expiration;
+            }
+
+            &--price-l {
+                grid-area: price-l;
+            }
+
+            &--price-r {
+                grid-area: price-r;
+            }
+        }
+    }
+
+    &--info {
+        grid-area: info;
+        display: grid;
+        grid-template:
+            "head   .....  .....  ....." 50px
+            ".....  .....  .....  ....." 15px
+            "textA  dataA  textE  dataE" 50px
+            "textB  dataB  textF  dataF" 50px
+            "textC  dataC  textF  dataF" 50px
+            "textD  dataD  textG  dataG" 50px
+            /10% 40% 10% 40%;
+
+        &--head {
+            grid-area: head;
+        }
+
+        &--textA {
+            grid-area: textA;
+        }
+
+        &--dataA {
+            grid-area: dataA;
+        }
+
+        &--textB {
+            grid-area: textB;
+        }
+
+        &--dataB {
+            grid-area: dataB;
+        }
+
+        &--textC {
+            grid-area: textC;
+        }
+
+        &--dataC {
+            grid-area: dataC;
+        }
+
+        &--textD {
+            grid-area: textD;
+        }
+
+        &--dataD {
+            grid-area: dataD;
+        }
+
+        &--textE {
+            grid-area: textE;
+        }
+
+        &--dataE {
+            grid-area: dataE;
+        }
+
+        &--textF {
+            grid-area: textF;
+        }
+
+        &--dataF {
+            grid-area: dataF;
+        }
+
+        &--textG {
+            grid-area: textG;
+        }
+
+        &--dataG {
+            grid-area: dataG;
+        }
+    }
+
+    &--hero {
+        grid-area: hero;
+    }
+}
+// -------------------------
+// product 関連
+// -------------------------
+.l_product {
+    &__stick-unit {
+        display: grid;
+        border: 2px solid #999;
+        border-radius: 50px;
+        grid-template:
+            "pic   name  icon " 70px
+            /70px 1fr 70px;
+        width: 100%;
+    }
+
+    &--pic {
+        grid-area: pic;
+        width: 100%;
+    }
+
+    &--name {
+        grid-area: name;
+    }
+
+    &--icon {
+        grid-area: icon;
     }
 }

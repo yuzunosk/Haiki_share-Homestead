@@ -10923,9 +10923,13 @@ html {
   margin: 0;
 }
 
+p {
+  margin: 0;
+}
+
 /* # =================================================================
-   # General elements
-   # ================================================================= */
+     # General elements
+     # ================================================================= */
 
 hr {
   overflow: visible;
@@ -11013,8 +11017,8 @@ sup {
 }
 
 /* # =================================================================
-   # Forms
-   # ================================================================= */
+     # Forms
+     # ================================================================= */
 
 input {
   border-radius: 0;
@@ -11167,8 +11171,8 @@ legend {
 }
 
 /* # =================================================================
-   # Specify media element style
-   # ================================================================= */
+     # Specify media element style
+     # ================================================================= */
 
 img {
   border-style: none;
@@ -11186,8 +11190,8 @@ svg:not([fill]) {
 }
 
 /* # =================================================================
-   # Accessibility
-   # ================================================================= */
+     # Accessibility
+     # ================================================================= */
 
 /* Hide content from screens but not screenreaders */
 
@@ -11302,9 +11306,13 @@ html {
   margin: 0;
 }
 
+p {
+  margin: 0;
+}
+
 /* # =================================================================
-   # General elements
-   # ================================================================= */
+     # General elements
+     # ================================================================= */
 
 hr {
   overflow: visible;
@@ -11392,8 +11400,8 @@ sup {
 }
 
 /* # =================================================================
-   # Forms
-   # ================================================================= */
+     # Forms
+     # ================================================================= */
 
 input {
   border-radius: 0;
@@ -11546,8 +11554,8 @@ legend {
 }
 
 /* # =================================================================
-   # Specify media element style
-   # ================================================================= */
+     # Specify media element style
+     # ================================================================= */
 
 img {
   border-style: none;
@@ -11565,8 +11573,8 @@ svg:not([fill]) {
 }
 
 /* # =================================================================
-   # Accessibility
-   # ================================================================= */
+     # Accessibility
+     # ================================================================= */
 
 /* Hide content from screens but not screenreaders */
 
@@ -11893,6 +11901,17 @@ img {
   grid-area: setB;
 }
 
+.l_home__main__stick--unit {
+  grid-area: main;
+  border: 3px solid #333;
+  border-radius: 10px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+}
+
 .l_profile__container {
   display: grid;
   height: 100%;
@@ -11964,6 +11983,175 @@ img {
   grid-area: form;
 }
 
+.l_detail__container {
+  display: grid;
+  border-radius: 10px;
+  margin: 100px 60px;
+  grid-template: " main  " 2.5fr " info  " 1fr/100%;
+}
+
+.l_detail--main {
+  grid-area: main;
+  display: grid;
+  grid-template: "hero info" 100%/60% 40%;
+}
+
+.l_detail--main--hero {
+  grid-area: hero;
+}
+
+.l_detail--main--info {
+  grid-area: info;
+  display: grid;
+  grid-template: "title" 1fr "info" 2fr "foot" 1fr/100%;
+}
+
+.l_detail--main--info--title {
+  grid-area: title;
+}
+
+.l_detail--main--info--info {
+  grid-area: info;
+}
+
+.l_detail--main--info--foot {
+  grid-area: foot;
+}
+
+.l_detail--main--info__container {
+  display: grid;
+  grid-template: "title    title  " 20% ".......  ......." 30px "category expiration" 20% ".......  ......." 15px "price-l  price-r" 40% ".......  ......." 20px/50% 50%;
+}
+
+.l_detail--main--info__container--title {
+  grid-area: title;
+}
+
+.l_detail--main--info__container--category {
+  grid-area: category;
+}
+
+.l_detail--main--info__container--expiration {
+  grid-area: expiration;
+}
+
+.l_detail--main--info__container--price-l {
+  grid-area: price-l;
+}
+
+.l_detail--main--info__container--price-r {
+  grid-area: price-r;
+}
+
+.l_detail--info {
+  grid-area: info;
+  display: grid;
+  grid-template: "head   .....  .....  ....." 50px ".....  .....  .....  ....." 15px "textA  dataA  textE  dataE" 50px "textB  dataB  textF  dataF" 50px "textC  dataC  textF  dataF" 50px "textD  dataD  textG  dataG" 50px/10% 40% 10% 40%;
+}
+
+.l_detail--info--head {
+  grid-area: head;
+}
+
+.l_detail--info--textA {
+  grid-area: textA;
+}
+
+.l_detail--info--dataA {
+  grid-area: dataA;
+}
+
+.l_detail--info--textB {
+  grid-area: textB;
+}
+
+.l_detail--info--dataB {
+  grid-area: dataB;
+}
+
+.l_detail--info--textC {
+  grid-area: textC;
+}
+
+.l_detail--info--dataC {
+  grid-area: dataC;
+}
+
+.l_detail--info--textD {
+  grid-area: textD;
+}
+
+.l_detail--info--dataD {
+  grid-area: dataD;
+}
+
+.l_detail--info--textE {
+  grid-area: textE;
+}
+
+.l_detail--info--dataE {
+  grid-area: dataE;
+}
+
+.l_detail--info--textF {
+  grid-area: textF;
+}
+
+.l_detail--info--dataF {
+  grid-area: dataF;
+}
+
+.l_detail--info--textG {
+  grid-area: textG;
+}
+
+.l_detail--info--dataG {
+  grid-area: dataG;
+}
+
+.l_detail--hero {
+  grid-area: hero;
+}
+
+.l_product__stick-unit {
+  display: grid;
+  border: 2px solid #999;
+  border-radius: 50px;
+  grid-template: "pic   name  icon " 70px/70px 1fr 70px;
+  width: 100%;
+}
+
+.l_product--pic {
+  grid-area: pic;
+  width: 100%;
+}
+
+.l_product--name {
+  grid-area: name;
+}
+
+.l_product--icon {
+  grid-area: icon;
+}
+
+.c_hero__top__container {
+  background-color: rgba(255, 255, 255, 0.85);
+  position: relative;
+}
+
+.c_hero__top__container::before {
+  content: "";
+  background-image: url("/storage/img/パン背景A.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
+
 .c_new__Arrival__list {
   display: grid;
   grid-template: "title ..... info " 30px "..... ..... ....." 20px "group group group" 150px/1fr 1fr 1fr;
@@ -12005,6 +12193,22 @@ img {
   justify-content: center;
 }
 
+.btn--mini {
+  border: 2px solid #333;
+  border-radius: 5px;
+  font-size: 16px;
+  padding: 4px 4px;
+  text-align: center;
+}
+
+.btn--white {
+  background-color: #fff;
+}
+
+.btn--beige {
+  background-color: #f1e8bf;
+}
+
 .c_input--default {
   border: 2px solid #4a4a4a;
   border-radius: 5px;
@@ -12043,12 +12247,28 @@ img {
   justify-content: space-evenly;
 }
 
+.m-auto {
+  margin: auto;
+}
+
+.my-50 {
+  margin: 50px auto;
+}
+
 .ml-30 {
   margin-left: 30px;
 }
 
+.mr-30 {
+  margin-right: 30px;
+}
+
 .mb-30 {
   margin-bottom: 30px;
+}
+
+.mb-100 {
+  margin-bottom: 100px;
 }
 
 .u_position_center {
@@ -12071,6 +12291,43 @@ img {
   font-size: 20px;
 }
 
+.u_font__text--price {
+  font-size: 20px;
+}
+
+.u_font__text--price::after {
+  margin-left: 50px;
+  content: "";
+  display: inline-block;
+  border-color: #333;
+  border-style: solid;
+  border-width: 0 3px 3px 0;
+  height: 15px;
+  vertical-align: middle;
+  width: 15px;
+  transform: rotate(-45deg);
+}
+
+@media all and (-ms-high-contrast: none), print {
+  .u_font__text--price::after {
+    margin-bottom: 1px !important;
+  }
+}
+
+.u_font__text--price--lage {
+  font-size: 30px;
+}
+
+.u_font__text--expiration {
+  font-size: 16px;
+  color: #999;
+  font-weight: bold;
+}
+
+.u_font__lage--text {
+  font-size: 30px;
+}
+
 .u_size__icon--sm {
   width: 20px;
   height: 20px;
@@ -12081,12 +12338,35 @@ img {
   height: 200px;
 }
 
+.u_size__icon--radius {
+  border-radius: 50%;
+  border: 2px solid #666;
+}
+
+.u_img__fit--cover100 {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.u_img__fit--cover-detail {
+  -o-object-fit: cover;
+     object-fit: cover;
+  width: 80%;
+  height: 400px;
+}
+
 .text-color--default {
   color: #d16c15;
 }
 
 .u_white--text {
   color: #fff;
+}
+
+.u_red--text {
+  color: #ef2323;
 }
 
 .text-size__def {
@@ -12151,6 +12431,13 @@ img {
   align-items: center;
   height: 100%;
   flex-direction: column;
+}
+
+.u_display--end--Astart {
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-start;
+  flex-direction: row;
 }
 
 .u_ds--block {

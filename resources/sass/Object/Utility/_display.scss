@@ -26,6 +26,7 @@
         align-items: center;
     }
 
+    //上下センター 文字列flex-start
     &--Jstart {
         display: flex;
         justify-content: flex-start;
@@ -45,6 +46,7 @@
         }
     }
 
+    //上下センター 文字列flex-end
     &--end {
         display: flex;
         justify-content: flex-end;
@@ -57,6 +59,13 @@
             align-items: center;
             height: 100%;
             flex-direction: column;
+        }
+
+        &--Astart {
+            display: flex;
+            justify-content: flex-end;
+            align-items: flex-start;
+            flex-direction: row;
         }
     }
 }

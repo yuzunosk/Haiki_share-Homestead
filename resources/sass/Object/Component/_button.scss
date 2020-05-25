@@ -10,4 +10,20 @@
     display: flex;
     align-items: center;
     justify-content: center;
+
+    &--mini {
+        border: 2px solid #333;
+        border-radius: 5px;
+        font-size: 16px;
+        padding: 4px 4px;
+        text-align: center;
+    }
+
+    &--white {
+        background-color: #fff;
+    }
+
+    &--beige {
+        background-color: #f1e8bf;
+    }
 }

@@ -13,6 +13,7 @@ use Illuminate\Support\Facades\Session;
 use App\Http\Requests\ProductRequest;
 
 use App\models\Product;
+use App\models\Store;
 use App\models\Category;
 
 class ProductController extends Controller
@@ -129,7 +130,7 @@ class ProductController extends Controller
         Log::info('保存する中身の確認：' . $product);
 
         //リダイレクトする、その際にフラッシュメッセージを入れておく
-        return redirect()->route('store.product.index')->with('flash_message', __('Registered'));
+        return redirect('/store/home')->with('flash_message', __('Registered'));
     }
 
     /**
@@ -138,9 +139,25 @@ class ProductController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function show(Request $request, $id)
     {
-        //
+        Log::info('「「「「「「「「「「「「「「「「「「');
+        Log::info('---------商品詳細ページ----------');
+        Log::info('」」」」」」」」」」」」」」」」」」');
+
+        // ただしいIDかどうか判定
+        if (!ctype_digit($id)) {
+            return redirect()->route('store.product.index')->with('flash_message', __('Invalid operation was performed.'));
+        }
+
+        //idからプロダクト情報を取得し、変数へと収納する
+        //リレーションを使ってstore_idを取得し、DBからストアデータを取得する
+        $productData  = Product::find($id);
+        $storeData    = Store::find($productData->store_id);
+        Log::info('プロダクトデータ中身:' . $productData);
+        Log::info('ストアデータ中身:' . $storeData);
+
+        return view('product.show', compact(['productData', 'storeData']));
     }
 
     /**

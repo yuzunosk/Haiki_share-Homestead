@@ -2,7 +2,7 @@
 
 @section('content')
 
-<form method="POST" action="" enctype="multipart/form-data">
+<form method="POST" action="{{ route('user.register') }}" enctype="multipart/form-data">
     @csrf
 
     <div class="l_register__container u_font__default u_text--space">

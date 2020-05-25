@@ -39,5 +39,8 @@
     "Address": "住所",
     "Return": "戻る",
     "User Name": "ユーザーネーム",
-    "User Login": "ユーザーログイン"
+    "User Login": "ユーザーログイン",
+    "Go Info": "詳細へ",
+    "Go Edit": "編集する",
+    "Go Delete": "削除する"
 }

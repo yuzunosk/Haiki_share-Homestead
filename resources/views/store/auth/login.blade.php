@@ -2,7 +2,7 @@
 
 @section('content')
 
-<form method="POST" action="" enctype="multipart/form-data">
+<form method="POST" action="{{ route('store.login') }}" enctype="multipart/form-data">
     @csrf
 
     <div class="l_login__container u_font__default u_text--space">
@@ -52,7 +52,7 @@
             <div class="l_login--keep l_profile__form--unit">
                 <div class="l_profile--form">
                     <div class="l_input--check">
-                        <input class="u_display--center" id="login-keep" type="checkbox" name="password_confirmation" required {{ old('remember') ? 'checked' : '' }}>
+                        <input class="u_display--center" id="login-keep" type="checkbox" name="remember" {{ old('remember') ? 'checked' : '' }}>
                         <label class="u_display--Jstart" for="login-keep">{{ __('Remember Me') }}</label>
                     </div>
                 </div>

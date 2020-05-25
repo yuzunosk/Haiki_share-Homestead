@@ -28,6 +28,9 @@ Vue.component(
     "userhome-component",
     require("./components/UserHomeComponent").default
 );
+Vue.component("productdetail", require("./components/ProductDetails").default);
+Vue.component("exhibition", require("./components/Exhibition").default);
+Vue.component("productStick", require("./components/ProductStick").default);
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application
@@ -40,4 +43,12 @@ const storeApp = new Vue({
 
 const userApp = new Vue({
     el: "#userApp"
+});
+
+const productApp = new Vue({
+    el: "#productApp"
+});
+
+const exhibitionApp = new Vue({
+    el: "#exhibitionApp"
 });

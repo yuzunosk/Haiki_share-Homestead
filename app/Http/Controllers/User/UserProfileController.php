@@ -4,7 +4,7 @@ namespace App\Http\Controllers\User;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-
+use Illuminate\Support\Facades\Hash;
 use App\models\User;
 
 use Illuminate\Support\Facades\Log;
@@ -51,7 +51,6 @@ class UserProfileController extends Controller
      */
     public function show($id)
     {
-        //
     }
 
     /**
@@ -103,7 +102,8 @@ class UserProfileController extends Controller
         $userData->name         = $request->name;
         $userData->email        = $request->email;
         $userData->address      = $request->address;
-        $userData->password     = $request->password;
+        $userData->password     = Hash::make($request->password);
+
 
         $userData->save();
         Log::info('保存する中身の確認：' . $userData);

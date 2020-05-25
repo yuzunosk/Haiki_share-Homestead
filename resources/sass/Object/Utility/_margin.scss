@@ -1,10 +1,25 @@
 // -----------------------------
 // margin
 // -----------------------------
+.m-auto {
+    margin: auto;
+}
+.my-50 {
+    margin: 50px auto;
+}
+
 .ml-30 {
     margin-left: $space__xxl;
 }
 
+.mr-30 {
+    margin-right: $space__xxl;
+}
+
 .mb-30 {
     margin-bottom: $space__xxl;
+}
+
+.mb-100 {
+    margin-bottom: $space__5l;
 }

@@ -15,7 +15,7 @@
     <div class="l_home__main">
       <div class="l_home__main--setA c_new__Arrival__list">
         <span class="c_new__Arrival--title u_display--Jstart">最近出品した商品</span>
-        <a href="#" class="c_new__Arrival--info u_display--end">全ての商品をみる</a>
+        <a :href="exhibition_link" class="c_new__Arrival--info u_display--end">全ての商品をみる</a>
         <div class="u_display--center-noh c_new__Arrival--group">
           <DescendingIcon v-for="(productdata, i) in productdatas" :key="i" :data="productdata"></DescendingIcon>
         </div>
@@ -49,6 +49,9 @@ export default {
     },
     profile_Link() {
       return "/store/profile/edit/" + this.storedata.id;
+    },
+    exhibition_link() {
+      return "/store/product/exhibition";
     }
   },
   components: {

@@ -41,8 +41,9 @@
                         <h4>商品ID:{{ $product->id }}</h4>
                         <h3 class="card-title">商品名:{{ $product->name }}/<span>カテゴリー:{{ $product->category }}</span></h3>
                         <p>{{ $product->price }}円</p>
-                        <h5>ストアNo/ {{ $product->store_id }}　　<span>賞味期限:{{ $product->sellby }}</span></h5>
+                        <h5>ストアNo/ {{ $product->store_id }} <span>賞味期限:{{ $product->sellby }}</span></h5>
                         <div>
+                            <a href="{{ route('store.product.show', $product->id) }}" class="btn btn-info">{{ __('Go Info')  }}</a>
                             <a href="{{ route('store.product.edit', $product->id) }}" class="btn btn-primary">{{ __('Go Edit')  }}</a>
                             <a href="{{ route('store.product.delete', $product->id) }}" class="btn btn-danger">{{ __('Go Delete')  }}</a>
                         </div>
