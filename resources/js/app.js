@@ -31,6 +31,10 @@ Vue.component(
 Vue.component("productdetail", require("./components/ProductDetails").default);
 Vue.component("exhibition", require("./components/Exhibition").default);
 Vue.component("productStick", require("./components/ProductStick").default);
+Vue.component(
+    "productcardunit",
+    require("./components/ProductCardUnit").default
+);
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application
@@ -51,4 +55,8 @@ const productApp = new Vue({
 
 const exhibitionApp = new Vue({
     el: "#exhibitionApp"
+});
+
+const cardApp = new Vue({
+    el: "#cardApp"
 });

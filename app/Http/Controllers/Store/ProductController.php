@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Store;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
 
@@ -23,66 +24,87 @@ class ProductController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Request $request)
+    public function index(Request $request, $p = 1, $sort = "id", $order = "desc")
     {
         Log::info('「「「「「「「「「「「「「「「「「「');
         Log::info('--------一覧表示ページ----------');
         Log::info('」」」」」」」」」」」」」」」」」」');
 
-        //requestされているか確認
-        Log::info($request->sort);
-        Log::info($request->order);
+        Log::info("p=" . $p);
+        // 現在のページ情報を取得
+        $currentPageNum = (!empty($p)) ? (int) $p : "1";
+        Log::info("現在のページ情報:" . $currentPageNum);
+
+        // if (!is_int((int) $currentPageNum)) {
+        //     // ただしいIDかどうか判定
+        //     if (!ctype_digit($id)) {
+        //         return redirect()->route('store.product.index')->with('flash_message', __('Invalid operation was performed.'));
+        //     }
+        // }
+        // 表示件数
+        $listSpan = 10;
+        //現在の表示レコードの先頭
+        $currentMinNum = ($currentPageNum - 1) * $listSpan;
+        Log::info("currentMinNumの中身:" . $currentMinNum);
+
+        // requestされているか確認
+        Log::info("ソートの中身チェック:" . $request->sort);
+        Log::info("オーダーの中身チェック:" . $request->order);
+
+        //空の変数を設定
+        $sortdata = "";
+        $orderdata = "";
 
         //ソート情報を取得し、セッションに詰める
-        if (!empty($request->sort)) {
-            //セッション内に詰め込む
-            Session::put('sort', $request->sort);
-        } else {
-            //空の場合nullをいれる
-            Session::put('sort', null);
-        }
+        $sort = (!empty($request->sort)) ? $request->sort : "";
+        $request->session()->put('sort', $sort);
+
+        $sort = $request->session()->get('sort');
+        $sortdata = $sort;
+
+        //ソート情報を取得し、セッションに詰める
+        $order = (!empty($request->order)) ? $request->order  : "";
+        $request->session()->put('order', $order);
+
+        $order = $request->session()->get('order');
+        $orderdata = $order;
+
+
         //変数へといれる
-        $sort = Session::get('sort', array());
-        Log::info('session[sort]の中身:' . Session::get('sort'));
-        //オーダー情報を取得し、セッションに詰める
-        if (!empty($request->order)) {
-            Session::put('order', $request->order);
-        } else {
-            Session::put('order', null);
+        if (empty($sort)) {
+            Log::info('$sortが空の場合');
+            //セッション情報がない場合は"id"を詰める
+            $sortdata = "id";
         }
-        $order = Session::get('order', array());
 
-        $sessionData = Session::all();
-        Log::info('session[order]の中身:' . session('order'));
-
-
-
-        //Session['sort']がnullではない場合
-        if (!is_null($sort)) {
-            if (!is_null($order)) {
-                //Session['order']がnullではない場合
-                //情報を取得し、並び替える
-                $products = Product::orderBy($sort, $order)->paginate(6);
-            } else {
-                //ソート情報のみを反映させる、並びは降順
-                $products = Product::orderBy($sort, 'desc')->paginate(6);
-            }
-        } else {
-            //Session['sort']がnullの場合
-            if (!is_null($order)) {
-                //Session['order']がnullではない場合
-                //情報を取得し、並び替える
-                //ソート情報がないので、id順に降順で並べる
-                $products = Product::orderBy('id', $order)->paginate(6);
-            } else {
-                //ソート情報もなく、オーダー情報もない場合降順で並べる
-                $products = Product::orderBy('id', 'desc')->paginate(6);
-            }
+        //変数へといれる
+        if (empty($order)) {
+            Log::info('$orderが空の場合');
+            //セッション情報がない場合は"desc"を詰める
+            $orderdata = "desc";
         }
-        //ORMを使いproductデータを取得し、変数に収納する
-        // Log::info('プロダクトデータ:' . $products);
 
-        return view('product.index', compact('products'));
+        Log::info('$sortの中身:' . $sort);
+        Log::info('$orderの中身:' . $order);
+
+
+        //データの取得
+        $productDatas = Product::orderBy($sortdata, $orderdata)->offset($currentMinNum)->limit($listSpan)->get();
+        Log::info('取得テスト：' . $productDatas);
+
+        //総レコード数
+        $totalRecode = Product::all()->count();
+        Log::info("総レコード数:" . $totalRecode);
+
+        //総ページ数
+        $totalPageNum = ceil($totalRecode / $listSpan);
+        Log::info("総ページ数:" . $totalPageNum);
+
+        //カテゴリーデータ取得
+        $categorys = Category::all();
+
+
+        return view('product.index', compact(['productDatas', 'totalRecode', 'totalPageNum', 'currentPageNum', 'currentMinNum', 'sort', 'order', 'categorys']));
     }
 
     /**

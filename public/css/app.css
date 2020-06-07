@@ -12134,6 +12134,14 @@ img {
   grid-area: icon;
 }
 
+.l_product__card-unit {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+  flex-direction: row;
+}
+
 .c_hero__top__container {
   background-color: rgba(255, 255, 255, 0.85);
   position: relative;
@@ -12171,7 +12179,8 @@ img {
 
 .c_new__Arrival--unit {
   display: grid;
-  grid-template: "img" 100px "text" 20px/150px;
+  grid-template: "img" 100px "text" 50px/150px;
+  font-size: 12px;
 }
 
 .c_new__Arrival--unit--text {

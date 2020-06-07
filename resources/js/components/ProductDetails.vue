@@ -2,7 +2,7 @@
   <!-- 全体レイアウト、商品情報と店舗情報 -->
   <div class="l_detail__container">
     <div class="l_detail--main c_hero__top__container mb-100">
-      <img class="l_detail--main--hero m-auto" :src="image" alt />
+      <img class="l_detail--main--hero m-auto u_img__fit--cover-detail" :src="image" alt />
       <!-- opacity.3くらいで背景設置 -->
       <!-- グリッドレイアウトを使用 -->
       <!-- img hero 商品画像-->
