@@ -105,3 +105,38 @@
 .u_text--align {
     text-align: center;
 }
+
+// -------------------------------
+// javascript animetion
+// -------------------------------
+.u_display-show {
+    display: show;
+    animation-name: fadeIn;
+}
+
+.u_display-hide {
+    display: none;
+    animation-name: fadeOut;
+}
+
+// animation
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: rotateY(-50px);
+    }
+    100% {
+        opacity: 1;
+        transform: rotateY(0px);
+    }
+}
+
+@keyframes fadeOut {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}

@@ -39,7 +39,7 @@
 
             @for($i = $minPageNum; $i <= $maxPageNum; $i++)
 
-                <li class="c_pagination__list--item @if($currentPageNum = $i) echo 'active' @endif ">
+                <li class="c_pagination__list--item @if($currentPageNum = $i) echo 'c_pagination--active' @endif ">
                     <a href="?p=@php echo $i @endphp">
                         @php echo $i @endphp
                     </a>

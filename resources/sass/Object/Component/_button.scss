@@ -26,4 +26,18 @@
     &--beige {
         background-color: #f1e8bf;
     }
+
+    &--purpule {
+        background-color: #c30074;
+    }
+
+    &--serch {
+        width: 200px;
+        border: 2px solid #6e6e6e;
+        border-radius: 5px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 5px;
+    }
 }

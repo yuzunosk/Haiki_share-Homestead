@@ -1,5 +1,5 @@
 <template>
-  <ui class="l_card__unitTest">
+  <ui class="l_product__card-unit__index">
     <ProductCard v-for="(productdata, i) in productdatas" :key="i" :data="productdata"></ProductCard>
   </ui>
 </template>
@@ -20,8 +20,12 @@ export default {
 <style scoped>
 .l_card__unitTest {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
+}
+
+.l_card__unitTest::nth-child(4n) {
+  margin-right: -30px;
 }
 </style>

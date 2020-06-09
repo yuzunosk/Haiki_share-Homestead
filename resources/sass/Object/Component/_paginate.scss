@@ -1,0 +1,70 @@
+// -------------------------------
+// paginate 関連
+// -------------------------------
+.c_pagination {
+    &__list {
+        &--icon {
+            &::before {
+                border-right: 20px solid #fed701;
+                right: 100%;
+            }
+
+            &::after {
+                content: "";
+                border-right: 20px solid #fff;
+                border-bottom: 30px solid #fed701;
+                border-top: 30px solid #fed701;
+                position: absolute;
+                right: 0;
+            }
+        }
+
+        &--text {
+            width: 60px;
+            height: 60px;
+            background: #ffd700;
+            margin: 0 1px;
+            color: #fff;
+            font-weight: bold;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding-right: 15px;
+            position: relative;
+
+            &::before,
+            ::after {
+                content: "";
+                position: absolute;
+                border-top: 30px solid transparent;
+                border-bottom: 30px solid transparent;
+            }
+        }
+
+        &--prev {
+            border-radius: 30px 0 0 30px;
+
+            &::after {
+                content: "";
+                border-right: 20px solid #fff;
+                border-bottom: 30px solid #fed701;
+                border-top: 30px solid #fed701;
+                position: absolute;
+                right: 0;
+            }
+        }
+
+        &--next {
+            border-radius: 0 30px 30px 0;
+
+            &::before {
+                content: "";
+                border-right: 20px solid #fed701;
+                right: 100%;
+            }
+        }
+    }
+    &--active {
+        opacity: 0.6;
+    }
+}

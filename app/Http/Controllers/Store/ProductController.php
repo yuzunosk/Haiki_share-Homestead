@@ -42,7 +42,7 @@ class ProductController extends Controller
         //     }
         // }
         // 表示件数
-        $listSpan = 10;
+        $listSpan = 12;
         //現在の表示レコードの先頭
         $currentMinNum = ($currentPageNum - 1) * $listSpan;
         Log::info("currentMinNumの中身:" . $currentMinNum);

@@ -586,11 +586,82 @@
         grid-area: icon;
     }
 
-    &__card-unit {
-        display: flex;
-        justify-content: space-around;
-        align-items: center;
-        flex-wrap: wrap;
-        flex-direction: row;
+    &__card {
+        &-unit {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            flex-wrap: wrap;
+            flex-direction: row;
+
+            &__index {
+                display: flex;
+                justify-content: flex-start;
+                align-items: center;
+                flex-wrap: wrap;
+
+                & div:nth-child(4n) {
+                    margin-right: -100px;
+                }
+            }
+        }
+
+        &__container {
+            width: 241px;
+            height: 350px;
+            border: 3px solid #333;
+            border-radius: 5px;
+            position: relative;
+        }
+    }
+}
+// -------------------------
+// paginate
+// -------------------------
+.l_pagination__container {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+// -------------------------
+// index
+// -------------------------
+.l_index {
+    &__container {
+        display: grid;
+        margin: 0 80px;
+        grid-template:
+            "head" 200px
+            "main" 1fr
+            "paginate" 200px
+            / 100%;
+    }
+
+    &__head {
+        grid-area: head;
+        display: grid;
+        grid-template:
+            "..... ..... ....." 1fr
+            "..... title ....." 1fr
+            "..... ..... sort " 1fr
+            "..... ..... ....." 30px
+            / 33% 34% 33%;
+        position: relative;
+
+        &--title {
+            grid-area: title;
+        }
+
+        &--sort {
+            grid-area: sort;
+        }
+    }
+
+    &__main {
+        grid-area: main;
+    }
+
+    &__paginate {
+        grid-area: paginate;
     }
 }

@@ -27,6 +27,90 @@
 }
 
 // -----------------------------
+// serch 関連
+// -----------------------------
+.c_serch {
+    &__container {
+        background-color: #fff;
+        color: #333;
+        display: grid;
+        grid-template:
+            ".....  .....  close" 20px
+            ".....  head   ....." 40px
+            ".....  .....  ....." 15px
+            ".....  sort   ....." 50px
+            ".....  .....  ....." 15px
+            ".....  order  ....." 50px
+            ".....  .....  ....." 15px
+            ".....  submit ....." 40px
+            ".....  .....  ....." 15px
+            / 15px 150px 25px;
+        z-index: 3;
+        text-align: center;
+        border: 2px solid #333;
+        border-radius: 5px;
+        box-shadow: 4px 6px 10px #333;
+        position: absolute;
+        top: 180px;
+        right: 0;
+
+        &::before {
+            content: "";
+            border-bottom: 15px solid #fff;
+            border-left: 20px solid transparent;
+            border-right: 20px solid transparent;
+            position: absolute;
+            top: -13px;
+            right: 50px;
+            z-index: 2;
+        }
+
+        &::after {
+            content: "";
+            border-bottom: 15px solid #333;
+            border-left: 20px solid transparent;
+            border-right: 20px solid transparent;
+            position: absolute;
+            top: -15px;
+            right: 50px;
+        }
+    }
+
+    &--head {
+        grid-area: head;
+        border-bottom: 2px solid #333;
+    }
+
+    &--close {
+        grid-area: close;
+        z-index: 100;
+    }
+
+    &--sort {
+        grid-area: sort;
+        border: 1px solid #333;
+        border-radius: 5px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    &--order {
+        grid-area: order;
+        border: 1px solid #333;
+        border-radius: 5px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    &--submit {
+        grid-area: submit;
+        color: #f6f6f6;
+    }
+}
+
+// -----------------------------
 // js で使用している
 // -----------------------------
 .c_input {

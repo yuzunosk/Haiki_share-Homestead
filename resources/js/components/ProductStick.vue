@@ -20,9 +20,24 @@ export default {
   props: ["data"],
   data() {
     return {
-      pic: "/storage/" + this.data.pic,
+      picData: "",
       info_link: "/store/product/show/" + this.data.id
     };
+  },
+  methods: {
+    judmentPic() {
+      //picがnullか判定する
+      if (this.data.pic != null) {
+        this.picData = "/storage/" + this.data.pic;
+      } else {
+        this.picData = "/storage/img/no-image.png";
+      }
+      return;
+    }
+  },
+  mounted() {
+    console.log("mounted");
+    return this.judmentPic();
   }
 };
 </script>
