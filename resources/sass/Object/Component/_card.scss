@@ -13,6 +13,7 @@
             grid-template:
                 "name" 20%
                 "main" 1fr
+                "unit" 5%
                 "price" 15%
                 / 100%;
         }
@@ -23,10 +24,59 @@
             color: #f6f5f4;
         }
 
+        &--unit {
+            grid-area: unit;
+            background: rgba(50, 50, 50, 0.8);
+            color: #f6f5f4;
+        }
+        
         &--price {
             grid-area: price;
             background: rgba(50, 50, 50, 0.8);
             color: #f6f5f4;
+        }
+    }
+}
+
+.c_nav {
+    &__card {
+        &__warapper {
+            height: 100%;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+        }
+
+        &__container {
+            display: grid;
+            grid-template:
+                "image" 350px
+                /100%;
+            width: 250px;
+            position: relative;
+
+            &::before {
+                content: "";
+                position: absolute;
+                bottom: 0;
+                border-left: 125px solid #d16c15;
+                border-right: 125px solid #d16c15;
+                border-top: 80px solid transparent;
+            }
+        }
+
+        &--image {
+            grid-area: image;
+        }
+
+        &--text {
+            grid-area: text;
+            position: absolute;
+            font-size: 24px;
+            font-weight: bold;
+            padding: 12px;
+            text-align: center;
+            width: 100%;
         }
     }
 }

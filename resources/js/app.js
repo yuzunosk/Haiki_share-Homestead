@@ -21,6 +21,7 @@ window.Vue = require("vue");
 // const files = require.context('./', true, /\.vue$/i)
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
 
+Vue.component("top-component", require("./components/Top").default);
 Vue.component(
     "storehome-component",
     require("./components/StoreHomeComponent").default
@@ -60,4 +61,8 @@ const exhibitionApp = new Vue({
 
 const cardApp = new Vue({
     el: "#cardApp"
+});
+
+const topApp = new Vue({
+    el: "#topApp"
 });

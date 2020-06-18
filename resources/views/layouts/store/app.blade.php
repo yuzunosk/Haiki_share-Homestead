@@ -36,7 +36,7 @@
 
         <nav class="l-header">
             <div>
-                <a class="u_site--title u_display--center" href="{{ url('/') }}">
+                <a class="u_site--title u_display--center" href="{{ url('/top') }}">
                     {{ config('app.name', 'Laravel') }}
                 </a>
             </div>

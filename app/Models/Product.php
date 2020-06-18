@@ -10,7 +10,7 @@ class Product extends Model
     protected $table = 'products';
     protected $guarded = ['id'];
     use Sortable; //追加
-    public $sortable = ['id,name,category,price,sellby,store_id']; //ソート対象指定
+    public $sortable = ['id,name , category , price , regular_price , sellby , store_id']; //ソート対象指定
 
     public function store()
     {

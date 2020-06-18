@@ -11705,6 +11705,141 @@ img {
 
 .l_main__container {
   grid-area: main;
+  position: relative;
+}
+
+.l_main__container::before {
+  content: "";
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: #eec71f;
+  z-index: -2;
+}
+
+.l_top__container {
+  display: grid;
+  grid-template: "hero" 700px "info" 600px "about" 720px "process" 800px/100%;
+}
+
+.l_top--hero {
+  grid-area: hero;
+  position: relative;
+  display: grid;
+  grid-template: "left main right" 100%/70px 1fr 70px;
+}
+
+.l_top--info {
+  grid-area: info;
+  display: grid;
+  grid-template: ".....  .....  ....." 1fr "panel  panel  panel" 200px ".....  .....  link" 1fr/33% 34% 33%;
+}
+
+.l_top--info--panel {
+  grid-area: panel;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.l_top--info--link {
+  grid-area: link;
+}
+
+.l_top--about {
+  grid-area: about;
+  position: relative;
+  display: grid;
+  grid-template: "text       primary" 460px "secondary  ......." 260px/40% 60%;
+}
+
+.l_top--about--text {
+  grid-area: text;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  top: 30px;
+  width: 300px;
+  margin: 0 auto;
+}
+
+.l_top--about--primary {
+  grid-area: primary;
+  position: relative;
+  display: grid;
+  grid-template: ".....  imageA  imageB  ......" 100% "line   line    line    line  " 100% ".....  ......  ......  ......" 100%/80px 1fr 1fr 70px;
+}
+
+.l_top--about--primary--imageA {
+  grid-area: imageA;
+  width: 90%;
+  height: 460px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  margin-left: auto;
+  z-index: 2;
+}
+
+.l_top--about--primary--imageB {
+  grid-area: imageB;
+  width: 90%;
+  height: 460px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  margin-left: auto;
+  z-index: 2;
+}
+
+.l_top--about--primary::after {
+  content: "";
+  background: #fff;
+  position: absolute;
+  top: 100px;
+  right: 0;
+  height: 260px;
+  width: 830px;
+}
+
+.l_top--about--secondary {
+  grid-area: secondary;
+  position: relative;
+  background: #fffde5;
+}
+
+.l_top--about--secondary--image {
+  position: absolute;
+  bottom: 0;
+  left: -70px;
+  border-radius: 50%;
+  width: 400px;
+  height: 400px;
+}
+
+.l_top--process {
+  grid-area: process;
+  display: grid;
+  grid-template: "head" 1fr "main" 400px "foot" 1fr/100%;
+}
+
+.l_top--process--head {
+  grid-area: head;
+  display: grid;
+  grid-template: "....." 1fr "title" 150px "....." 1fr/100%;
+}
+
+.l_top--process--title {
+  grid-area: title;
+  letter-spacing: 5px;
+}
+
+.l_top--process--main {
+  grid-area: main;
+}
+
+.l_top--process--foot {
+  grid-area: foot;
 }
 
 .l_register__container {
@@ -11726,7 +11861,7 @@ img {
 .l_register__store__container {
   display: grid;
   margin: 5vh 15%;
-  grid-template: "name  " 100px "..... " 30px "b_name" 100px "..... " 30px "email " 50px "..... " 30px "pass  " 50px "..... " 30px "re_pass" 50px/100%;
+  grid-template: "name        " 100px ".....       " 30px "b_name      " 100px ".....       " 30px "zip         " 50px ".....       " 30px "prefectural " 50px ".....       " 30px "address     " 100px ".....       " 30px "email       " 50px ".....       " 30px "tel         " 50px ".....       " 30px "manager_name" 50px ".....       " 30px "pass        " 50px ".....       " 30px "re_pass     " 50px/100%;
 }
 
 .l_register--title {
@@ -11749,8 +11884,28 @@ img {
   grid-area: b_name;
 }
 
+.l_register--zip {
+  grid-area: zip;
+}
+
+.l_register--prefectural {
+  grid-area: prefectural;
+}
+
+.l_register--address {
+  grid-area: address;
+}
+
 .l_register--email {
   grid-area: email;
+}
+
+.l_register--tel {
+  grid-area: tel;
+}
+
+.l_register--manager_name {
+  grid-area: manager_name;
 }
 
 .l_register--pass {
@@ -11759,6 +11914,75 @@ img {
 
 .l_register--re_pass {
   grid-area: re_pass;
+}
+
+.l_register__select__container {
+  display: grid;
+  grid-template: "head" 150px "main" 300px "foot" 150px/100%;
+  margin: 0 auto;
+  width: 60%;
+  border: 3px solid #333;
+  border-radius: 10px;
+  background: #f6f5f4;
+}
+
+.l_register__select--head {
+  grid-area: head;
+  display: grid;
+  grid-template: "....." 15% "title   " 30% "subtitle" 30% "....." 15%/100%;
+}
+
+.l_register__select--title {
+  grid-area: title;
+}
+
+.l_register__select--subtitle {
+  grid-area: subtitle;
+}
+
+.l_register__select--main {
+  grid-area: main;
+  display: grid;
+  grid-template: "left right" 100%/50% 50%;
+}
+
+.l_register__select--left {
+  grid-area: left;
+  height: 200px;
+}
+
+.l_register__select--left--box {
+  width: 200px;
+  height: 200px;
+  background: #da9dff;
+  margin: 0 50px 0 auto;
+  border: 2px solid #707070;
+  border-radius: 10px;
+}
+
+.l_register__select--right {
+  grid-area: right;
+  height: 200px;
+}
+
+.l_register__select--right--box {
+  width: 200px;
+  height: 200px;
+  background: #ff9db4;
+  margin: 0 auto 0 50px;
+  border: 2px solid #707070;
+  border-radius: 10px;
+}
+
+.l_register__select--foot {
+  grid-area: foot;
+  display: grid;
+  grid-template: "... btn ..." 1fr "... ... ..." 1fr "... ... ..." 1fr;
+}
+
+.l_register__select--foot--btn {
+  grid-area: btn;
+  margin: 0 auto;
 }
 
 .l_login__container {
@@ -11808,8 +12032,8 @@ img {
 .l_input__container {
   display: grid;
   height: 100%;
-  margin: 10vh 15%;
-  grid-template: "...... ...... ......  ......   ......" "...... ......   top   ......   ......" 100px "...... name   ......  category ......" 100px "...... price  ......  store_id ......" 100px "...... sellby ......  date     ......" 100px "...... pic    ......  ......   ......" 300px "...... ...... bottom  ......   ......" 100px "...... ...... ......  ......   ......"/auto 40% 20% 40% auto;
+  margin: 0 15%;
+  grid-template: "...... ...... ......  ......   ......" "...... ......   top   ......   ......" 100px "...... name   ......  category ......" 100px "...... price  ......  r_price  ......" 100px "...... sellby ......  store_id ......" 100px "...... pic    ......  ......   ......" 300px "...... ...... bottom  ......   ......" 100px "...... ...... ......  ......   ......"/10% 30% 20% 30% 10%;
   border: 3px solid #333;
   border-radius: 10px;
 }
@@ -11835,6 +12059,10 @@ img {
   grid-area: price;
 }
 
+.l_input__product--r_price {
+  grid-area: r_price;
+}
+
 .l_input__product--store_id {
   grid-area: store_id;
 }
@@ -11846,6 +12074,8 @@ img {
 .l_input__product--pic {
   grid-area: pic;
   position: relative;
+  width: 300px;
+  height: 250px;
 }
 
 .l_input__product--submit {
@@ -11994,10 +12224,24 @@ img {
   grid-area: main;
   display: grid;
   grid-template: "hero info" 100%/60% 40%;
+  position: relative;
+}
+
+.l_detail--main--attention {
+  position: absolute;
+  top: 45%;
+  left: 6%;
+  width: 48%;
+  height: 70px;
+  line-height: 70px;
+  background: #ffffff;
+  color: #F44336;
+  text-align: center;
 }
 
 .l_detail--main--hero {
   grid-area: hero;
+  border-radius: 10px;
 }
 
 .l_detail--main--info {
@@ -12020,7 +12264,7 @@ img {
 
 .l_detail--main--info__container {
   display: grid;
-  grid-template: "title    title  " 20% ".......  ......." 30px "category expiration" 20% ".......  ......." 15px "price-l  price-r" 40% ".......  ......." 20px/50% 50%;
+  grid-template: "title    title  " 20% ".......  ......." 30px "category expiration" 20% ".......  ......." 15px "price-l  price-r" 40% ".......  ......." 20px/40% 60%;
 }
 
 .l_detail--main--info__container--title {
@@ -12046,7 +12290,7 @@ img {
 .l_detail--info {
   grid-area: info;
   display: grid;
-  grid-template: "head   .....  .....  ....." 50px ".....  .....  .....  ....." 15px "textA  dataA  textE  dataE" 50px "textB  dataB  textF  dataF" 50px "textC  dataC  textF  dataF" 50px "textD  dataD  textG  dataG" 50px/10% 40% 10% 40%;
+  grid-template: "head   .....  .....  ....." 50px ".....  .....  .....  ....." 15px "textA  dataA  textE  dataE" 50px "textB  dataB  textF  dataF" 50px "textC  dataC  textG  dataG" 50px "textD  dataD  textH  dataH" 50px/10% 40% 10% 40%;
 }
 
 .l_detail--info--head {
@@ -12109,6 +12353,14 @@ img {
   grid-area: dataG;
 }
 
+.l_detail--info--textH {
+  grid-area: textH;
+}
+
+.l_detail--info--dataH {
+  grid-area: dataH;
+}
+
 .l_detail--hero {
   grid-area: hero;
 }
@@ -12161,6 +12413,32 @@ img {
   position: relative;
 }
 
+.l_product__miniCard__container {
+  display: grid;
+  grid-template: "....." 35% "title" 30% "....." 35%/100%;
+  position: relative;
+  border: 4px solid #f6f5f4;
+  width: 200px;
+  height: 200px;
+}
+
+.l_product__miniCard--image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100px;
+  height: 100px;
+}
+
+.l_product__miniCard--title {
+  grid-area: title;
+  z-index: 2;
+  background: rgba(0, 0, 0, 0.5);
+  color: #fff;
+  font-size: 20px;
+  font-weight: bold;
+}
+
 .l_pagination__container {
   display: flex;
   justify-content: flex-end;
@@ -12197,13 +12475,13 @@ img {
 }
 
 .c_hero__top__container {
-  background-color: rgba(255, 255, 255, 0.85);
+  background-color: rgba(255, 255, 255, 0.75);
   position: relative;
 }
 
 .c_hero__top__container::before {
   content: "";
-  background-image: url("/storage/img/パン背景A.jpg");
+  background-image: url("/storage/img/コンビニおしゃれ２.png");
   background-repeat: no-repeat;
   background-size: cover;
   width: 100%;
@@ -12212,6 +12490,25 @@ img {
   top: 0;
   left: 0;
   z-index: -1;
+}
+
+.c_hero__main__container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  grid-area: main;
+}
+
+.c_hero__main__logo {
+  position: absolute;
+  width: 30%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 .c_new__Arrival__list {
@@ -12264,8 +12561,23 @@ img {
   text-align: center;
 }
 
+.btn--lage {
+  border: 2px solid #333;
+  border-radius: 5px;
+  font-size: 16px;
+  padding: 6px 20px;
+  width: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .btn--white {
   background-color: #fff;
+}
+
+.btn--red {
+  background-color: #ff7f7f;
 }
 
 .btn--beige {
@@ -12274,6 +12586,10 @@ img {
 
 .btn--purpule {
   background-color: #c30074;
+}
+
+.btn--blue {
+  background-color: #bf7fff;
 }
 
 .btn--serch {
@@ -12286,6 +12602,21 @@ img {
   padding: 5px;
 }
 
+.btn--purchased {
+  border: 2px solid #f6f5f4;
+  border-radius: 5px;
+  font-size: 16px;
+  padding: 6px 20px;
+  width: 160px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn--transition {
+  transition: 0.5s;
+}
+
 .c_product__card__container {
   position: absolute;
   top: 0;
@@ -12293,11 +12624,17 @@ img {
   width: 100%;
   height: 100%;
   display: grid;
-  grid-template: "name" 20% "main" 1fr "price" 15%/100%;
+  grid-template: "name" 20% "main" 1fr "unit" 5% "price" 15%/100%;
 }
 
 .c_product__card--name {
   grid-area: name;
+  background: rgba(50, 50, 50, 0.8);
+  color: #f6f5f4;
+}
+
+.c_product__card--unit {
+  grid-area: unit;
   background: rgba(50, 50, 50, 0.8);
   color: #f6f5f4;
 }
@@ -12308,11 +12645,48 @@ img {
   color: #f6f5f4;
 }
 
+.c_nav__card__warapper {
+  height: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.c_nav__card__container {
+  display: grid;
+  grid-template: "image" 350px/100%;
+  width: 250px;
+  position: relative;
+}
+
+.c_nav__card__container::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  border-left: 125px solid #d16c15;
+  border-right: 125px solid #d16c15;
+  border-top: 80px solid transparent;
+}
+
+.c_nav__card--image {
+  grid-area: image;
+}
+
+.c_nav__card--text {
+  grid-area: text;
+  position: absolute;
+  font-size: 24px;
+  font-weight: bold;
+  padding: 12px;
+  text-align: center;
+  width: 100%;
+}
+
 .c_input--default {
   border: 2px solid #4a4a4a;
   border-radius: 5px;
   padding: 0 10px;
-  width: 100%;
+  width: 90%;
   height: 40px;
   text-align: left;
 }
@@ -12406,6 +12780,9 @@ img {
 
 .c_input--prev-img {
   width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 
 .c_nav-menu {
@@ -12490,8 +12867,16 @@ img {
   margin-left: 30px;
 }
 
+.mr-20 {
+  margin-right: 15px;
+}
+
 .mr-30 {
   margin-right: 30px;
+}
+
+.mr-40 {
+  margin-right: 40px;
 }
 
 .mr-100 {
@@ -12531,7 +12916,7 @@ img {
 }
 
 .u_font__text--price::after {
-  margin-left: 50px;
+  margin-left: 30px;
   content: "";
   display: inline-block;
   border-color: #333;
@@ -12555,12 +12940,22 @@ img {
 
 .u_font__text--expiration {
   font-size: 16px;
-  color: #999;
+  color: #333;
   font-weight: bold;
 }
 
 .u_font__lage--text {
   font-size: 30px;
+}
+
+.u_font__Xlage--text {
+  font-size: 36px;
+}
+
+.u_font__Xlage--text--attention {
+  font-weight: bold;
+  font-size: 50px;
+  letter-spacing: 10px;
 }
 
 .u_size__icon--sm {

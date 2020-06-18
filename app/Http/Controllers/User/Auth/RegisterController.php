@@ -11,6 +11,8 @@ use Illuminate\Http\Request;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Support\Facades\Auth;
 use App\Models\User;
+use Illuminate\Support\Facades\Log;
+
 
 class RegisterController extends Controller
 {
@@ -36,6 +38,7 @@ class RegisterController extends Controller
     // 新規登録画面
     public function showRegistrationForm()
     {
+
         return view('user.auth.register');
     }
 

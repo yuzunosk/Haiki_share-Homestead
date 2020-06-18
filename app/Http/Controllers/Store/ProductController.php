@@ -10,12 +10,12 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
 
 
-
 use App\Http\Requests\ProductRequest;
 
 use App\models\Product;
 use App\models\Store;
 use App\models\Category;
+use App\models\Buy;
 
 class ProductController extends Controller
 {
@@ -29,6 +29,10 @@ class ProductController extends Controller
         Log::info('「「「「「「「「「「「「「「「「「「');
         Log::info('--------一覧表示ページ----------');
         Log::info('」」」」」」」」」」」」」」」」」」');
+
+        //ログインストアIDを取得
+        $storeId = Auth::id();
+        Log::info("ログインストアID" . $storeId);
 
         Log::info("p=" . $p);
         // 現在のページ情報を取得
@@ -104,7 +108,7 @@ class ProductController extends Controller
         $categorys = Category::all();
 
 
-        return view('product.index', compact(['productDatas', 'totalRecode', 'totalPageNum', 'currentPageNum', 'currentMinNum', 'sort', 'order', 'categorys']));
+        return view('product.index', compact(['productDatas', 'storeId' , 'totalRecode', 'totalPageNum', 'currentPageNum', 'currentMinNum', 'sort', 'order', 'categorys']));
     }
 
     /**
@@ -142,11 +146,12 @@ class ProductController extends Controller
             $product->pic = null;
         }
 
-        $product->name         = $request->name;
-        $product->category     = $request->category;
-        $product->price        = $request->price;
-        $product->sellby       = $request->sellby;
-        $product->store_id     = $request->store_id;
+        $product->name          = $request->name;
+        $product->category      = $request->category;
+        $product->price         = $request->price;
+        $product->regular_price = $request->regular_price;
+        $product->sellby        = $request->sellby;
+        $product->store_id      = $request->store_id;
 
         $product->save();
         Log::info('保存する中身の確認：' . $product);
@@ -176,10 +181,20 @@ class ProductController extends Controller
         //リレーションを使ってstore_idを取得し、DBからストアデータを取得する
         $productData  = Product::find($id);
         $storeData    = Store::find($productData->store_id);
+        $res          = Buy::where("buy_product_id" , $id)->first();
+
+        if(empty($res)) {
+            $buyData = "null";
+        }else{
+            $buyData = $res;
+        }
+
         Log::info('プロダクトデータ中身:' . $productData);
         Log::info('ストアデータ中身:' . $storeData);
+        Log::info('購入データ中身:' . $buyData);
 
-        return view('product.show', compact(['productData', 'storeData']));
+
+        return view('product.show', compact(['productData', 'storeData' , 'buyData']));
     }
 
     /**
@@ -263,11 +278,12 @@ class ProductController extends Controller
             $product->pic = null;
         }
 
-        $product->name         = $request->name;
-        $product->category     = $request->category;
-        $product->price        = $request->price;
-        $product->sellby       = $request->sellby;
-        $product->store_id     = $request->store_id;
+        $product->name          = $request->name;
+        $product->category      = $request->category;
+        $product->price         = $request->price;
+        $product->regular_price = $request->regular_price;
+        $product->sellby        = $request->sellby;
+        $product->store_id      = $request->store_id;
 
         $product->save();
         Log::info('保存する中身の確認：' . $product);

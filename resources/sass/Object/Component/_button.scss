@@ -19,8 +19,23 @@
         text-align: center;
     }
 
+    &--lage {
+        border: 2px solid #333;
+        border-radius: 5px;
+        font-size: 16px;
+        padding: 6px 20px;
+        width: 200px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
     &--white {
         background-color: #fff;
+    }
+
+    &--red {
+        background-color: #ff7f7f;
     }
 
     &--beige {
@@ -29,6 +44,10 @@
 
     &--purpule {
         background-color: #c30074;
+    }
+
+    &--blue {
+        background-color: #bf7fff;
     }
 
     &--serch {
@@ -40,4 +59,21 @@
         align-items: center;
         padding: 5px;
     }
+
+    &--purchased {
+    border: 2px solid #f6f5f4;
+    border-radius: 5px;
+    font-size: 16px;
+    padding: 6px 20px;
+    width: 160px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    }
+
+    //トランジション付与
+    &--transition {
+    transition: .5s;
+}
 }

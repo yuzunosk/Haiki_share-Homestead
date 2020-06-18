@@ -1,6 +1,8 @@
 {
     "Login": "ログイン",
     "Register": "新規登録",
+    "Store Register": "ストアー新規登録",
+    "User Register": "ユーザー新規登録",
     "Forgot Your Password?": "パスワードを忘れた場合",
     "Reset Password": "パスワード再設定",
     "Send Password Reset Link": "パスワード再設定URLを送信",
@@ -21,7 +23,8 @@
     "Product New": "新規商品登録",
     "Product Name": "商品名",
     "category": "カテゴリー",
-    "Product price": "値段",
+    "Sale price": "セール価格",
+    "regular price": "通常価格",
     "Product sellby": "賞味期限",
     "Product store_id": "ストアID",
     "Dashboard": "ダッシュボード",
@@ -36,6 +39,9 @@
     "Profile Edit": "プロフィール編集",
     "Store Name": "店舗名",
     "Branch Name": "支店名",
+    "manager_name": "店長名",
+    "prefectural": "県名",
+    "zip": "郵便番号",
     "Address": "住所",
     "Return": "戻る",
     "User Name": "ユーザーネーム",
@@ -43,5 +49,8 @@
     "Go Info": "詳細へ",
     "Go Edit": "編集する",
     "Go Delete": "削除する",
-    "Product List": "商品一覧"
+    "Product List": "商品一覧",
+    "address": "住所",
+    "tel": "電話番号",
+    "Purchase completed": "購入が完了しました"
 }

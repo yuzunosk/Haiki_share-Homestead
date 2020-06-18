@@ -17,6 +17,13 @@ use App\Http\Controllers\ProductController;
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/mail', 'MailSendController@send');
+Route::get('/top', 'ShowTopController')->name('top');
+Route::get('/regist', 'show_RegistSelectController')->name('RegistSelect');
+
+// buy関連
+Route::post('/buy', 'BuyController@store')->name('buy.store');
+
+
 
 //ユーザー
 Route::namespace('User')->prefix('user')->name('user.')->group(function () {

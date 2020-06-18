@@ -1,11 +1,13 @@
 <template>
   <div class="c_new__Arrival--unit">
     <span class="c_new__Arrival--unit--text u_display--Jstart--Astart u_text--align">{{ data.name }}</span>
-    <img
-      class="c_new__Arrival--unit--img u_display--center"
-      :src="picData"
-      style="object-fit:contain;margin:0 auto;"
-    />
+    <a :href="info_link">
+      <img
+        class="c_new__Arrival--unit--img u_display--center"
+        :src="picData"
+        style="object-fit:contain;margin:0 auto;"
+      />
+    </a>
   </div>
 </template>
 
@@ -14,7 +16,8 @@ export default {
   props: ["data"],
   data() {
     return {
-      picData: ""
+      picData: "",
+      info_link: "/store/product/show/" + this.data.id
     };
   },
   methods: {

@@ -7,7 +7,7 @@
 
     <div class="l_register__container u_font__default u_text--space">
 
-        <div class="l_register--title  u_display--center u_font__text--title">{{ __('Register') }}</div>
+        <div class="l_register--title  u_display--center u_font__text--title">{{ __('User Register') }}</div>
 
         <!-- 入力フォーム枠 -->
         <div class="l_register__user__container l_profile--main">

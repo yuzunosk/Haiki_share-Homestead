@@ -17,7 +17,171 @@
 }
 .l_main__container {
     grid-area: main;
+    position: relative;
+
+    &::before {
+        content: "";
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        background: $base-color__primary;
+        z-index: -2;
+    }
 }
+// -------------------------
+// Top
+// -------------------------
+.l_top {
+    &__container {
+        display: grid;
+        grid-template:
+            "hero" 700px
+            "info" 600px
+            "about" 720px
+            "process" 800px
+            /100%;
+    }
+
+    &--hero {
+        grid-area: hero;
+        position: relative;
+        display: grid;
+        grid-template:
+            "left main right" 100%
+            / 70px 1fr 70px;
+    }
+
+    &--info {
+        grid-area: info;
+        display: grid;
+        grid-template:
+            ".....  .....  ....." 1fr
+            "panel  panel  panel" 200px
+            ".....  .....  link" 1fr
+            /33% 34% 33%;
+
+        &--panel {
+            grid-area: panel;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+        }
+
+        &--link {
+            grid-area: link;
+        }
+    }
+
+    &--about {
+        grid-area: about;
+        position: relative;
+        display: grid;
+        grid-template:
+            "text       primary" 460px
+            "secondary  ......." 260px
+            / 40% 60%;
+
+        &--text {
+            grid-area: text;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            top: 30px;
+            width: 300px;
+            margin: 0 auto;
+        }
+
+        &--primary {
+            grid-area: primary;
+            position: relative;
+            display: grid;
+            grid-template:
+                ".....  imageA  imageB  ......" 100%
+                "line   line    line    line  " 100%
+                ".....  ......  ......  ......" 100%
+                / 80px 1fr 1fr 70px;
+
+            &--imageA {
+                grid-area: imageA;
+                width: 90%;
+                height: 460px;
+                object-fit: cover;
+                margin-left: auto;
+                z-index: 2;
+            }
+
+            &--imageB {
+                grid-area: imageB;
+                width: 90%;
+                height: 460px;
+                object-fit: cover;
+                margin-left: auto;
+                z-index: 2;
+            }
+
+            &::after {
+                content: "";
+                background: #fff;
+                position: absolute;
+                top: 100px;
+                right: 0;
+                height: 260px;
+                width: 830px;
+            }
+        }
+
+        &--secondary {
+            grid-area: secondary;
+            position: relative;
+            background: #fffde5;
+
+            &--image {
+                position: absolute;
+                bottom: 0;
+                left: -70px;
+                border-radius: 50%;
+                width: 400px;
+                height: 400px;
+            }
+        }
+    }
+
+    &--process {
+        grid-area: process;
+        display: grid;
+        grid-template:
+            "head" 1fr
+            "main" 400px
+            "foot" 1fr
+            /100%;
+
+        &--head {
+            grid-area: head;
+            display: grid;
+            grid-template:
+                "....." 1fr
+                "title" 150px
+                "....." 1fr
+                /100%;
+        }
+
+        &--title {
+            grid-area: title;
+            letter-spacing: 5px;
+        }
+
+        &--main {
+            grid-area: main;
+        }
+
+        &--foot {
+            grid-area: foot;
+        }
+    }
+}
+
 // -------------------------
 // register
 // -------------------------
@@ -54,15 +218,25 @@
         display: grid;
         margin: 5vh 15%;
         grid-template:
-            "name  " 100px
-            "..... " 30px
-            "b_name" 100px
-            "..... " 30px
-            "email " 50px
-            "..... " 30px
-            "pass  " 50px
-            "..... " 30px
-            "re_pass" 50px
+            "name        " 100px
+            ".....       " 30px
+            "b_name      " 100px
+            ".....       " 30px
+            "zip         " 50px
+            ".....       " 30px
+            "prefectural " 50px
+            ".....       " 30px
+            "address     " 100px
+            ".....       " 30px
+            "email       " 50px
+            ".....       " 30px
+            "tel         " 50px
+            ".....       " 30px
+            "manager_name" 50px
+            ".....       " 30px
+            "pass        " 50px
+            ".....       " 30px
+            "re_pass     " 50px
             /100%;
     }
 
@@ -86,8 +260,28 @@
         grid-area: b_name;
     }
 
+    &--zip {
+        grid-area: zip;
+    }
+
+    &--prefectural {
+        grid-area: prefectural;
+    }
+
+    &--address {
+        grid-area: address;
+    }
+
     &--email {
         grid-area: email;
+    }
+
+    &--tel {
+        grid-area: tel;
+    }
+
+    &--manager_name {
+        grid-area: manager_name;
     }
 
     &--pass {
@@ -96,6 +290,90 @@
 
     &--re_pass {
         grid-area: re_pass;
+    }
+
+    &__select {
+        &__container {
+            display: grid;
+            grid-template:
+                "head" 150px
+                "main" 300px
+                "foot" 150px/100%;
+            margin: 0 auto;
+            width: 60%;
+            border: 3px solid #333;
+            border-radius: 10px;
+            background: #f6f5f4;
+        }
+
+        &--head {
+            grid-area: head;
+            display: grid;
+            grid-template:
+                "....." 15%
+                "title   " 30%
+                "subtitle" 30%
+                "....." 15%
+                / 100%;
+        }
+
+        &--title {
+            grid-area: title;
+        }
+
+        &--subtitle {
+            grid-area: subtitle;
+        }
+
+        &--main {
+            grid-area: main;
+            display: grid;
+            grid-template:
+                "left right" 100%
+                / 50% 50%;
+        }
+
+        &--left {
+            grid-area: left;
+            height: 200px;
+
+            &--box {
+                width: 200px;
+                height: 200px;
+                background: #da9dff;
+                margin: 0 50px 0 auto;
+                border: 2px solid #707070;
+                border-radius: 10px;
+            }
+        }
+
+        &--right {
+            grid-area: right;
+            height: 200px;
+
+            &--box {
+                width: 200px;
+                height: 200px;
+                background: #ff9db4;
+                margin: 0 auto 0 50px;
+                border: 2px solid #707070;
+                border-radius: 10px;
+            }
+        }
+
+        &--foot {
+            grid-area: foot;
+            display: grid;
+            grid-template:
+                "... btn ..." 1fr
+                "... ... ..." 1fr
+                "... ... ..." 1fr;
+
+            &--btn {
+                grid-area: btn;
+                margin: 0 auto;
+            }
+        }
     }
 }
 // -------------------------
@@ -164,17 +442,17 @@
     &__container {
         display: grid;
         height: 100%;
-        margin: 10vh 15%;
+        margin: 0 15%;
         grid-template:
             "...... ...... ......  ......   ......"
             "...... ......   top   ......   ......" 100px
             "...... name   ......  category ......" 100px
-            "...... price  ......  store_id ......" 100px
-            "...... sellby ......  date     ......" 100px
+            "...... price  ......  r_price  ......" 100px
+            "...... sellby ......  store_id ......" 100px
             "...... pic    ......  ......   ......" 300px
             "...... ...... bottom  ......   ......" 100px
             "...... ...... ......  ......   ......"
-            / auto 40% 20% 40% auto;
+            / 10% 30% 20% 30% 10%;
         border: 3px solid #333;
         border-radius: 10px;
     }
@@ -202,6 +480,10 @@
             grid-area: price;
         }
 
+        &--r_price {
+            grid-area: r_price;
+        }
+
         &--store_id {
             grid-area: store_id;
         }
@@ -213,6 +495,8 @@
         &--pic {
             grid-area: pic;
             position: relative;
+            width: 300px;
+            height: 250px;
         }
 
         &--submit {
@@ -407,7 +691,6 @@
 .l_detail {
     &__container {
         display: grid;
-        // border: 2px solid #333;
         border-radius: 10px;
         margin: 100px 60px;
         grid-template:
@@ -422,9 +705,23 @@
         grid-template:
             "hero info" 100%
             / 60% 40%;
+        position: relative;
+
+        &--attention {
+            position: absolute;
+            top: 45%;
+            left: 6%;
+            width: 48%;
+            height: 70px;
+            line-height: 70px;
+            background: #ffffff;
+            color: #F44336;
+            text-align: center;
+        }
 
         &--hero {
             grid-area: hero;
+            border-radius: 10px;
         }
 
         &--info {
@@ -458,7 +755,7 @@
                 ".......  ......." 15px
                 "price-l  price-r" 40%
                 ".......  ......." 20px
-                / 50% 50%;
+                / 40% 60%;
 
             &--title {
                 grid-area: title;
@@ -490,8 +787,8 @@
             ".....  .....  .....  ....." 15px
             "textA  dataA  textE  dataE" 50px
             "textB  dataB  textF  dataF" 50px
-            "textC  dataC  textF  dataF" 50px
-            "textD  dataD  textG  dataG" 50px
+            "textC  dataC  textG  dataG" 50px
+            "textD  dataD  textH  dataH" 50px
             /10% 40% 10% 40%;
 
         &--head {
@@ -553,6 +850,14 @@
         &--dataG {
             grid-area: dataG;
         }
+
+        &--textH {
+            grid-area: textH;
+        }
+
+        &--dataH {
+            grid-area: dataH;
+        }
     }
 
     &--hero {
@@ -612,6 +917,38 @@
             border: 3px solid #333;
             border-radius: 5px;
             position: relative;
+        }
+    }
+
+    &__miniCard {
+        &__container {
+            display: grid;
+            grid-template:
+                "....." 35%
+                "title" 30%
+                "....." 35%
+                / 100%;
+            position: relative;
+            border: 4px solid #f6f5f4;
+            width: 200px;
+            height: 200px;
+        }
+
+        &--image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100px;
+            height: 100px;
+        }
+
+        &--title {
+            grid-area: title;
+            z-index: 2;
+            background: rgba(0, 0, 0, 0.5);
+            color: #fff;
+            font-size: 20px;
+            font-weight: bold;
         }
     }
 }

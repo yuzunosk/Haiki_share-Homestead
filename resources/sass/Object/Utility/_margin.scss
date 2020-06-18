@@ -4,22 +4,43 @@
 .m-auto {
     margin: auto;
 }
+
+// ----------
+// 上下
+// ----------
 .my-50 {
     margin: 50px auto;
 }
 
+// ----------
+// 左
+// ----------
 .ml-30 {
     margin-left: $space__xxl;
+}
+
+// ----------
+// 右
+// ----------
+.mr-20 {
+    margin-right: $space__l;
 }
 
 .mr-30 {
     margin-right: $space__xxl;
 }
 
+.mr-40 {
+    margin-right: 40px;
+}
+
 .mr-100 {
     margin-right: $space__5l;
 }
 
+// ----------
+// 下
+// ----------
 .mb-30 {
     margin-bottom: $space__xxl;
 }

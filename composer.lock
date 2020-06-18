@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "384b6fabbb0368ca0fd5960f396cdbbe",
+    "content-hash": "a6d33a9cbae7bd236348fb905c01917d",
     "packages": [
         {
             "name": "barryvdh/laravel-debugbar",
@@ -4832,6 +4832,49 @@
             "description": "Library that helps with managing the version number of Git-hosted PHP projects",
             "homepage": "https://github.com/sebastianbergmann/version",
             "time": "2016-10-03T07:35:21+00:00"
+        },
+        {
+            "name": "shibuyakosuke/laravel-language-setting",
+            "version": "1.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/ShibuyaKosuke/laravel-language-setting.git",
+                "reference": "1904d594de522de35cc7052d14a5f34738e2be38"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/ShibuyaKosuke/laravel-language-setting/zipball/1904d594de522de35cc7052d14a5f34738e2be38",
+                "reference": "1904d594de522de35cc7052d14a5f34738e2be38",
+                "shasum": ""
+            },
+            "require": {
+                "laravel/framework": "5.5.*|5.6.*|5.7.*|5.8.*|^6.0|^7.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "ShibuyaKosuke\\LaravelLanguageSetting\\Providers\\CommandServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "ShibuyaKosuke\\LaravelLanguageSetting\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "ShibuyaKosuke",
+                    "email": "shibuya@imagenious.co.jp"
+                }
+            ],
+            "description": "Translate files generator for laravel",
+            "time": "2020-04-18T06:52:20+00:00"
         },
         {
             "name": "theseer/tokenizer",

@@ -10,7 +10,7 @@
 <div>
     <!-- vueを読み込む -->
     <div id="productApp">
-        <productdetail :productdata="{{ $productData }}" :storedata="{{ $storeData }}"></productdetail>
+        <productdetail :productdata="{{ $productData }}" :storedata="{{ $storeData }}" :buydata="{{ $buyData }}"></productdetail>
     </div>
 </div>
 

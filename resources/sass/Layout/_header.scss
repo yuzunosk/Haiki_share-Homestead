@@ -2,7 +2,7 @@
 //  header
 // ====================================
 .l-header {
-    background-color: #eec71f;
+    background-color: $base-color__primary;
     display: grid;
     grid-area: header;
     grid-template-columns: 35% 5fr 5fr;

@@ -46,7 +46,7 @@ $_GET['order'] = (isset($_GET['order'])) ? $_GET['order'] : "";
     </div>
     
     <div id="cardApp" class="l_index__main">
-        <productcardunit :productdatas="{{ $productDatas }}"></productcardunit>
+        <productcardunit :productdatas="{{ $productDatas }}" :storeid="{{ $storeId }}"></productcardunit>
     </div>
 
             {{-- ここからページネート --}}

@@ -6,7 +6,7 @@
         border: 2px solid $footer-color__primary;
         border-radius: 5px;
         padding: 0 10px;
-        width: 100%;
+        width: 90%;
         height: 40px;
         text-align: left;
     }
@@ -119,5 +119,7 @@
     }
     &--prev-img {
         width: 100%;
+        height: 100%;
+        object-fit: cover;
     }
 }

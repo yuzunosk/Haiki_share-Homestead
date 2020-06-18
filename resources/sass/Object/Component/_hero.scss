@@ -3,12 +3,12 @@
 // -------------------------------
 .c_hero {
     &__top__container {
-        background-color: rgba(255, 255, 255, 0.85);
+        background-color: rgba(255, 255, 255, 0.75);
         position: relative;
 
         &::before {
             content: "";
-            background-image: url("/storage/img/パン背景A.jpg");
+            background-image: url("/storage/img/コンビニおしゃれ２.png");
             background-repeat: no-repeat;
             background-size: cover;
             width: 100%;
@@ -17,6 +17,26 @@
             top: 0;
             left: 0;
             z-index: -1;
+        }
+    }
+
+    &__main {
+        &__container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            grid-area: main;
+        }
+
+        &__logo {
+            position: absolute;
+            width: 30%;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
         }
     }
 }
