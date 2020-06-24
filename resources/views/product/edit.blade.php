@@ -2,12 +2,13 @@
 
 @section('content')
 
+
 <form method="POST" action="{{ route('store.product.update', $productData->id) }}" enctype="multipart/form-data">
     @csrf
 
     <div class="l_input__container u_fs__default u_text--space">
 
-        <div class="l_input__product--title  u_display--center u_fs__text--title">{{ __('Product New') }}</div>
+        <div class="l_input__product--title  u_display--center u_fs__text--title">{{ __('Product Edit') }}</div>
 
         <!-- 名前     -->
         <div class="l_input__product--name  u_display--start--column ml-30">
@@ -122,13 +123,28 @@
 
         <!--画像  END -->
 
-
+{{-- submit update --}}
         <div class="l_input__product--submit u_display--center">
             <button class="btn" type="submit" class="">
                 {{ __('Update') }}
             </button>
         </div>
+{{-- submit update END--}}
 
+
+
+{{-- submit delete --}}
+<form action="" method="GET">
+    <div class="l_input__product--submitB u_display--center">
+        <button id="js-click-delete" class="btn" type="button" data-id="{{$productData->id}}" >
+            {{ __('Delete') }}
+        </button>
     </div>
 </form>
+{{-- submit delete END--}}
+
+</div>
+</form>
+
+
 @endsection

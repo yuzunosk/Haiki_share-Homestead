@@ -27,12 +27,16 @@ class ProductController extends Controller
     public function index(Request $request, $p = 1, $sort = "id", $order = "desc")
     {
         Log::info('「「「「「「「「「「「「「「「「「「');
-        Log::info('--------一覧表示ページ----------');
+        Log::info('--------商品一覧編集ページ----------');
         Log::info('」」」」」」」」」」」」」」」」」」');
 
         //ログインストアIDを取得
         $storeId = Auth::id();
         Log::info("ログインストアID" . $storeId);
+
+        $buyDatas = Buy::all();
+        Log::info("購入データ:" . $buyDatas);
+
 
         Log::info("p=" . $p);
         // 現在のページ情報を取得
@@ -93,7 +97,7 @@ class ProductController extends Controller
 
 
         //データの取得
-        $productDatas = Product::orderBy($sortdata, $orderdata)->offset($currentMinNum)->limit($listSpan)->get();
+        $productDatas = Store::find($storeId)->products()->orderBy($sortdata, $orderdata)->offset($currentMinNum)->limit($listSpan)->get();
         Log::info('取得テスト：' . $productDatas);
 
         //総レコード数
@@ -108,7 +112,7 @@ class ProductController extends Controller
         $categorys = Category::all();
 
 
-        return view('product.index', compact(['productDatas', 'storeId' , 'totalRecode', 'totalPageNum', 'currentPageNum', 'currentMinNum', 'sort', 'order', 'categorys']));
+        return view('product.index', compact(['productDatas', 'storeId', 'buyDatas', 'totalRecode', 'totalPageNum', 'currentPageNum', 'currentMinNum', 'sort', 'order', 'categorys']));
     }
 
     /**
@@ -181,11 +185,11 @@ class ProductController extends Controller
         //リレーションを使ってstore_idを取得し、DBからストアデータを取得する
         $productData  = Product::find($id);
         $storeData    = Store::find($productData->store_id);
-        $res          = Buy::where("buy_product_id" , $id)->first();
+        $res          = Buy::where("buy_product_id", $id)->first();
 
-        if(empty($res)) {
+        if (empty($res)) {
             $buyData = "null";
-        }else{
+        } else {
             $buyData = $res;
         }
 
@@ -194,7 +198,7 @@ class ProductController extends Controller
         Log::info('購入データ中身:' . $buyData);
 
 
-        return view('product.show', compact(['productData', 'storeData' , 'buyData']));
+        return view('product.show', compact(['productData', 'storeData', 'buyData']));
     }
 
     /**
@@ -300,8 +304,12 @@ class ProductController extends Controller
      */
     public function destroy($id)
     {
+        Log::info('「「「「「「「「「「「「「「「「「「');
+        Log::info('--------商品削除ページ--------');
+        Log::info('」」」」」」」」」」」」」」」」」」');
         //検索に合う
         Product::find($id)->delete();
+        Log::info('商品削除 実行しました');
         return redirect()->route('store.product.index')->with('flash_message', __('Deleted'));
     }
 }

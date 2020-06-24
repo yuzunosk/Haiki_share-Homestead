@@ -11,7 +11,7 @@
 <div>
     <!-- reactを読み込む -->
     <div id="storeApp">
-        <storehome-component :productDatas="{{ $productData }}" :storeData="{{ $storeData }}"></storehome-component>
+        <storehome-component :productDatas="{{ $productData }}" :storeData="{{ $storeData }}" :buyDatas="{{ $buyData }}" ></storehome-component>
     </div>
 </div>
 @endsection

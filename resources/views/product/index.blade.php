@@ -13,7 +13,7 @@ $_GET['order'] = (isset($_GET['order'])) ? $_GET['order'] : "";
 
     <div class="l_index__head">
 
-        <h2 class="u_display--center u_font__text--title l_index__head--title">{{ __('Product List') }}</h2>
+        <h2 class="u_display--center u_font__text--title l_index__head--title">{{ __('Store Product List') }}</h2>
 
         <div class="l_index__head--sort u_display--end u_font__default">
             <p id="js-click-showSerch" class="btn--serch">並び替え<i class="fas fa-search fa-2x"></i></p>
@@ -46,7 +46,7 @@ $_GET['order'] = (isset($_GET['order'])) ? $_GET['order'] : "";
     </div>
     
     <div id="cardApp" class="l_index__main">
-        <productcardunit :productdatas="{{ $productDatas }}" :storeid="{{ $storeId }}"></productcardunit>
+        <productcardunit :productdatas="{{ $productDatas }}" :storeid="{{ $storeId }}" :buydatas="{{ $buyDatas }}" ></productcardunit>
     </div>
 
             {{-- ここからページネート --}}

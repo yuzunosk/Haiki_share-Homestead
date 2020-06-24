@@ -47,4 +47,12 @@ class Store extends Authenticatable
         //いくつものpuroductを持っている
         return $this->hasMany('App\Models\Product');
     }
+
+
+    public function buy()
+    {
+        //buyデータとの1対1のリレーション
+        //フォーリンキー名はカスタムしてるので、第二引数に指定する
+        return $this->hasOne('App\Models\Buy' , 'buy_user_id'); 
+    }
 }

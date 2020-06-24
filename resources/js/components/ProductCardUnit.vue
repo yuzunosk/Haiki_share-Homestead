@@ -1,13 +1,19 @@
 <template>
   <ui class="l_product__card-unit__index">
-    <ProductCard v-for="(productdata, i) in productdatas" :key="i" :p_data="productdata" :s_id="storeid" ></ProductCard>
+    <ProductCard
+      v-for="(productdata, i) in productdatas"
+      :key="i"
+      :p_data="productdata"
+      :s_id="storeid"
+      :buydatas="buydatas"
+    ></ProductCard>
   </ui>
 </template>
 
 <script>
 import ProductCard from "./ProductCard.vue";
 export default {
-  props: ["productdatas","storeid"],
+  props: ["productdatas", "storeid", "buydatas"],
   data() {
     return {};
   },

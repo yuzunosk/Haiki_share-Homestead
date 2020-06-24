@@ -18,4 +18,12 @@ class Product extends Model
         //storeと多対1の関係性
         return $this->belongsTo('App\Models\Store');
     }
+
+    public function buy()
+    {
+        //buyデータとの1対1のリレーション
+        //フォーリンキー名はカスタムしてるので、第二引数に指定する
+
+        return $this->hasOne('App\Models\Buy', 'buy_product_id');
+    }
 }

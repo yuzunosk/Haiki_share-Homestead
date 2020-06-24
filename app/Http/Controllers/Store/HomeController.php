@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use App\models\Product;
 use App\models\Store;
+use App\models\Buy;
 use Illuminate\Support\Facades\Log;
 
 class HomeController extends Controller
@@ -29,11 +30,18 @@ class HomeController extends Controller
         $id             = $storeData->id;
         //store_idが$idである最新のprooduct５件を取得し、変数へ収納
         $productData    = Store::find($id)->products()->orderBy('id', 'desc')->limit(5)->get();
+        //$idをもつ、購入データをbuyから探しだし、buy_product_idとproducts.idが同値のテーブルを連結
+        $buyData        = Store::find($id)->buy()->join('products', 'buy.buy_product_id', '=', 'products.id')
+            ->orderBy('buy.id', 'desc')->limit(5)->get();
+
+
         Log::info('ログインストアデータ:' . $storeData);
         Log::info('ストアid:' . $id);
         Log::info('取得プロダクトデータ:' . $productData);
+        Log::info('購入データ:' . $buyData);
 
-        return view('store.home', compact(['storeData', 'productData']));
+
+        return view('store.home', compact(['storeData', 'productData', 'buyData']));
     }
 
     /**

@@ -13,8 +13,8 @@
       </p>
     </div>
     <div class="l_home__main__stick--unit">
-      <h1 class="my-50">出品した商品一覧</h1>
-      <ProductStick v-for="(productdata , i) in productdatas" :key="i" :data="productdata"></ProductStick>
+      <h1 class="my-50">{{ title }}</h1>
+      <ProductStick v-for="(data , i) in datas" :key="i" :data="data"></ProductStick>
 
       <!-- コンポーネントでページネーション追加？ -->
     </div>
@@ -25,9 +25,11 @@
 import DescendingIcon from "./DescendingIcon.vue";
 import ProductStick from "./ProductStick.vue";
 export default {
-  props: ["productdatas", "storedata"],
+  props: ["datas", "storedata", "pageid"],
   data() {
-    return {};
+    return {
+      title: ""
+    };
   },
   computed: {
     register_Link() {
@@ -38,6 +40,15 @@ export default {
     },
     profile_Link() {
       return "/store/profile/edit/" + this.storedata.id;
+    }
+  },
+  mounted() {
+    console.log("mounted");
+    console.log(this.pageid);
+    if (this.pageid == 0) {
+      this.title = "出品した商品一覧";
+    } else {
+      this.title = "売却した商品一覧";
     }
   },
   components: {

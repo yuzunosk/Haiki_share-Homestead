@@ -85,9 +85,10 @@ Route::namespace('Store')->prefix('store')->name('store.')->group(function () {
         Route::get('/product/show/{id}', 'ProductController@show')->name('product.show');
         Route::post('/product', 'ProductController@create')->name('product.create');
         Route::get('/product/index/{page?}/{sort?}/{order?}', 'ProductController@index')->name('product.index');
-        Route::get('/product/{id}/edit', 'ProductController@edit')->name('product.edit');
+        Route::get('/product/edit/{id}', 'ProductController@edit')->name('product.edit');
         Route::post('/product/{id}', 'ProductController@update')->name('product.update');
-        Route::get('/product/{id}/delete', 'ProductController@destroy')->name('product.delete');
+        Route::get('/product/delete/{id}', 'ProductController@destroy')->name('product.delete');
         Route::get('/product/exhibition', 'ProductExhibitionController')->name('product.exhibition');
+        Route::get('/product/sale', 'ProductSaleController')->name('product.sale');
     });
 });

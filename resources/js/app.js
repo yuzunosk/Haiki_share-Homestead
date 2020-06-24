@@ -7,6 +7,7 @@
 require("./components/case/bootstrap");
 require("./components/case/partial");
 require("./components/case/showSerch.js");
+require("./components/case/clickDelete.js");
 
 window.Vue = require("vue");
 

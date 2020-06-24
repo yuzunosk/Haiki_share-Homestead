@@ -450,8 +450,8 @@
             "...... price  ......  r_price  ......" 100px
             "...... sellby ......  store_id ......" 100px
             "...... pic    ......  ......   ......" 300px
-            "...... ...... bottom  ......   ......" 100px
-            "...... ...... ......  ......   ......"
+            "...... ...... submitA ......   ......" 100px
+            "...... ...... submitB ......   ......" 100px
             / 10% 30% 20% 30% 10%;
         border: 3px solid #333;
         border-radius: 10px;
@@ -500,7 +500,11 @@
         }
 
         &--submit {
-            grid-area: bottom;
+            grid-area: submitA;
+        }
+
+        &--submitB {
+            grid-area: submitB;
         }
     }
 }
@@ -715,7 +719,7 @@
             height: 70px;
             line-height: 70px;
             background: #ffffff;
-            color: #F44336;
+            color: #f44336;
             text-align: center;
         }
 
@@ -881,6 +885,7 @@
     &--pic {
         grid-area: pic;
         width: 100%;
+        background: #f6f5f4;
     }
 
     &--name {

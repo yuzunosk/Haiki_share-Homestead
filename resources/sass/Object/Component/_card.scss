@@ -13,26 +13,46 @@
             grid-template:
                 "name" 20%
                 "main" 1fr
-                "unit" 5%
                 "price" 15%
+                "unit" 8%
                 / 100%;
         }
 
         &--name {
             grid-area: name;
-            background: rgba(50, 50, 50, 0.8);
+            background: rgba(50, 50, 50, 0.7);
             color: #f6f5f4;
         }
 
         &--unit {
             grid-area: unit;
-            background: rgba(50, 50, 50, 0.8);
+            background: rgba(50, 50, 50);
             color: #f6f5f4;
+            align-items: center;
+            display: grid;
+            grid-template:
+                "... iconA ... iconB  ..." 100%
+                /20% 20% 20% 20% 20%;
+
+            &--iconA {
+                grid-area: iconA;
+                z-index: 100;
+            }
+
+            &--iconB {
+                grid-area: iconB;
+                z-index: 100;
+            }
+
+            &--iconC {
+                grid-area: iconC;
+                z-index: 100;
+            }
         }
-        
+
         &--price {
             grid-area: price;
-            background: rgba(50, 50, 50, 0.8);
+            background: rgba(50, 50, 50, 0.7);
             color: #f6f5f4;
         }
     }
