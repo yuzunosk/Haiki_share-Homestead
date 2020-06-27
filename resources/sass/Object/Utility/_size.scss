@@ -39,8 +39,22 @@
             font-weight: bold;
         }
     }
-    &__lage--text {
-        font-size: $font-size__xxl;
+    &__lage {
+        &--text {
+            font-size: $font-size__xxl;
+        }
+
+        &--blue {
+            font-weight: bold;
+            color: #9844ec;
+            letter-spacing: 2px;
+        }
+
+        &--red {
+            font-weight: bold;
+            color: #fb0503;
+            letter-spacing: 2px;
+        }
     }
 
     &__Xlage--text {
@@ -74,10 +88,18 @@
     border: 2px solid #666;
 }
 
-.u_size__icon--card {
-    color: #fff;
-    font-size: 20px;
-    text-align: center;
+.u_size__icon {
+    &--card {
+        color: #fff;
+        font-size: 20px;
+        text-align: center;
+    }
+
+    &--label {
+        color: #f6f5f4;
+        font-size: 16px;
+        letter-spacing: 2px;
+    }
 }
 // -----------------------------
 // img サイズ

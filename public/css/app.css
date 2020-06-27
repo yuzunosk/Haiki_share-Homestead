@@ -12264,6 +12264,16 @@ img {
 
 .l_detail--main--info--foot {
   grid-area: foot;
+  display: grid;
+  grid-template: "btn component" 1fr ".... ...." 1fr ".... ...." 1fr/50% 50%;
+}
+
+.l_detail--main--info--btn {
+  grid-area: btn;
+}
+
+.l_detail--main--info--component {
+  grid-area: component;
 }
 
 .l_detail--main--info__container {
@@ -12416,6 +12426,23 @@ img {
   border: 3px solid #333;
   border-radius: 5px;
   position: relative;
+}
+
+.l_product__card__label {
+  position: absolute;
+  top: -20px;
+  right: -20px;
+  border: 3px solid #333;
+  border-radius: 50%;
+  background: #ec6617;
+  z-index: 5;
+  width: 70px;
+  height: 70px;
+  line-height: 65px;
+  text-align: center;
+  font-size: 16px;
+  transform: rotateZ(45deg);
+  color: #f6f5f4;
 }
 
 .l_product__miniCard__container {
@@ -12971,6 +12998,18 @@ img {
   font-size: 30px;
 }
 
+.u_font__lage--blue {
+  font-weight: bold;
+  color: #9844ec;
+  letter-spacing: 2px;
+}
+
+.u_font__lage--red {
+  font-weight: bold;
+  color: #fb0503;
+  letter-spacing: 2px;
+}
+
 .u_font__Xlage--text {
   font-size: 36px;
 }
@@ -13000,6 +13039,12 @@ img {
   color: #fff;
   font-size: 20px;
   text-align: center;
+}
+
+.u_size__icon--label {
+  color: #f6f5f4;
+  font-size: 16px;
+  letter-spacing: 2px;
 }
 
 .u_img__fit--cover100 {

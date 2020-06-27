@@ -747,6 +747,20 @@
 
             &--foot {
                 grid-area: foot;
+                display: grid;
+                grid-template:
+                    "btn component" 1fr
+                    ".... ...." 1fr
+                    ".... ...." 1fr
+                    / 50% 50%;
+            }
+
+            &--btn {
+                grid-area: btn;
+            }
+
+            &--component {
+                grid-area: component;
             }
         }
 
@@ -922,6 +936,23 @@
             border: 3px solid #333;
             border-radius: 5px;
             position: relative;
+        }
+
+        &__label {
+            position: absolute;
+            top: -20px;
+            right: -20px;
+            border: 3px solid #333;
+            border-radius: 50%;
+            background: #ec6617;
+            z-index: 5;
+            width: 70px;
+            height: 70px;
+            line-height: 65px;
+            text-align: center;
+            font-size: 16px;
+            transform: rotateZ(45deg);
+            color: #f6f5f4;
         }
     }
 
