@@ -12,8 +12,10 @@
         "barryvdh/laravel-debugbar": "^3.3",
         "fideloper/proxy": "^4.0",
         "kyslik/column-sortable": "^6.3",
+        "laravel-notification-channels/twitter": "^4.0",
         "laravel/framework": "5.8.*",
-        "laravel/tinker": "^1.0"
+        "laravel/tinker": "^1.0",
+        "sukohi/clamp-bolt": "4.*"
     },
     "require-dev": {
         "beyondcode/laravel-dump-server": "^1.0",
