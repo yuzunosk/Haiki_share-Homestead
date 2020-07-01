@@ -92,7 +92,7 @@
 
     </div>
 
-
+    <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
     <script src="{{ asset('js/app.js') }}"></script>
 </body>
 

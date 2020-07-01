@@ -16,7 +16,7 @@ class StoreConfrimationMail extends Mailable
      *
      * @return void
      */
-    public function __construct()
+    public function __construct($store)
     {
         $this->store = $store;
     }

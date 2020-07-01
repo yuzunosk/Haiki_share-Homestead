@@ -17,12 +17,17 @@ use App\Http\Controllers\ProductController;
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/mail', 'MailSendController@send');
+Route::get('/mail', 'MailSendController@storesend');
+Route::get('/mail', 'MailSendController@sendPurchase');
 Route::get('/top', 'ShowTopController')->name('top');
 Route::get('/regist', 'show_RegistSelectController')->name('RegistSelect');
 
 // buy関連
 Route::post('/buy', 'BuyController@store')->name('buy.store');
 
+//twitter 関連
+Route::get('/tweet', 'tweetController@show')->name('tweet.show');
+Route::post('/tweet/go', 'tweetController@tweet')->name('tweet.go');
 
 
 //ユーザー

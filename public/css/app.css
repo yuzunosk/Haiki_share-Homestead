@@ -12251,11 +12251,25 @@ img {
 .l_detail--main--info {
   grid-area: info;
   display: grid;
-  grid-template: "title" 1fr "info" 2fr "foot" 1fr/100%;
+  grid-template: "head" 1fr "info" 2fr "foot" 1fr/100%;
 }
 
-.l_detail--main--info--title {
-  grid-area: title;
+.l_detail--main--info--head {
+  grid-area: head;
+  display: grid;
+  grid-template: "left center right" 100%/33% 34% 33%;
+}
+
+.l_detail--main--info--left {
+  grid-area: left;
+}
+
+.l_detail--main--info--center {
+  grid-area: center;
+}
+
+.l_detail--main--info--right {
+  grid-area: right;
 }
 
 .l_detail--main--info--info {
@@ -12590,6 +12604,16 @@ img {
   border-radius: 5px;
   font-size: 16px;
   padding: 4px 4px;
+  text-align: center;
+}
+
+.btn--sns {
+  border: 2px solid #333;
+  border-radius: 5px;
+  font-size: 16px;
+  color: white;
+  padding: 4px 4px;
+  width: 50px;
   text-align: center;
 }
 

@@ -19,6 +19,16 @@
         text-align: center;
     }
 
+    &--sns {
+        border: 2px solid #333;
+        border-radius: 5px;
+        font-size: 16px;
+        color: white;
+        padding: 4px 4px;
+        width: 50px;
+        text-align: center;
+    }
+
     &--lage {
         border: 2px solid #333;
         border-radius: 5px;
@@ -61,19 +71,18 @@
     }
 
     &--purchased {
-    border: 2px solid #f6f5f4;
-    border-radius: 5px;
-    font-size: 16px;
-    padding: 6px 20px;
-    width: 160px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
+        border: 2px solid #f6f5f4;
+        border-radius: 5px;
+        font-size: 16px;
+        padding: 6px 20px;
+        width: 160px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
 
     //トランジション付与
     &--transition {
-    transition: .5s;
-}
+        transition: 0.5s;
+    }
 }

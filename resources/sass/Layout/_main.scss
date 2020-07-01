@@ -732,13 +732,29 @@
             grid-area: info;
             display: grid;
             grid-template:
-                "title" 1fr
+                "head" 1fr
                 "info" 2fr
                 "foot" 1fr
                 /100%;
 
-            &--title {
-                grid-area: title;
+            &--head {
+                grid-area: head;
+                display: grid;
+                grid-template:
+                    "left center right" 100%
+                    / 33% 34% 33%;
+            }
+
+            &--left {
+                grid-area: left;
+            }
+
+            &--center {
+                grid-area: center;
+            }
+
+            &--right {
+                grid-area: right;
             }
 
             &--info {

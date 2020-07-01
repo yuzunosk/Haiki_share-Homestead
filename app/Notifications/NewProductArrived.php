@@ -48,10 +48,7 @@ class NewProductArrived extends Notification
      */
     public function toTwitter($notifiable)
     {
-        $text = "新着!\n【" . $this->product->name . "】という商品が登録されました\n" .
-            url('product/' . $this->product->id);
-        $attachment = $this->product->getAttachment('product_image');
-        return (new TwitterStatusUpdate($text))->withImage($attachment->path);
+        return new TwitterStatusUpdate('Laravel 通知サービスはすばらしい!');
     }
 
     /**
