@@ -53,6 +53,6 @@ class Store extends Authenticatable
     {
         //buyデータとの1対1のリレーション
         //フォーリンキー名はカスタムしてるので、第二引数に指定する
-        return $this->hasOne('App\Models\Buy' , 'buy_user_id'); 
+        return $this->hasOne('App\Models\Buy', 'buy_user_id');
     }
 }

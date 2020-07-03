@@ -12033,7 +12033,7 @@ img {
   display: grid;
   height: 100%;
   margin: 0 15%;
-  grid-template: "...... ...... ......  ......   ......" "...... ......   top   ......   ......" 100px "...... name   ......  category ......" 100px "...... price  ......  r_price  ......" 100px "...... sellby ......  store_id ......" 100px "...... pic    ......  ......   ......" 300px "...... ...... submitA ......   ......" 100px "...... ...... submitB ......   ......" 100px/10% 30% 20% 30% 10%;
+  grid-template: "...... ...... ......  ......   ......" "...... ......   top   ......   ......" 100px "...... name   ......  category ......" 100px "...... r_price ...... price    ......" 100px "...... sellby ......  store_id ......" 100px "...... pic    ......  ......   ......" 300px "..... submitA submitB submitC ......" 100px "...... ...... submitD ....... ......" 100px/10% 30% 20% 30% 10%;
   border: 3px solid #333;
   border-radius: 10px;
 }
@@ -12084,6 +12084,14 @@ img {
 
 .l_input__product--submitB {
   grid-area: submitB;
+}
+
+.l_input__product--submitC {
+  grid-area: submitC;
+}
+
+.l_input__product--submitD {
+  grid-area: submitD;
 }
 
 .l_home__container {
@@ -12714,6 +12722,28 @@ img {
 }
 
 .c_product__card--price {
+  grid-area: price;
+  background: rgba(50, 50, 50, 0.7);
+  color: #f6f5f4;
+}
+
+.c_index__card__container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-template: "name" 20% "main" 1fr "price" 15%/100%;
+}
+
+.c_index__card--name {
+  grid-area: name;
+  background: rgba(50, 50, 50, 0.7);
+  color: #f6f5f4;
+}
+
+.c_index__card--price {
   grid-area: price;
   background: rgba(50, 50, 50, 0.7);
   color: #f6f5f4;

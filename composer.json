@@ -14,8 +14,7 @@
         "fideloper/proxy": "^4.0",
         "guzzlehttp/guzzle": "^7.0",
         "kyslik/column-sortable": "^6.3",
-        "laravel-notification-channels/twitter": "^4.0",
-        "laravel/framework": "v5.8.3",
+        "laravel/framework": "5.8.*",
         "laravel/socialite": "^4.4",
         "laravel/tinker": "^1.0",
         "sukohi/clamp-bolt": "4.*"

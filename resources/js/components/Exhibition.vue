@@ -25,7 +25,7 @@
 import DescendingIcon from "./DescendingIcon.vue";
 import ProductStick from "./ProductStick.vue";
 export default {
-  props: ["datas", "storedata", "pageid"],
+  props: ["datas", "authdata", "pageid"],
   data() {
     return {
       title: ""
@@ -39,7 +39,7 @@ export default {
       return "/store/product/index";
     },
     profile_Link() {
-      return "/store/profile/edit/" + this.storedata.id;
+      return "/store/profile/edit/" + this.authdata.id;
     }
   },
   mounted() {

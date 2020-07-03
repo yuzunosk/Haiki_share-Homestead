@@ -10,7 +10,7 @@
 <div>
     <!-- vueを読み込む -->
     <div id="userApp">
-        <userhome-component :buyDatas="{{ $buyData }}" :goodDatas="{{ $goodData }}" :userData="{{ $userData }}"></userhome-component>
+        <userhome-component :buyDatas="{{ $buyData }}" :userData="{{ $userData }}"></userhome-component>
     </div>
 </div>
 

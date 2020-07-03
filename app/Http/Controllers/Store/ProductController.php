@@ -27,7 +27,7 @@ class ProductController extends Controller
     public function index(Request $request, $p = 1, $sort = "id", $order = "desc")
     {
         Log::info('「「「「「「「「「「「「「「「「「「');
-        Log::info('--------商品一覧編集ページ----------');
+        Log::info('--------ストアー商品一覧編集ページ----------');
         Log::info('」」」」」」」」」」」」」」」」」」');
 
         //ログインストアIDを取得

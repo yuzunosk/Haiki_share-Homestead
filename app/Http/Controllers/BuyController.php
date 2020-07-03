@@ -56,12 +56,22 @@ class BuyController extends Controller
         // POSTデータを変数へ収納
         $p_id = $request->p_id;
         Log::info('取得プロダクトID:' . $p_id);
-        $buyer_id = $request->s_id;
+        $buyer_id = $request->u_id;
         Log::info('取得ユーザーID:' . $buyer_id);
 
-        //ログインユーザー情報&ストアー情報取得
-        $userData  = Store::find($request->u_id);
+        //ログインユーザー情報取得
+
+        //ユーザーが個人かストアー側か判定
+        if ($request->u_id < 100000) {
+            Log::info('ログインユーザーはストアーです');
+            $userData  = Store::find($request->u_id);
+        } else {
+            Log::info('ログインユーザーは個人です');
+            $userData  = User::find($request->u_id);
+        }
+        //ストアー情報取得
         $storeData = Store::find($request->s_id);
+        //取得データ確認
         Log::info('取得ユーザー情報:' . $userData);
         Log::info('取得ストアー情報:' . $storeData);
 

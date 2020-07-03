@@ -13,7 +13,7 @@
     <!-- Scripts -->
 
     <!-- Fonts -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js" integrity="sha256-KzZiKy0DWYsnwMF+X1DvQngQ2/FxF7MF3Ff72XcpuPs=" crossorigin="anonymous"></script>    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js" integrity="sha256-KzZiKy0DWYsnwMF+X1DvQngQ2/FxF7MF3Ff72XcpuPs=" crossorigin="anonymous"></script>
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
 
@@ -45,10 +45,10 @@
                 @unless(Auth::guard('store')->check())
                 <div class="c_nav-menu">
                     <li class="u_display--center u_font__default text-color--default">
-                        <a class="nav-link" href="{{ route('store.login') }}">{{ __('Login') }}</a>
+                        <a class="nav-link" href="{{ route('LoginSelect') }}">{{ __('Login') }}</a>
                     </li>
                     <li class="u_display--center u_font__default text-color--default">
-                        <a class="nav-link" href="{{ route('store.register') }}">{{ __('Singin') }}</a>
+                        <a class="nav-link" href="{{ route('RegistSelect') }}">{{ __('Singin') }}</a>
                     </li>
 
                 </div>
@@ -93,7 +93,7 @@
     </div>
 
     <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-    <script src="{{ asset('js/app.js') }}"></script>
+        <script src="{{ asset('js/app.js') }}"></script>
 </body>
 
 </html>

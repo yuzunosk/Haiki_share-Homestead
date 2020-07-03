@@ -12,15 +12,8 @@
     </div>
     <div class="l_home__main">
       <div class="l_home__main--setA c_new__Arrival__list">
-        <span class="c_new__Arrival--title u_display--Jstart">最近出品した商品</span>
-        <a href="#" class="c_new__Arrival--info u_display--end">全ての商品をみる</a>
-        <div class="u_display--center-noh c_new__Arrival--group">
-          <DescendingIcon v-for="(buydata, i) in buydatas" :key="i" :data="buydata"></DescendingIcon>
-        </div>
-      </div>
-      <div class="l_home__main--setB c_new__Arrival__list">
-        <span class="c_new__Arrival--title u_display--Jstart">最近売れた商品</span>
-        <a href="#" class="c_new__Arrival--info u_display--end">全ての商品をみる</a>
+        <span class="c_new__Arrival--title u_display--Jstart">最近購入した商品</span>
+        <a :href="buy_Link" class="c_new__Arrival--info u_display--end">全ての商品をみる</a>
         <div class="u_display--center-noh c_new__Arrival--group">
           <DescendingIcon v-for="(buydata, i) in buydatas" :key="i" :data="buydata"></DescendingIcon>
         </div>
@@ -32,7 +25,7 @@
 <script>
 import DescendingIcon from "./DescendingIcon.vue";
 export default {
-  props: ["gooddatas", "buydatas", "userdata"],
+  props: ["buydatas", "userdata"],
   data() {
     return {
       data: ""
@@ -43,10 +36,13 @@ export default {
       return "/user/product/new";
     },
     list_Link() {
-      return "/user/product/index";
+      return "/user/index";
     },
     profile_Link() {
       return "/user/profile/edit/" + this.userdata.id;
+    },
+    buy_Link() {
+      return "/user/product/purchased";
     }
   },
   components: {

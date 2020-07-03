@@ -50,6 +50,23 @@
         <!-- カテゴリー END -->
 
 
+        
+        
+        <!-- 通常 価格 -->
+        <div class="l_input__product--r_price u_display--start--column">
+            <label for="regular_price" class="">{{ __('regular price') }}</label>
+            @error('regular_price')
+            <span class="c_input--error-msg" role="alert">
+                <strong>{{ $message }}</strong>
+            </span>
+            @enderror
+            <div class="">
+                <input class="c_input--default" id="regular_price" type="number" class=" @error('regular_price') is-invalid @enderror" name="regular_price" value="{{ old('regular_price') }}" autofocus min=0> 円
+            </div>
+        </div>
+        <!-- 通常 価格 END -->
+
+
         <!-- 値段 -->
 
         <div class="l_input__product--price u_display--start--column">
@@ -69,24 +86,6 @@
 
         <!-- 値段 END -->
 
-
-        <!-- 通常 価格 -->
-        <div class="l_input__product--r_price u_display--start--column">
-            <label for="regular_price" class="">{{ __('regular price') }}</label>
-            @error('regular_price')
-            <span class="c_input--error-msg" role="alert">
-                <strong>{{ $message }}</strong>
-            </span>
-            @enderror
-
-            <div class="">
-                <input class="c_input--default" id="regular_price" type="number" class=" @error('regular_price') is-invalid @enderror" name="regular_price" value="{{ old('regular_price') }}" autofocus min=0> 円
-
-
-            </div>
-        </div>
-
-            <!-- 通常 価格 END -->
 
         <!-- ストアID     -->
         <div class="l_input__product--store_id u_display--start--column">
@@ -145,12 +144,22 @@
 
         <!--画像  END -->
 
-
-        <div class="l_input__product--submit u_display--center">
+{{-- submit save --}}
+        <div class="l_input__product--submitB u_display--center">
             <button class="btn" type="submit" class="">
                 {{ __('Register') }}
             </button>
         </div>
+{{-- submit save END--}}
+
+
+{{-- submit return --}}
+    <div class="l_input__product--submitD u_display--center">
+        <button id="js-click-return-home" class="btn" type="button" >
+            {{ __('Return') }}
+        </button>
+    </div>
+{{-- submit return END--}}
     </div>
 </form>
 @endsection

@@ -447,11 +447,11 @@
             "...... ...... ......  ......   ......"
             "...... ......   top   ......   ......" 100px
             "...... name   ......  category ......" 100px
-            "...... price  ......  r_price  ......" 100px
+            "...... r_price ...... price    ......" 100px
             "...... sellby ......  store_id ......" 100px
             "...... pic    ......  ......   ......" 300px
-            "...... ...... submitA ......   ......" 100px
-            "...... ...... submitB ......   ......" 100px
+            "..... submitA submitB submitC ......" 100px
+            "...... ...... submitD ....... ......" 100px
             / 10% 30% 20% 30% 10%;
         border: 3px solid #333;
         border-radius: 10px;
@@ -505,6 +505,14 @@
 
         &--submitB {
             grid-area: submitB;
+        }
+
+        &--submitC {
+            grid-area: submitC;
+        }
+
+        &--submitD {
+            grid-area: submitD;
         }
     }
 }

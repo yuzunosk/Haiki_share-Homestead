@@ -19,7 +19,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password','address',
+        'name', 'email', 'password', 'address',
     ];
 
     /**
@@ -39,4 +39,11 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function buy()
+    {
+        //buyデータとの1対1のリレーション
+        //フォーリンキー名はカスタムしてるので、第二引数に指定する
+        return $this->hasOne('App\Models\Buy', 'buy_user_id');
+    }
 }

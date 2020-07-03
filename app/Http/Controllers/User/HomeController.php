@@ -4,10 +4,10 @@ namespace App\Http\Controllers\User;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\models\User;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Auth;
 
+use App\models\User;
 
 class HomeController extends Controller
 {
@@ -29,17 +29,18 @@ class HomeController extends Controller
         Log::info('」」」」」」」」」」」」」」」」」」」」');
 
         //現在ログインしているユーザーのデータを取得する
-        $userData      = Auth::user();
+        $userData       = Auth::user();
         $id             = $userData->id;
         //buyDataとgoodDataはまだ未完成
-        $buyData    = User::find($id)->orderBy('id', 'desc')->limit(5)->get();
-        $goodData   = User::find($id)->orderBy('id', 'desc')->limit(5)->get();
+        //$idをもつ、購入データをbuyから探しだし、buy_product_idとproducts.idが同値のテーブルを連結
+        $buyData        = User::find($id)->buy()->join('products', 'buy.buy_product_id', '=', 'products.id')
+            ->orderBy('buy.id', 'desc')->limit(10)->get();
+
         Log::info('ログインストアデータ:' . $userData);
         Log::info('ストアid:' . $id);
         Log::info('購入データ:' . $buyData);
-        Log::info('いいねデータ:' . $goodData);
 
-        return view('user.home', compact(['userData', 'buyData', 'goodData']));
+        return view('user.home', compact(['userData', 'buyData']));
     }
 
     /**

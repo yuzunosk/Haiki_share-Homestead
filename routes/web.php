@@ -21,13 +21,11 @@ Route::get('/mail', 'MailSendController@storesend');
 Route::get('/mail', 'MailSendController@sendPurchase');
 Route::get('/top', 'ShowTopController')->name('top');
 Route::get('/regist', 'show_RegistSelectController')->name('RegistSelect');
+Route::get('/login', 'show_LoginSelectController')->name('LoginSelect');
+Route::get('/index/{page?}/{sort?}/{order?}', 'showIndexController')->name('index');
 
 // buy関連
 Route::post('/buy', 'BuyController@store')->name('buy.store');
-
-//twitter 関連
-Route::get('/tweet', 'tweetController@show')->name('tweet.show');
-Route::post('/tweet/go', 'tweetController@tweet')->name('tweet.go');
 
 
 //ユーザー
@@ -55,6 +53,11 @@ Route::namespace('User')->prefix('user')->name('user.')->group(function () {
         Route::get('/profile/edit/{id}', 'UserProfileController@edit')->name('profile.edit');
         Route::post('/profile/{id}', 'UserProfileController@update')->name('profile.update');
         Route::get('/profile/{id}/delete', 'UserProfileController@destroy')->name('profile.delete');
+
+        //ユーザーインデックス表示
+        Route::get('/index/{page?}/{sort?}/{order?}', 'userIndexController')->name('index');
+        Route::get('/product/show/{id}', 'userProductController@show')->name('product.show');
+        Route::get('/product/purchased', 'ProductPurchasedController')->name('product.purchased');
     });
 });
 

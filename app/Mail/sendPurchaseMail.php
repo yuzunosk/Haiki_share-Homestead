@@ -53,6 +53,8 @@ class sendPurchaseMail extends Mailable
                 'email' => $this->data[1]['email'],
                 'name' => $this->data[1]['name']
             ]);
+        Log::info('---------メール送信完了-----------');
+
         return;
     }
 }

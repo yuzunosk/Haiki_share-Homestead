@@ -35,6 +35,7 @@
     "Product Edit": "登録商品の編集",
     "Updated": "更新しました",
     "Update": "更新する",
+    "Delete": "削除する",
     "Invalid operation was performed": "無効な操作が実行されました",
     "Profile Edit": "プロフィール編集",
     "Store Name": "店舗名",
@@ -51,6 +52,7 @@
     "Go Delete": "削除する",
     "Product List": "商品一覧",
     "Store Product List": "出品商品一覧",
+    "User Product List": "出品商品一覧",
     "address": "住所",
     "tel": "電話番号",
     "Purchase completed": "購入が完了しました"

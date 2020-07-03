@@ -6,12 +6,12 @@
 <form method="POST" action="{{ route('store.product.update', $productData->id) }}" enctype="multipart/form-data">
     @csrf
 
-    <div class="l_input__container u_fs__default u_text--space">
+    <div class="l_input__container u_font__default u_text--space ">
 
         <div class="l_input__product--title  u_display--center u_fs__text--title">{{ __('Product Edit') }}</div>
 
         <!-- 名前     -->
-        <div class="l_input__product--name  u_display--start--column ml-30">
+        <div class="l_input__product--name  u_display--start--column">
             <label class="u_ds--block" for="name" class="">{{ __('Product Name') }}</label>
             @error('email')
             <span class="c_input--error-msg" role="alert">
@@ -27,7 +27,7 @@
 
 
         <!-- カテゴリー -->
-        <div class="l_input__product--category u_display--start--column ml-30">
+        <div class="l_input__product--category u_display--start--column">
             <label for="category" class="">{{ __('category') }}</label>
             @error('category')
             <span class="c_input--error-msg" role="alert">
@@ -49,10 +49,24 @@
         </div>
         <!-- カテゴリー END -->
 
+        <!-- 通常 価格 -->
+        <div class="l_input__product--r_price u_display--start--column">
+            <label for="regular_price" class="">{{ __('regular price') }}</label>
+            @error('regular_price')
+            <span class="c_input--error-msg" role="alert">
+                <strong>{{ $message }}</strong>
+            </span>
+            @enderror
+            <div class="">
+                <input class="c_input--default" id="regular_price" type="number" class=" @error('regular_price') is-invalid @enderror" name="regular_price" value="{{ old('regular_price') }}" autofocus min=0> 円
+            </div>
+        </div>
+        <!-- 通常 価格 END -->
+
 
         <!-- 値段 -->
 
-        <div class="l_input__product--price u_display--start--column ml-30">
+        <div class="l_input__product--price u_display--start--column">
             <label for="price" class="">{{ __('Product price') }}</label>
             @error('price')
             <span class="c_input--error-msg" role="alert">
@@ -71,7 +85,7 @@
 
 
         <!-- ストアID     -->
-        <div class="l_input__product--store_id u_display--start--column ml-30">
+        <div class="l_input__product--store_id u_display--start--column ">
             <label for="store_id" class="">{{ __('Product store_id') }}</label>
             @error('store_id')
             <span class="c_input--error-msg" role="alert">
@@ -87,7 +101,7 @@
 
         <!-- 賞味期限 -->
 
-        <div class="l_input__product--sellby u_display--start--column ml-30">
+        <div class="l_input__product--sellby u_display--start--column ">
             <label for="sellby" class="">{{ __('Product sellby') }}</label>
             @error('sellby')
             <span class="c_input--error-msg" role="alert">
@@ -105,7 +119,7 @@
 
 
         <!-- 画像 -->
-        <div class="l_input__product--pic u_display--start--column ml-30">
+        <div class="l_input__product--pic u_display--start--column ">
             <span>{{ __('pic') }} ドラッグ&ドロップ</span>
             @error('pic')
             <span class="c_input--error-msg" role="alert">
@@ -134,14 +148,21 @@
 
 
 {{-- submit delete --}}
-<form action="" method="GET">
     <div class="l_input__product--submitB u_display--center">
         <button id="js-click-delete" class="btn" type="button" data-id="{{$productData->id}}" >
             {{ __('Delete') }}
         </button>
     </div>
-</form>
 {{-- submit delete END--}}
+
+
+{{-- submit return --}}
+    <div class="l_input__product--submitD u_display--center">
+        <button id="js-click-return" class="btn" type="button" >
+            {{ __('Return') }}
+        </button>
+    </div>
+{{-- submit return END--}}
 
 </div>
 </form>

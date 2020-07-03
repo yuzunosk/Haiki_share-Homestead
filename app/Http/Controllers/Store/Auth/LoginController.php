@@ -7,6 +7,8 @@ use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Log;
+
 
 class LoginController extends Controller
 {
@@ -28,12 +30,23 @@ class LoginController extends Controller
     // ログイン画面
     public function showLoginForm()
     {
+        Log::info('「「「「「「「「「「「「「「「「「「');
+        Log::info('--------ログイン処理開始----------');
+        Log::info('」」」」」」」」」」」」」」」」」」');
+
         return view('store.auth.login');
     }
 
     // ログアウト処理
     public function logout(Request $request)
     {
+        Log::info('「「「「「「「「「「「「「「「「「「');
+        Log::info('--------ログアウト処理開始----------');
+        Log::info('」」」」」」」」」」」」」」」」」」');
+
+        Log::info($request);
+
+
         Auth::guard('store')->logout();
 
         return $this->loggedOut($request);

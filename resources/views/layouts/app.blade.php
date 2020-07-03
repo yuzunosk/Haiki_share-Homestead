@@ -69,7 +69,7 @@
                     @unless(Auth::guard('user')->check())
                     <div class="c_nav-menu">
                         <li class="u_display--center u_font__default text-color--default">
-                            <a class="nav-link" href="{{ route('user.login') }}">{{ __('Login') }}</a>
+                            <a class="nav-link" href="{{ route('LoginSelect') }}">{{ __('Login') }}</a>
                         </li>
                         <li class="u_display--center u_font__default text-color--default">
                             <a class="nav-link" href="{{ route('RegistSelect') }}">{{ __('Singin') }}</a>
