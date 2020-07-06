@@ -7,7 +7,6 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        height: 100%;
         flex-direction: row;
 
         //上下左右センター配置 隅配置 縦列
@@ -24,6 +23,11 @@
         display: flex;
         justify-content: space-around;
         align-items: center;
+        flex-wrap: wrap;
+
+        @include mq() {
+            justify-content: flex-start;
+        }
     }
 
     //上下センター 文字列flex-start
@@ -32,6 +36,14 @@
         justify-content: flex-start;
         align-items: center;
         flex-direction: row;
+
+        &--wrap {
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            flex-direction: row;
+            flex-wrap: wrap;
+        }
 
         &--Astart {
             align-items: flex-start;
@@ -44,6 +56,12 @@
             height: 100%;
             flex-direction: column;
         }
+    }
+
+    &--Jstart--info {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
     }
 
     //上下センター 文字列flex-end

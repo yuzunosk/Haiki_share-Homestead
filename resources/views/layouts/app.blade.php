@@ -59,34 +59,15 @@
             @endif
     
             <nav class="l-header">
-                <div>
-                    <a class="u_site--title u_display--center" href="{{ url('/top') }}">
+                    <a class="l-header__left u_site--title u_site--title--bold u_display--center" href="{{ url('/top') }}">
                         {{ config('app.name', 'Laravel') }}
                     </a>
-                </div>
-                <div class="l-header__nav">
+                <div class="l-header__right">
                     <!-- ログインしてなければ表示 -->
-                    @unless(Auth::guard('user')->check())
-                    <div class="c_nav-menu">
-                        <li class="u_display--center u_font__default text-color--default">
-                            <a class="nav-link" href="{{ route('LoginSelect') }}">{{ __('Login') }}</a>
-                        </li>
-                        <li class="u_display--center u_font__default text-color--default">
-                            <a class="nav-link" href="{{ route('RegistSelect') }}">{{ __('Singin') }}</a>
-                        </li>
-    
-                    </div>
-                    @endunless
-                    @if(Auth::guard('user')->check())
-                    <div class="c_nav-menu">
-                        <form id="logout-form" action="{{ route('user.logout') }}" method="POST">
-                            @csrf
-                            <li class="u_display--center u_font__default text-color--default">
-                                <button type="submit" class="nav-link" href="{{ route('user.logout') }}">{{ __('Logout') }}</button>
-                            </li>
-                        </form>
-                    </div>
-                    @endif
+                            <i class="l-header__right__iconA fas fa-sign-in-alt  fa-3x"></i>
+                            <a class="l-header__right__textA"l-header__right__textB" href="{{ route('LoginSelect') }}">{{ __('Login') }}</a>
+                            <i class="l-header__right__iconB fas fa-glass-cheers  fa-3x"></i>
+                            <a class="l-header__right__textB"l-header__right__textB" href="{{ route('RegistSelect') }}">{{ __('Singin') }}</a>
                 </div>
             </nav>
     

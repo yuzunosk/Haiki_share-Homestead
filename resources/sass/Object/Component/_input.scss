@@ -6,7 +6,7 @@
         border: 2px solid $footer-color__primary;
         border-radius: 5px;
         padding: 0 10px;
-        width: 90%;
+        width: 100%;
         height: 40px;
         text-align: left;
     }
@@ -31,7 +31,7 @@
 // -----------------------------
 .c_serch {
     &__container {
-        background-color: #fff;
+        background: $sub-color__secondary;
         color: #333;
         display: grid;
         grid-template:
@@ -53,6 +53,11 @@
         position: absolute;
         top: 180px;
         right: 0;
+        z-index: 999;
+
+        @include mq() {
+            right: 35px;
+        }
 
         &::before {
             content: "";

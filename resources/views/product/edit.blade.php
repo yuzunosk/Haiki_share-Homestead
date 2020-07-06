@@ -148,7 +148,7 @@
 
 
 {{-- submit delete --}}
-    <div class="l_input__product--submitB u_display--center">
+    <div class="l_input__product--submitC u_display--center">
         <button id="js-click-delete" class="btn" type="button" data-id="{{$productData->id}}" >
             {{ __('Delete') }}
         </button>

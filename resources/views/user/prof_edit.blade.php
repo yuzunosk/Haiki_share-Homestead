@@ -89,21 +89,20 @@
 
 
         <div class="l_profile--foot u_display--center">
-            <button class="btn" type="submit" class="">
+            <button class="btn btn--gray" type="submit" class="">
                 {{ __('Update') }}
             </button>
         </div>
         <!-- 入力フォーム枠 END -->
 
-        <!-- 戻る -->
-        <div class="l_profile--return  u_display--center">
-            <form method="GET" action="{{ redirect('/user/home')}}">
-                <button type="submit" class="btn">
-                    {{ __('Return') }}
-                </button>
-                </fotm>
+
+        {{-- submit return --}}
+        <div class="l_profile--return u_display--center">
+            <button id="js-click-return-userhome" class="btn btn--gray" type="button" >
+                {{ __('Return') }}
+            </button>
         </div>
-        <!-- 戻る END -->
+        {{-- submit return END--}}
 
 
     </div>

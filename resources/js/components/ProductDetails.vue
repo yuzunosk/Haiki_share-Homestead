@@ -28,7 +28,7 @@
         </div>
         <div class="l_detail--main--info--info l_detail--main--info__container">
           <h2
-            class="l_detail--main--info__container--title u_display--Jstart u_font__lage--text"
+            class="l_detail--main--info__container--title u_display--Jstart--info u_font__lage--text"
           >{{ productdata.name }}</h2>
 
           <p class="l_detail--main--info__container--category u_display--Jstart">
@@ -45,14 +45,14 @@
             class="l_detail--main--info__container--price-r u_display--center u_font__text--price--lage u_red--text"
           >セール価格 ¥ {{ productdata.price }}</h3>
         </div>
-        <div class="l_detail--main--info--foot mr-40">
+        <div class="l_detail--main--info--foot">
           <button
             :class="changeClassBtn"
             v-if="isPurchase"
             @click="clickDone"
             :disabled="isDisabled"
           >{{ toggleText }}</button>
-          <!-- 状況で変化するボタンのコンポーネント：if文 編集可能か：購入可能か -->
+          <!-- 状況で変化するボタンのコンポーネント：if文 編集可能か：購入可能か-->
           <component :is="isWhich"></component>
         </div>
       </div>

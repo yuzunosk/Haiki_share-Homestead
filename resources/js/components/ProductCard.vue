@@ -1,14 +1,16 @@
 <template>
   <div>
-    <div class="l_product__card__container mb-100 mr-100" @click="clickScreenTransition">
+    <div class="l_product__card__container" @click="clickScreenTransition">
       <p v-if="!isEdit" class="l_product__card__label u_size__icon--label">SOLD</p>
       <img class="l_product--pic u_img__fit--cover100" :src="picData" alt="商品画像" />
       <div class="c_product__card__container">
-        <p class="c_product__card--name u_display--Jstart u_font__default">{{ p_data.name }}</p>
+        <p
+          class="c_product__card--name u_display--Jstart u_size__icon--label--text"
+        >{{ p_data.name }}</p>
         <p
           class="c_product__card--price u_display--end u_font__text--price--lage"
         >￥{{ p_data.price }}円</p>
-        <div class="c_product__card--unit">
+        <section class="c_product__card--unit">
           <a
             :href="edit_Link"
             class="c_product__card--unit--iconA u_size__icon--card"
@@ -20,7 +22,7 @@
           <a :href="info_link" class="c_product__card--unit--iconB u_size__icon--card">
             <i class="far fa-file-alt"></i>
           </a>
-        </div>
+        </section>
       </div>
     </div>
   </div>

@@ -2,11 +2,7 @@
   <div class="c_new__Arrival--unit">
     <span class="c_new__Arrival--unit--text u_display--Jstart--Astart u_text--align">{{ data.name }}</span>
     <a :href="info_link">
-      <img
-        class="c_new__Arrival--unit--img u_display--center"
-        :src="picData"
-        style="object-fit:contain;margin:0 auto;"
-      />
+      <img class="c_new__Arrival--unit--img u_display--center" :src="picData" />
     </a>
   </div>
 </template>

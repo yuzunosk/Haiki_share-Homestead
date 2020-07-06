@@ -2,19 +2,105 @@
 //  header
 // ====================================
 .l-header {
-    background-color: $base-color__primary;
+    background-color: $footer-color__primary;
     display: grid;
     grid-area: header;
-    grid-template-columns: 35% 5fr 5fr;
+    grid-template:
+        "left center right" 100%
+        /33% 33% 34%;
     height: 70px;
     width: 100%;
-    color: $sub-color__primary;
+    color: $font-color__main;
 
-    &__title {
-        grid-column: 1;
+    @include mq() {
+        grid-template:
+            "left right" 100%
+            /40% 60%;
     }
 
-    &__nav {
-        grid-column: 3;
+    &__left {
+        grid-area: left;
+    }
+
+    &__right {
+        grid-area: right;
+        display: grid;
+        grid-template:
+            "iconA textA iconB textB" 100%
+            /1fr 2fr 1fr 2fr;
+        justify-content: center;
+        align-items: center;
+
+        @include mq() {
+            grid-template:
+                "iconA iconB" 65%
+                "textA textB" 35%
+                /1fr 1fr;
+        }
+
+        &__iconA {
+            grid-area: iconA;
+            margin: 0 auto;
+        }
+
+        &__textA {
+            grid-area: textA;
+            color: #f6f5f4;
+            font-size: $font-size__default;
+
+            @include mq() {
+                font-size: $font-size__sm;
+                text-align: center;
+            }
+        }
+
+        &__iconB {
+            grid-area: iconB;
+            margin: 0 auto;
+
+            &--logout {
+                grid-area: right;
+                display: grid;
+                grid-template:
+                    ".... iconC textC ...." 100%
+                    / 35% 10% 25% 30%;
+                justify-content: center;
+                align-items: center;
+
+                @include mq() {
+                    grid-area: right;
+                    grid-template:
+                        ".... iconC" 65%
+                        ".... textC" 35%
+                        / 60% 40%;
+                }
+            }
+        }
+
+        &__textB {
+            grid-area: textB;
+            color: #f6f5f4;
+            font-size: $font-size__default;
+
+            @include mq() {
+                font-size: $font-size__sm;
+                text-align: center;
+            }
+        }
+        &__iconC {
+            grid-area: iconC;
+            margin: 0 auto;
+        }
+
+        &__textC {
+            grid-area: textC;
+            color: #f6f5f4;
+            font-size: $font-size__default;
+
+            @include mq() {
+                font-size: $font-size__sm;
+                text-align: center;
+            }
+        }
     }
 }

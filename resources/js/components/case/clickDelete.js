@@ -4,6 +4,7 @@
 const clickDelete = document.getElementById("js-click-delete");
 const clickReturn = document.getElementById("js-click-return");
 const clickReturnHome = document.getElementById("js-click-return-home");
+const clickReturnUserHome = document.getElementById("js-click-return-userhome");
 // =================
 // 処理
 // =================
@@ -35,5 +36,13 @@ if (clickReturnHome != null) {
         // alert("クリックされました");
         //画面を遷移させる
         window.location.href = "/store/home/";
+    });
+}
+
+if (clickReturnUserHome != null) {
+    clickReturnUserHome.addEventListener("click", () => {
+        // alert("クリックされました");
+        //画面を遷移させる
+        window.location.href = "/user/home/";
     });
 }

@@ -35,35 +35,25 @@
         @endif
 
         <nav class="l-header">
-            <div>
-                <a class="u_site--title u_display--center" href="{{ url('/top') }}">
+                <a class="l-header__left  u_site--title u_site--title--bold u_display--center" href="{{ url('/top') }}">
                     {{ config('app.name', 'Laravel') }}
                 </a>
-            </div>
-            <div class="l-header__nav">
                 <!-- ログインしてなければ表示 -->
                 @unless(Auth::guard('store')->check())
-                <div class="c_nav-menu">
-                    <li class="u_display--center u_font__default text-color--default">
-                        <a class="nav-link" href="{{ route('LoginSelect') }}">{{ __('Login') }}</a>
-                    </li>
-                    <li class="u_display--center u_font__default text-color--default">
-                        <a class="nav-link" href="{{ route('RegistSelect') }}">{{ __('Singin') }}</a>
-                    </li>
-
-                </div>
+                        <div class="l-header__right">
+                            <i class="l-header__right__iconA fas fa-sign-in-alt  fa-3x"></i>
+                            <a class="l-header__right__textA"l-header__right__textB" href="{{ route('LoginSelect') }}">{{ __('Login') }}</a>
+                            <i class="l-header__right__iconB fas fa-glass-cheers  fa-3x"></i>
+                            <a class="l-header__right__textB"l-header__right__textB" href="{{ route('RegistSelect') }}">{{ __('Singin') }}</a>
+                        </div>
                 @endunless
-                @if(Auth::guard('store')->check())
-                <div class="c_nav-menu">
-                    <form id="logout-form" action="{{ route('store.logout') }}" method="POST">
-                        @csrf
-                        <li class="u_display--center u_font__default text-color--default">
-                            <button type="submit" class="nav-link" href="{{ route('store.logout') }}">{{ __('Logout') }}</button>
-                        </li>
-                    </form>
-                </div>
-                @endif
-            </div>
+                    @if(Auth::guard('store')->check())
+                        <form id="logout-form" action="{{ route('store.logout') }}" method="POST" class="l-header__right__iconB--logout">
+                            @csrf
+                            <i class="l-header__right__iconC fas fa-sign-out-alt fa-3x"></i>
+                                <button type="submit" class="l-header__right__textC">{{ __('Logout') }}</button>
+                        </form>
+                    @endif
         </nav>
 
         <div id="app" class="l_main__container">

@@ -36,6 +36,10 @@
 
 .mr-100 {
     margin-right: $space__5l;
+
+    @include mq() {
+        margin-right: $space__xxl;
+    }
 }
 
 // ----------

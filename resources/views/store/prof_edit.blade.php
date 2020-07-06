@@ -113,15 +113,14 @@
         </div>
         <!-- 入力フォーム枠 END -->
 
-        <!-- 戻る -->
-        <div class="l_profile--return  u_display--center">
-            <form method="GET" action="{{ redirect('/store/home')}}">
-                <button type="submit" class="btn">
-                    {{ __('Return') }}
-                </button>
-                </fotm>
+ 
+        {{-- submit return --}}
+        <div class="l_profile--return u_display--center">
+            <button id="js-click-return-home" class="btn btn--gray"typ="button" >
+                {{ __('Return') }}
+            </button>
         </div>
-        <!-- 戻る END -->
+        {{-- submit return END--}}
 
 
     </div>

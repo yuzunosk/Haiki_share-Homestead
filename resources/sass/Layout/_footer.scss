@@ -5,7 +5,7 @@
     grid-area: footer;
     width: 100%;
     height: 350px;
-    background-color: #4a4a4a;
+    background-color: $footer-color__primary;
 
     &__container {
         display: grid;

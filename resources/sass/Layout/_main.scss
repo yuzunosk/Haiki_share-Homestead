@@ -18,6 +18,7 @@
 .l_main__container {
     grid-area: main;
     position: relative;
+    width: 100%;
 
     &::before {
         content: "";
@@ -193,11 +194,19 @@
         margin: 10vh auto;
         border: 3px solid #333;
         border-radius: 10px;
+        background: $sub-color__secondary;
         grid-template:
             " head  " 160px
             " main  " 1fr
             " foot  " 80px
             / 100%;
+
+        @include mq() {
+            width: 100%;
+            margin: 10vh 0;
+            border: 1px solid #333;
+            border-radius: 0;
+        }
     }
 
     &__user__container {
@@ -299,11 +308,18 @@
                 "head" 150px
                 "main" 300px
                 "foot" 150px/100%;
-            margin: 0 auto;
+            margin: 10vh auto;
             width: 60%;
             border: 3px solid #333;
             border-radius: 10px;
             background: #f6f5f4;
+
+            @include mq() {
+                margin: 10vh 0;
+                width: 100%;
+                border: 1px solid #333;
+                border-radius: 0;
+            }
         }
 
         &--head {
@@ -315,6 +331,10 @@
                 "subtitle" 30%
                 "....." 15%
                 / 100%;
+
+            @include mq() {
+                padding: 10px;
+            }
         }
 
         &--title {
@@ -331,6 +351,13 @@
             grid-template:
                 "left right" 100%
                 / 50% 50%;
+
+            @include mq() {
+                grid-template:
+                    "left " 50%
+                    "right" 50%
+                    / 100%;
+            }
         }
 
         &--left {
@@ -344,6 +371,11 @@
                 margin: 0 50px 0 auto;
                 border: 2px solid #707070;
                 border-radius: 10px;
+
+                @include mq() {
+                    height: 70px;
+                    margin: 0 auto;
+                }
             }
         }
 
@@ -358,6 +390,11 @@
                 margin: 0 auto 0 50px;
                 border: 2px solid #707070;
                 border-radius: 10px;
+
+                @include mq() {
+                    height: 70px;
+                    margin: 0 auto;
+                }
             }
         }
 
@@ -387,11 +424,19 @@
         margin: 10vh auto;
         border: 3px solid #333;
         border-radius: 10px;
+        background: $sub-color__secondary;
         grid-template:
             " head  " 160px
             " main  " 1fr
             " foot  " 80px
             / 100%;
+
+        @include mq() {
+            margin: 10vh 0;
+            width: 100%;
+            border: 1px solid #333;
+            border-radius: 0;
+        }
     }
     &__form__container {
         display: grid;
@@ -442,7 +487,11 @@
     &__container {
         display: grid;
         height: 100%;
-        margin: 0 15%;
+        width: 60%;
+        border: 3px solid #333;
+        border-radius: 10px;
+        background: $sub-color__secondary;
+        margin: 10vh auto;
         grid-template:
             "...... ...... ......  ......   ......"
             "...... ......   top   ......   ......" 100px
@@ -453,8 +502,29 @@
             "..... submitA submitB submitC ......" 100px
             "...... ...... submitD ....... ......" 100px
             / 10% 30% 20% 30% 10%;
-        border: 3px solid #333;
-        border-radius: 10px;
+
+        @include mq() {
+            width: 100%;
+            margin: 10vh 0;
+            border: 1px solid #333;
+            border-radius: 0;
+            grid-template:
+                "......  ......   ......"
+                "......   top     ......" 100px
+                "......   name    ......" 100px
+                "......  category ......" 100px
+                "......  r_price  ......" 100px
+                "......   price   ......" 100px
+                "......   sellby  ......" 100px
+                "......  store_id ......" 100px
+                "......    pic    ......" 300px
+                "......  .....    ......" 100px
+                "......  submitA  ......" 100px
+                "......  submitB  ......" 100px
+                "......  submitC  ......" 100px
+                " ...... submitD ......." 100px
+                / 5% 90% 5%;
+        }
     }
     &--check {
         display: grid;
@@ -497,6 +567,11 @@
             position: relative;
             width: 300px;
             height: 250px;
+
+            @include mq() {
+                width: 100%;
+                height: 100%;
+            }
         }
 
         &--submit {
@@ -530,12 +605,22 @@
             " ......" 50px
             " main  " 800px
             / 100%;
+
+        @include mq() {
+            margin: 10vh 0;
+            grid-template:
+                " menu  " 200px
+                " ......" 50px
+                " main  "
+                / 100%;
+        }
     }
 
     &__menu {
         grid-area: menu;
         border: 3px solid #333;
         border-radius: 10px;
+        background-color: $sub-color__secondary;
         display: grid;
         padding: 20px;
         grid-template:
@@ -544,21 +629,83 @@
             "left  center right " 1fr
             /33% 1fr 33%;
 
+        @include mq() {
+            border: 1px solid #333;
+            border-radius: unset;
+            padding: 5px;
+            grid-template:
+                "..... title  ..... " 30%
+                "iconA iconB  iconC  " 70px
+                "left  center right " 1fr
+                /33% 34% 33%;
+        }
+
         &--title {
             grid-area: title;
+        }
+
+        &--menu {
+            grid-area: menu;
+        }
+
+        &--icon {
+            &-left {
+                display: none;
+                grid-area: iconA;
+                margin: 0 auto;
+                align-self: center;
+                @include mq() {
+                    display: block;
+                }
+            }
+
+            &-center {
+                display: none;
+                grid-area: iconB;
+                margin: 0 auto;
+                align-self: center;
+                @include mq(md) {
+                    display: block;
+                }
+            }
+
+            &-right {
+                display: none;
+                grid-area: iconC;
+                margin: 0 auto;
+                align-self: center;
+                @include mq(md) {
+                    display: block;
+                }
+            }
         }
 
         &--link {
             &-left {
                 grid-area: left;
+                text-align: center;
+
+                @include mq() {
+                    font-size: $font-size__sm;
+                }
             }
 
             &-center {
                 grid-area: center;
+                text-align: center;
+
+                @include mq() {
+                    font-size: $font-size__sm;
+                }
             }
 
             &-right {
                 grid-area: right;
+                text-align: center;
+
+                @include mq() {
+                    font-size: $font-size__sm;
+                }
             }
         }
     }
@@ -567,6 +714,7 @@
         grid-area: main;
         border: 3px solid #333;
         border-radius: 10px;
+        background-color: $sub-color__secondary;
         padding: 20px;
         display: grid;
         grid-template:
@@ -576,6 +724,18 @@
             "..... setB  ....." 200px
             "..... ..... ....." 2fr
             / auto 100% auto;
+
+        @include mq() {
+            border: 1px solid #333;
+            border-radius: unset;
+            padding: 5px;
+            grid-template:
+                "..... ..... ....." 50px
+                "..... setA  ....."
+                "..... ..... ....." 50px
+                "..... setB  ....."
+                / auto 100% auto;
+        }
 
         &--setA {
             grid-area: setA;
@@ -589,11 +749,18 @@
             grid-area: main;
             border: 3px solid #333;
             border-radius: 10px;
+            background: $sub-color__secondary;
             padding: 20px;
             display: flex;
             flex-direction: column;
             align-items: center;
             height: 100%;
+
+            @include mq() {
+                border: 1px solid #333;
+                border-radius: 0;
+                padding: 10px;
+            }
         }
     }
 }
@@ -608,12 +775,20 @@
         margin: 10vh auto;
         border: 3px solid #333;
         border-radius: 10px;
+        background: $sub-color__secondary;
         grid-template:
             " head  " 160px
             " main  " 1fr
             " foot  " 80px
             " return " 80px
             / 100%;
+
+        @include mq() {
+            width: 100%;
+            margin: 10vh 0;
+            border: none;
+            border-radius: 0;
+        }
     }
 
     &__store_form__container {
@@ -651,6 +826,13 @@
         grid-template:
             "text form" 100%
             / 40% 60%;
+
+        @include mq() {
+            grid-template:
+                "text" 1fr
+                "form" 1fr
+                / 100%;
+        }
     }
 
     &--title {
@@ -704,11 +886,15 @@
     &__container {
         display: grid;
         border-radius: 10px;
-        margin: 100px 60px;
+        margin: 10vh 60px;
         grid-template:
-            " main  " 2.5fr
+            " main  "
             " info  " 1fr
             / 100%;
+
+        @include mq() {
+            margin: 10vh 0;
+        }
     }
 
     &--main {
@@ -718,6 +904,13 @@
             "hero info" 100%
             / 60% 40%;
         position: relative;
+
+        @include mq() {
+            grid-template:
+                "hero" 300px
+                "info" 500px
+                / 100%;
+        }
 
         &--attention {
             position: absolute;
@@ -729,11 +922,23 @@
             background: #ffffff;
             color: #f44336;
             text-align: center;
+
+            @include mq() {
+                top: 15%;
+                left: 0%;
+                width: 100%;
+                height: 60px;
+                line-height: 60px;
+            }
         }
 
         &--hero {
             grid-area: hero;
             border-radius: 10px;
+
+            @include mq() {
+                border-radius: 0;
+            }
         }
 
         &--info {
@@ -744,6 +949,14 @@
                 "info" 2fr
                 "foot" 1fr
                 /100%;
+
+            @include mq() {
+                grid-template:
+                    "head" 100px
+                    "info" 2fr
+                    "foot" 1fr
+                    /100%;
+            }
 
             &--head {
                 grid-area: head;
@@ -771,12 +984,22 @@
 
             &--foot {
                 grid-area: foot;
+                margin-right: 40px;
                 display: grid;
                 grid-template:
                     "btn component" 1fr
                     ".... ...." 1fr
                     ".... ...." 1fr
                     / 50% 50%;
+
+                @include mq() {
+                    margin-right: 0;
+                    grid-template:
+                        ".... ...." 1fr
+                        "btn component" 1fr
+                        ".... ...." 1fr
+                        / 50% 50%;
+                }
             }
 
             &--btn {
@@ -798,6 +1021,17 @@
                 "price-l  price-r" 40%
                 ".......  ......." 20px
                 / 40% 60%;
+
+            @include mq() {
+                grid-template:
+                    "title      title" 20%
+                    ".......    ......." 20px
+                    "category   ......." 20%
+                    "expiration ......." 20%
+                    "price-l    price-r" 40%
+                    ".......    ......." 30px
+                    / 40% 60%;
+            }
 
             &--title {
                 grid-area: title;
@@ -832,6 +1066,22 @@
             "textC  dataC  textG  dataG" 50px
             "textD  dataD  textH  dataH" 50px
             /10% 40% 10% 40%;
+
+        @include mq() {
+            padding: 8px;
+            grid-template:
+                "head   ....." 50px
+                ".....  ....." 15px
+                "textA  dataA" 50px
+                "textB  dataB" 50px
+                "textC  dataC" 50px
+                "textD  dataD" 50px
+                "textH  dataH" 50px
+                "textE  dataE" 50px
+                "textF  dataF" 50px
+                "textG  dataG" 50px
+                /30% 70%;
+        }
 
         &--head {
             grid-area: head;
@@ -914,10 +1164,17 @@
         display: grid;
         border: 2px solid #999;
         border-radius: 50px;
+        background: $sub-color__secondary;
         grid-template:
             "pic   name  icon " 70px
             /70px 1fr 70px;
         width: 100%;
+
+        @include mq() {
+            grid-template:
+                "pic   name  icon " 50px
+                /50px 1fr 50px;
+        }
     }
 
     &--pic {
@@ -949,7 +1206,18 @@
                 flex-wrap: wrap;
 
                 & div:nth-child(4n) {
-                    margin-right: -100px;
+                    margin-right: -104px;
+
+                    @include mq() {
+                        margin-right: 0;
+                    }
+                }
+                @include mq() {
+                    padding: 25px;
+
+                    & div:nth-child(3n) {
+                        margin-right: -25px;
+                    }
                 }
             }
         }
@@ -960,6 +1228,16 @@
             border: 3px solid #333;
             border-radius: 5px;
             position: relative;
+            margin-right: 104px;
+            margin-bottom: 100px;
+
+            @include mq() {
+                width: 90px;
+                height: 130px;
+                border: 1px solid #333;
+                margin-right: 25px;
+                margin-bottom: 50px;
+            }
         }
 
         &__label {
@@ -974,9 +1252,16 @@
             height: 70px;
             line-height: 65px;
             text-align: center;
-            font-size: 16px;
             transform: rotateZ(45deg);
-            color: #f6f5f4;
+
+            @include mq() {
+                top: -15px;
+                right: -15px;
+                border: 1px solid #333;
+                width: 40px;
+                height: 40px;
+                line-height: 35px;
+            }
         }
     }
 
@@ -1017,8 +1302,11 @@
 // -------------------------
 .l_pagination__container {
     display: flex;
-    justify-content: flex-end;
+    justify-content: center;
     align-items: center;
+    flex-direction: row;
+    height: 100%;
+    width: 100%;
 }
 // -------------------------
 // index
@@ -1032,6 +1320,15 @@
             "main" 1fr
             "paginate" 200px
             / 100%;
+
+        @include mq() {
+            margin: 0;
+            grid-template:
+                "head" 200px
+                "main" 1fr
+                "paginate" 100px
+                / 100%;
+        }
     }
 
     &__head {
@@ -1044,6 +1341,7 @@
             "..... ..... ....." 30px
             / 33% 34% 33%;
         position: relative;
+        width: 100%;
 
         &--title {
             grid-area: title;
@@ -1060,5 +1358,6 @@
 
     &__paginate {
         grid-area: paginate;
+        width: 100%;
     }
 }

@@ -16,6 +16,15 @@
                 "price" 15%
                 "unit" 8%
                 / 100%;
+
+            @include mq() {
+                grid-template:
+                    "name" 20%
+                    "main" 1fr
+                    "price" 15%
+                    "unit" 15%
+                    / 100%;
+            }
         }
 
         &--name {
@@ -72,6 +81,13 @@
                 "main" 1fr
                 "price" 15%
                 / 100%;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: wrap;
+
+            @include mq() {
+                white-space: nowrap;
+            }
         }
 
         &--name {

@@ -51,7 +51,7 @@ $_GET['order'] = (isset($_GET['order'])) ? $_GET['order'] : "";
 
             {{-- ここからページネート --}}
             <div class="l_index__paginate">
-                <ul  class="l_pagination__container u_display--center">
+                <ul  class="l_pagination__container">
     
                     @php
                         //現在のページが総ページ数と同じかつ、総ページ数がページ表示数よりも多い場合、左にリンクを４つ表示する

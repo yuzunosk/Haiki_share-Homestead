@@ -7,8 +7,17 @@
         grid-template:
             "title ..... info " 30px
             "..... ..... ....." 20px
-            "group group group" 150px
+            "group group group"
             /1fr 1fr 1fr;
+
+        @include mq() {
+            grid-template:
+                "title ..... ....." 30px
+                "..... ..... ....." 20px
+                "group group group"
+                "..... ..... info" 100px
+                /40% 20% 40%;
+        }
     }
 
     &--title {
@@ -21,15 +30,35 @@
 
     &--group {
         grid-area: group;
+
+        & div:nth-child(5n) {
+            margin-right: -53px;
+
+            @include mq() {
+                margin-right: 0px;
+            }
+        }
     }
 
     &--unit {
         display: grid;
         grid-template:
             "img" 100px
+            "...." 20px
             "text" 50px
             / 150px;
         font-size: 12px;
+        margin-right: 53px;
+
+        @include mq() {
+            grid-template:
+                "img" 100px
+                "...." 20px
+                "text" 50px
+                /100%;
+            width: 50%;
+            margin-right: 0;
+        }
 
         &--text {
             grid-area: text;
@@ -37,6 +66,10 @@
 
         &--img {
             grid-area: img;
+            width: 135px;
+            height: 100%;
+            object-fit: cover;
+            margin: 0 auto;
         }
     }
 }
