@@ -40,6 +40,7 @@
             align-items: center;
             padding-right: 15px;
             position: relative;
+            font-size: $font-size__default;
 
             &::before,
             ::after {
@@ -57,7 +58,8 @@
             @include mq() {
                 width: 30px;
                 height: 30px;
-                padding-right: 10px;
+                padding-right: 5px;
+                font-size: $font-size__sm;
             }
         }
 

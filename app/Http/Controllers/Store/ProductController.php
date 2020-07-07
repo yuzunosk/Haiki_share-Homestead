@@ -43,12 +43,6 @@ class ProductController extends Controller
         $currentPageNum = (!empty($p)) ? (int) $p : "1";
         Log::info("現在のページ情報:" . $currentPageNum);
 
-        // if (!is_int((int) $currentPageNum)) {
-        //     // ただしいIDかどうか判定
-        //     if (!ctype_digit($id)) {
-        //         return redirect()->route('store.product.index')->with('flash_message', __('Invalid operation was performed.'));
-        //     }
-        // }
         // 表示件数
         $listSpan = 12;
         //現在の表示レコードの先頭
@@ -70,7 +64,7 @@ class ProductController extends Controller
         $sort = $request->session()->get('sort');
         $sortdata = $sort;
 
-        //ソート情報を取得し、セッションに詰める
+        //オーダー情報を取得し、セッションに詰める
         $order = (!empty($request->order)) ? $request->order  : "";
         $request->session()->put('order', $order);
 

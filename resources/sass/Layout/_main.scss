@@ -603,7 +603,7 @@
         grid-template:
             " menu  " 160px
             " ......" 50px
-            " main  " 800px
+            " main  "
             / 100%;
 
         @include mq() {
@@ -715,13 +715,14 @@
         border: 3px solid #333;
         border-radius: 10px;
         background-color: $sub-color__secondary;
+        min-height: 300px;
         padding: 20px;
         display: grid;
         grid-template:
             "..... ..... ....." 2fr
-            "..... setA  ....." 200px
+            "..... setA  ....."
             "..... ..... ....." 1fr
-            "..... setB  ....." 200px
+            "..... setB  ....."
             "..... ..... ....." 2fr
             / auto 100% auto;
 

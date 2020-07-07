@@ -4,6 +4,8 @@
  * building robust, powerful web applications using Vue and Laravel.
  */
 
+const { entries } = require("lodash");
+
 require("./components/case/bootstrap");
 require("./components/case/partial");
 require("./components/case/showSerch.js");

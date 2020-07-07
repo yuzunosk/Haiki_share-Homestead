@@ -12258,7 +12258,7 @@ img {
   display: grid;
   height: 100%;
   margin: 10vh 15%;
-  grid-template: " menu  " 160px " ......" 50px " main  " 800px/100%;
+  grid-template: " menu  " 160px " ......" 50px " main  "/100%;
 }
 
 @media screen and (max-width: 414px) {
@@ -12372,9 +12372,10 @@ img {
   border: 3px solid #333;
   border-radius: 10px;
   background-color: #fffde5;
+  min-height: 300px;
   padding: 20px;
   display: grid;
-  grid-template: "..... ..... ....." 2fr "..... setA  ....." 200px "..... ..... ....." 1fr "..... setB  ....." 200px "..... ..... ....." 2fr/auto 100% auto;
+  grid-template: "..... ..... ....." 2fr "..... setA  ....." "..... ..... ....." 1fr "..... setB  ....." "..... ..... ....." 2fr/auto 100% auto;
 }
 
 @media screen and (max-width: 414px) {
@@ -13380,6 +13381,7 @@ img {
   align-items: center;
   padding-right: 15px;
   position: relative;
+  font-size: 16px;
 }
 
 .c_pagination__list--text::before,
@@ -13402,7 +13404,8 @@ img {
   .c_pagination__list--text {
     width: 30px;
     height: 30px;
-    padding-right: 10px;
+    padding-right: 5px;
+    font-size: 12px;
   }
 }
 

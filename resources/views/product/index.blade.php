@@ -83,20 +83,20 @@ $_GET['order'] = (isset($_GET['order'])) ? $_GET['order'] : "";
             
                         {{-- 現在のページ数が１以外の時表示する --}}
                         @if($currentPageNum != 1)
-                                <a class="c_pagination__list--prev c_pagination__list--text u_font__default" href="{{route('store.product.index' , [1 , $sort , $order])}}">
+                                <a class="c_pagination__list--prev c_pagination__list--text" href="{{route('store.product.index' , [1 , $sort , $order])}}">
                                     <i class="fas fa-chevron-left"></i>
                                 </a>
                         @endif
             
                         @for($i = $minPageNum; $i <= $maxPageNum; $i++)
-                                <a  class="c_pagination__list--icon <?php if(($currentPageNum ) == $i ) echo "c_pagination--active" ?> c_pagination__list--text u_font__default" href="{{route('store.product.index' ,[ $i , $sort , $order])}}">
+                                <a  class="c_pagination__list--icon <?php if(($currentPageNum ) == $i ) echo "c_pagination--active" ?> c_pagination__list--text" href="{{route('store.product.index' ,[ $i , $sort , $order])}}">
                                     <?php echo $i ?>
                                 </a>
                         @endfor
             
                         {{-- 現在のページ数が、最大ページ数以外の時表じする --}}
                         @if ($currentPageNum != $maxPageNum)
-                                <a  class="c_pagination__list--text u_font__default c_pagination__list--next" href="{{route('store.product.index' , [$maxPageNum , $sort , $order])}}">
+                                <a  class="c_pagination__list--text c_pagination__list--next" href="{{route('store.product.index' , [$maxPageNum , $sort , $order])}}">
                                     <i class="fas fa-chevron-right"></i>
                                 </a>
                         @endif

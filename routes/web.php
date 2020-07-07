@@ -96,7 +96,7 @@ Route::namespace('Store')->prefix('store')->name('store.')->group(function () {
         Route::get('/product/edit/{id}', 'ProductController@edit')->name('product.edit');
         Route::post('/product/{id}', 'ProductController@update')->name('product.update');
         Route::get('/product/delete/{id}', 'ProductController@destroy')->name('product.delete');
-        Route::get('/product/exhibition', 'ProductExhibitionController')->name('product.exhibition');
+        Route::get('/product/exhibition/{page?}', 'ProductExhibitionController')->name('product.exhibition');
         Route::get('/product/sale', 'ProductSaleController')->name('product.sale');
     });
 });

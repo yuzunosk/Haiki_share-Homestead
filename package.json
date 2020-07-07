@@ -32,6 +32,7 @@
         "webpack-cli": "^3.3.11"
     },
     "dependencies": {
+        "vue-infinite-loading": "^2.4.5",
         "vue-router": "^3.1.6",
         "vue-template-compiler": "^2.6.11"
     }
