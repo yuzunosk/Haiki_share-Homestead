@@ -24,7 +24,7 @@ export default {
     data() {
         return {
             picData: "/storage/img/no-image.png",
-            isUrl: "/store/product/show/"
+            isUrl: "/store/product/show"
         };
     },
     methods: {

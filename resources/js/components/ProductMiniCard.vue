@@ -19,7 +19,7 @@ export default {
     data() {
         return {
             picData: "",
-            info_link: "/store/product/index/"
+            info_link: "/store/product/index"
         };
     },
     methods: {
