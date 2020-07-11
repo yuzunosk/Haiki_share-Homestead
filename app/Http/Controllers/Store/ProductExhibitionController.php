@@ -37,7 +37,7 @@ class ProductExhibitionController extends Controller
         Log::info("現在のページ情報:" . $currentPageNum);
 
         // 表示件数
-        $listSpan = 5;
+        $listSpan = 8;
         //現在の表示レコードの先頭
         $currentMinNum = ($currentPageNum - 1) * $listSpan;
         Log::info($currentMinNum . "個目からデータを取得する");

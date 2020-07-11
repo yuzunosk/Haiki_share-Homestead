@@ -1,79 +1,73 @@
 <template>
-  <div class="l_home__container u_font__default">
-    <div class="l_home__menu">
-      <h1 class="l_home__menu--title u_display--center u_font__text--title">マイページ</h1>
-      <a :href="list_Link" class="l_home__menu--icon-left">
-        <!-- 出品した商品一覧アイコン -->
-        <i class="fas fa-th-list fa-3x"></i>
-      </a>
-
-      <a :href="register_Link" class="l_home__menu--icon-center">
-        <!-- 出品するアイコン -->
-        <i class="fas fa-gifts fa-3x"></i>
-      </a>
-
-      <a :href="profile_Link" class="l_home__menu--icon-right">
-        <!-- プロフィール編集アイコン -->
-        <i class="far fa-address-card fa-3x"></i>
-      </a>
-
-      <p class="l_home__menu--link-left u_display--center">
-        <a :href="register_Link">出品する</a>
-      </p>
-      <p class="l_home__menu--link-center u_display--center">
-        <a :href="list_Link">出品した商品一覧</a>
-      </p>
-      <p class="l_home__menu--link-right u_display--center">
-        <a :href="profile_Link">プロフィール編集</a>
-      </p>
-    </div>
-    <div class="l_home__main">
-      <div class="l_home__main--setA c_new__Arrival__list">
-        <span class="c_new__Arrival--title u_display--Jstart">最近出品した商品</span>
-        <a :href="exhibition_link" class="c_new__Arrival--info u_display--end">全ての商品をみる</a>
-        <div class="u_display--Jstart--wrap c_new__Arrival--group">
-          <DescendingIcon v-for="(productdata, i) in productdatas" :key="i" :data="productdata"></DescendingIcon>
+    <div class="l_home__container u_font__default">
+        <StoreHomeMenu :storedata="storedata"></StoreHomeMenu>
+        <div class="l_home__main">
+            <div class="l_home__main--setA c_new__Arrival__list">
+                <span class="c_new__Arrival--title u_display--Jstart"
+                    >最近出品した商品</span
+                >
+                <a
+                    :href="exhibition_link"
+                    class="c_new__Arrival--info u_display--end"
+                    >全ての商品をみる</a
+                >
+                <div class="u_display--Jstart--wrap c_new__Arrival--group">
+                    <DescendingIcon
+                        v-for="(productdata, i) in productdatas"
+                        :key="i"
+                        :data="productdata"
+                    ></DescendingIcon>
+                </div>
+            </div>
+            <div class="l_home__main--setB c_new__Arrival__list">
+                <span class="c_new__Arrival--title u_display--Jstart"
+                    >最近売れた商品</span
+                >
+                <a :href="sale_link" class="c_new__Arrival--info u_display--end"
+                    >全ての商品をみる</a
+                >
+                <div class="u_display--Jstart--wrap c_new__Arrival--group">
+                    <DescendingIcon
+                        v-for="(buydata, i) in buydatas"
+                        :key="i"
+                        :data="buydata"
+                    ></DescendingIcon>
+                </div>
+            </div>
         </div>
-      </div>
-      <div class="l_home__main--setB c_new__Arrival__list">
-        <span class="c_new__Arrival--title u_display--Jstart">最近売れた商品</span>
-        <a :href="sale_link" class="c_new__Arrival--info u_display--end">全ての商品をみる</a>
-        <div class="u_display--Jstart--wrap c_new__Arrival--group">
-          <DescendingIcon v-for="(buydata, i) in buydatas" :key="i" :data="buydata"></DescendingIcon>
-        </div>
-      </div>
     </div>
-  </div>
 </template>
 
 <script>
 import DescendingIcon from "./DescendingIcon.vue";
+import StoreHomeMenu from "./StoreHomeMenu.vue";
 export default {
-  props: ["productdatas", "storedata", "buydatas"],
-  data() {
-    return {
-      data: ""
-    };
-  },
-  computed: {
-    register_Link() {
-      return "/store/product/new";
+    props: ["productdatas", "storedata", "buydatas"],
+    data() {
+        return {
+            data: ""
+        };
     },
-    list_Link() {
-      return "/store/product/index";
+    computed: {
+        register_Link() {
+            return "/store/product/new";
+        },
+        list_Link() {
+            return "/store/product/index";
+        },
+        profile_Link() {
+            return "/store/profile/edit/" + this.storedata.id;
+        },
+        exhibition_link() {
+            return "/store/product/exhibition";
+        },
+        sale_link() {
+            return "/store/product/sale";
+        }
     },
-    profile_Link() {
-      return "/store/profile/edit/" + this.storedata.id;
-    },
-    exhibition_link() {
-      return "/store/product/exhibition";
-    },
-    sale_link() {
-      return "/store/product/sale";
+    components: {
+        DescendingIcon,
+        StoreHomeMenu
     }
-  },
-  components: {
-    DescendingIcon
-  }
 };
 </script>

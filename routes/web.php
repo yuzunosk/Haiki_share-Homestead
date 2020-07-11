@@ -44,6 +44,8 @@ Route::namespace('User')->prefix('user')->name('user.')->group(function () {
     Route::post('/password/reset', 'Auth\UserResetPasswordController@reset');
     Route::get('/password/reset/{token}', 'Auth\UserResetPasswordController@showResetForm')->name('password.reset');
 
+
+
     //ログイン認証後
     Route::middleware('auth:user')->group(function () {
 
@@ -97,6 +99,6 @@ Route::namespace('Store')->prefix('store')->name('store.')->group(function () {
         Route::post('/product/{id}', 'ProductController@update')->name('product.update');
         Route::get('/product/delete/{id}', 'ProductController@destroy')->name('product.delete');
         Route::get('/product/exhibition/{page?}', 'ProductExhibitionController')->name('product.exhibition');
-        Route::get('/product/sale', 'ProductSaleController')->name('product.sale');
+        Route::get('/product/sale/{page?}', 'ProductSaleController')->name('product.sale');
     });
 });

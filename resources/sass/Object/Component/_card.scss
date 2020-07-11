@@ -111,6 +111,11 @@
             display: flex;
             justify-content: space-around;
             align-items: center;
+
+            @include mq() {
+                justify-content: flex-start;
+                flex-direction: column;
+            }
         }
 
         &__container {
@@ -120,6 +125,14 @@
                 /100%;
             width: 250px;
             position: relative;
+
+            @include mq() {
+                grid-template:
+                    "image" 350px
+                    /100%;
+                width: 250px;
+                margin-bottom: 70px;
+            }
 
             &::before {
                 content: "";
