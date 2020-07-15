@@ -39,10 +39,15 @@ Route::namespace('User')->prefix('user')->name('user.')->group(function () {
     ]);
 
     //user password reset routes
-    Route::post('/password/email', 'Auth\UserForgotPasswordController@sendResetLinkEmail')->name('password.email');
-    Route::get('/password/reset', 'Auth\UserForgotPasswordController@showLinkRequestForm')->name('password.request');
-    Route::post('/password/reset', 'Auth\UserResetPasswordController@reset');
-    Route::get('/password/reset/{token}', 'Auth\UserResetPasswordController@showResetForm')->name('password.reset');
+    //リセットビュー表示
+    Route::get('/password/reset', 'Auth\User_PassRemindSendController@show')->name('password.request');
+    // パスワードリセットメール送信
+    Route::post('/password/email', 'Auth\User_PassRemindSendController@resetEmail')->name('password.email');
+    // パスワードリセットフォーム表示
+    Route::get('/password/reset/{token}', 'Auth\User_PassRemindRecieveController@show')->name('password.reset');
+    // パスワードリセット処理
+    Route::post('/password/update', 'Auth\User_PassRemindRecieveController@update')->name('password.update');
+
 
 
 
@@ -77,8 +82,8 @@ Route::namespace('Store')->prefix('store')->name('store.')->group(function () {
     //store password reset routes
     Route::post('/password/email', 'Auth\StoreForgotPasswordController@sendResetLinkEmail')->name('password.email');
     Route::get('/password/reset', 'Auth\StoreForgotPasswordController@showLinkRequestForm')->name('password.request');
-    Route::post('/password/reset', 'Auth\StoreResetPasswordController@reset');
-    Route::get('/password/reset/{token}', 'Auth\StoreResetPasswordController@showResetForm')->name('password.reset');
+    // Route::post('/password/reset', 'Auth\StoreResetPasswordController@reset');
+    // Route::get('/password/reset/{token}', 'Auth\StoreResetPasswordController@showResetForm')->name('password.reset');
 
     //ログイン認証後
     Route::middleware('auth:store',)->group(function () {

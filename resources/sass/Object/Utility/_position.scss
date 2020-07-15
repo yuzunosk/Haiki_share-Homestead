@@ -1,5 +1,21 @@
+// ------------------
+// 特殊なポジション
+// ------------------
 .u_position_center {
     position: absolute;
     top: 50%;
     left: 17%;
+}
+
+.u_alert--red {
+    height: 65px;
+    line-height: 65px;
+    background: #e42b2b;
+    width: 100%;
+    position: absolute;
+    top: 70px;
+    z-index: 100;
+    opacity: 0.9;
+    text-align: center;
+    transition: 0.5s;
 }

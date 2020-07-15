@@ -24,7 +24,7 @@
 <body class="l_site__area">
     <div id="app">
 
-        <!-- フラッシュメッセージ --><!doctype html>
+        <!doctype html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 
     <head>
@@ -51,12 +51,6 @@
     <body class="l_site__area">
         <div class="l-site__warapper">
     
-            <!-- フラッシュメッセージ -->
-            @if (session('flash_message'))
-            <div class="alert alert-primary text-center" role="alert">
-                {{ session('flash_message') }}
-            </div>
-            @endif
     
             <nav class="l-header">
                     <a class="l-header__left u_site--title u_site--title--bold u_display--center" href="{{ url('/top') }}">
@@ -70,6 +64,14 @@
                             <a class="l-header__right__textB"l-header__right__textB" href="{{ route('RegistSelect') }}">{{ __('Singin') }}</a>
                 </div>
             </nav>
+
+                    <!-- フラッシュメッセージ -->
+        @if (session('flash_message'))
+        <!-- sessionに'flash_message'が入った時に表示する -->
+        <div class="u_alert--red u_size__icon--label" role="alert">
+            {{ session('flash_message') }}
+        </div>
+        @endif
     
             <div id="app" class="l_main__container">
     
@@ -77,9 +79,6 @@
                     @yield('content')
                 </main>
             </div>
-    
-    
-    
     
     
             <footer class="l_footer">

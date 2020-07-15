@@ -55,5 +55,7 @@
     "User Product List": "出品商品一覧",
     "address": "住所",
     "tel": "電話番号",
-    "Purchase completed": "購入が完了しました"
+    "Purchase completed": "購入が完了しました",
+    "This email address is not registered": "このEmailアドレスは登録されておりません",
+    "Auth Key": "認証キー"
 }

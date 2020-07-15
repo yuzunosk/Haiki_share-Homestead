@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use App\Notifications\PasswordResetNotification;
 
 class User extends Authenticatable
 {
@@ -47,5 +48,11 @@ class User extends Authenticatable
         //buyデータとの1対1のリレーション
         //フォーリンキー名はカスタムしてるので、第二引数に指定する
         return $this->hasOne('App\Models\Buy', 'buy_user_id');
+    }
+
+    //メソッドのオーバーライド
+    public function sendPasswordResetNotification($token)
+    {
+        $this->notify(new PasswordResetNotification($token));
     }
 }
