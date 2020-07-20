@@ -11,7 +11,7 @@
 <div>
     <!-- reactを読み込む -->
     <div id="exhibitionApp">
-        <exhibition :Datas="{{ $productDatas }}" :authData="{{ $storeId }}" :pageId={{0}}></exhibition>
+        <exhibition :Datas="{{ $productDatas }}" :authData="{{ $authData }}" :pageId={{0}}></exhibition>
     </div>
 
       {{-- ここからページネート --}}

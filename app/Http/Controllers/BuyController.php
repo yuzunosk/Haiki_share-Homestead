@@ -70,7 +70,7 @@ class BuyController extends Controller
             $userData  = User::find($request->u_id);
         }
         //ストアー情報取得
-        $storeData = Store::find($request->s_id);
+        $storeData = Store::find($request->id);
         //取得データ確認
         Log::info('取得ユーザー情報:' . $userData);
         Log::info('取得ストアー情報:' . $storeData);
@@ -97,7 +97,7 @@ class BuyController extends Controller
                 ],
                 [
                     'email' => $storeData->email,
-                    'name' => $storeData->name,
+                    'name' => $storeData->store_name,
                 ],
             ];
 

@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
+use Carbon\Carbon;
 
 
 use App\models\Product;
@@ -23,15 +24,13 @@ class showIndexController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function __invoke(Request $request, $p = 1, $sort = "id", $order = "desc")
+    public function __invoke(Request $request, $p = 1, $sort = "id", $order = "desc", $expiration = "out", $prefectural = "")
     {
         Log::info('「「「「「「「「「「「「「「「「「「');
         Log::info('--------全商品一覧編集ページ----------');
         Log::info('」」」」」」」」」」」」」」」」」」');
 
         //ログインストアIDを取得
-        $myid = 10000;
-        Log::info("ログインストアID" . $myid);
 
         $buyDatas = Buy::all();
         Log::info("購入データ:" . $buyDatas);
@@ -57,25 +56,34 @@ class showIndexController extends Controller
         $orderdata = "";
 
         //ソート情報を取得し、セッションに詰める
-        $sort = (!empty($request->sort)) ? $request->sort : "";
+        $sort = (!empty($request->sort)) ? $request->sort : "id";
         $request->session()->put('sort', $sort);
 
         $sort = $request->session()->get('sort');
-        $sortdata = $sort;
+        $sortdata = 'products.' . $sort;
 
         //ソート情報を取得し、セッションに詰める
-        $order = (!empty($request->order)) ? $request->order  : "";
+        $order = (!empty($request->order)) ? $request->order  : "desc";
         $request->session()->put('order', $order);
 
         $order = $request->session()->get('order');
         $orderdata = $order;
 
+        $prefectural = (!empty($request->prefectural)) ? $request->prefectural : '';
+        Log::info("選択されている県：" . $prefectural);
+
+        $expiration = (!empty($request->expiration)) ? $request->expiration : 'out';
+        Log::info("期限切れに対する選択：" . $expiration);
+
+        $datetime = new Carbon();
+        //現在時刻
+        $nowtime  = Carbon::now();
 
         //変数へといれる
         if (empty($sort)) {
             Log::info('$sortが空の場合');
             //セッション情報がない場合は"id"を詰める
-            $sortdata = "id";
+            $sortdata = "products.id";
         }
 
         //変数へといれる
@@ -88,15 +96,92 @@ class showIndexController extends Controller
         Log::info('$sortの中身:' . $sort);
         Log::info('$orderの中身:' . $order);
 
+        //データの取得
+        //県名の指定と期限内の指定があるかどうか判定する。
+        //県名指定があり、期限はsafeを希望
+        if ($prefectural && $expiration == 'safe') {
+            $productDatas = DB::table('products')
+                ->leftJoin('stores', 'products.store_id', '=', 'stores.id')
+                ->select('products.*') // 必ず指定しよう！
+                ->where('stores.prefectural', $prefectural)
+                ->where('products.sellby', '>=', $nowtime)
+                ->orderBy($sortdata, $orderdata)
+                ->offset($currentMinNum)
+                ->limit($listSpan)
+                ->get();
+            //県名指定があり、期限はoutを希望
+        } elseif ($prefectural && $expiration == 'out') {
+
+            $productDatas = DB::table('products')
+                ->leftJoin('stores', 'products.store_id', '=', 'stores.id')
+                ->select('products.*') // 必ず指定しよう！
+                ->where('stores.prefectural', $prefectural)
+                ->orderBy($sortdata, $orderdata)
+                ->offset($currentMinNum)
+                ->limit($listSpan)
+                ->get();
+            //県名指定がなく、期限はsafeを希望
+        } elseif (!$prefectural && $expiration == 'safe') {
+            $productDatas = DB::table('products')
+                ->leftJoin('stores', 'products.store_id', '=', 'stores.id')
+                ->select('products.*') // 必ず指定しよう！
+                ->where('products.sellby', '>=', $nowtime)
+                ->orderBy($sortdata, $orderdata)
+                ->offset($currentMinNum)
+                ->limit($listSpan)
+                ->get();
+        } else {
+            //県名指定がなく、期限はoutを希望
+            $productDatas = DB::table('products')
+                ->leftJoin('stores', 'products.store_id', '=', 'stores.id')
+                ->select('products.*') // 必ず指定しよう！
+                ->orderBy($sortdata, $orderdata)
+                ->offset($currentMinNum)
+                ->limit($listSpan)
+                ->get();
+        }
+
+        Log::info('取得テスト：' . $productDatas);
 
         //データの取得
-        $productDatas = Product::orderBy($sortdata, $orderdata)->offset($currentMinNum)->limit($listSpan)->get();
+        // $productDatas = Product::orderBy($sortdata, $orderdata)->offset($currentMinNum)->limit($listSpan)->get();
         // $productDatas = Product::all();
 
         Log::info('取得テスト：' . $productDatas);
 
-        //総レコード数
-        $totalRecode = Product::all()->count();
+        //総レコード数取得
+        //県名の指定と期限内の指定があるかどうか判定する。
+        //県名指定があり、期限はsafeを希望
+        if ($prefectural && $expiration == 'safe') {
+            $totalRecode = DB::table('products')
+                ->leftJoin('stores', 'products.store_id', '=', 'stores.id')
+                ->select('products.*') // 必ず指定しよう！
+                ->where('stores.prefectural', $prefectural)
+                ->where('products.sellby', '>=', $nowtime)
+                ->count();
+            //県名指定があり、期限はoutを希望
+        } elseif ($prefectural && $expiration == 'out') {
+
+            $totalRecode = DB::table('products')
+                ->leftJoin('stores', 'products.store_id', '=', 'stores.id')
+                ->select('products.*') // 必ず指定しよう！
+                ->where('stores.prefectural', $prefectural)
+                ->count();
+            //県名指定がなく、期限はsafeを希望
+        } elseif (!$prefectural && $expiration == 'safe') {
+            $totalRecode = DB::table('products')
+                ->leftJoin('stores', 'products.store_id', '=', 'stores.id')
+                ->select('products.*') // 必ず指定しよう！
+                ->where('products.sellby', '>=', $nowtime)
+                ->count();
+        } else {
+            //県名指定がなく、期限はoutを希望
+            $totalRecode = DB::table('products')
+                ->leftJoin('stores', 'products.store_id', '=', 'stores.id')
+                ->select('products.*') // 必ず指定しよう！
+                ->count();
+        }
+
         Log::info("総レコード数:" . $totalRecode);
 
         //総ページ数
@@ -107,6 +192,7 @@ class showIndexController extends Controller
         $categorys = Category::all();
 
 
-        return view('index', compact(['productDatas', 'myid', 'buyDatas', 'totalRecode', 'totalPageNum', 'currentPageNum', 'currentMinNum', 'sort', 'order', 'categorys']));
+
+        return view('index', compact(['productDatas', 'buyDatas', 'totalRecode', 'totalPageNum', 'currentPageNum', 'currentMinNum', 'sort', 'order', 'categorys', 'prefectural', 'expiration']));
     }
 }

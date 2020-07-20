@@ -10,6 +10,7 @@ require("./components/case/bootstrap");
 require("./components/case/partial");
 require("./components/case/showSerch.js");
 require("./components/case/clickDelete.js");
+require("./components/case/flashmessage.js");
 
 window.Vue = require("vue");
 
@@ -35,6 +36,7 @@ Vue.component(
 );
 Vue.component("productdetail", require("./components/ProductDetails").default);
 Vue.component("exhibition", require("./components/Exhibition").default);
+Vue.component("purchased", require("./components/purchased").default);
 Vue.component("productStick", require("./components/ProductStick").default);
 Vue.component(
     "productcardunit",
@@ -61,6 +63,10 @@ const productApp = new Vue({
 
 const exhibitionApp = new Vue({
     el: "#exhibitionApp"
+});
+
+const purchasedApp = new Vue({
+    el: "#purchasedApp"
 });
 
 const cardApp = new Vue({

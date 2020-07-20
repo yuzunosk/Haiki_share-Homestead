@@ -68,7 +68,7 @@
                     <!-- フラッシュメッセージ -->
         @if (session('flash_message'))
         <!-- sessionに'flash_message'が入った時に表示する -->
-        <div class="u_alert--red u_size__icon--label" role="alert">
+        <div id="js-flash-message" class="u_alert--red u_size__icon--label" role="alert">
             {{ session('flash_message') }}
         </div>
         @endif

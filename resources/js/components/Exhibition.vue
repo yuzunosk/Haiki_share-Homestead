@@ -1,6 +1,6 @@
 <template>
     <div class="l_home__container u_font__default">
-        <StoreHomeMenu :storedata="datas"></StoreHomeMenu>
+        <StoreHomeMenu :authdata="authdata"></StoreHomeMenu>
         <div class="l_home__main__stick--unit">
             <h1 class="my-50">{{ title }}</h1>
             <ProductStick
@@ -23,18 +23,6 @@ export default {
         return {
             title: ""
         };
-    },
-    methods: {},
-    computed: {
-        register_Link() {
-            return "/store/product/new";
-        },
-        list_Link() {
-            return "/store/product/index";
-        },
-        profile_Link() {
-            return "/store/profile/edit/" + this.authdata.id;
-        }
     },
     mounted() {
         console.log("mounted");

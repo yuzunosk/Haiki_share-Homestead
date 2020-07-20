@@ -12,6 +12,9 @@ use Illuminate\Auth\Events\Registered;
 use Illuminate\Support\Facades\Auth;
 use App\Models\User;
 use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\DB;
+use App\Rules\AlphaNumHalf;
+
 
 
 class RegisterController extends Controller
@@ -49,13 +52,16 @@ class RegisterController extends Controller
 
             'name'     => ['required', 'string', 'max:255'],
             'email'    => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            'password' => ['required', 'string', 'min:8', 'confirmed'],
+            'password' => ['required', 'string', 'min:6', 'confirmed', new AlphaNumHalf],
         ]);
     }
 
     // 登録処理
     protected function create(array $data)
     {
+        // SET auto-increment start value
+        DB::statement("ALTER TABLE users AUTO_INCREMENT = 100000;");
+
         return User::create([
             'name'     => $data['name'],
             'email'    => $data['email'],

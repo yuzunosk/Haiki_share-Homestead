@@ -102,14 +102,14 @@ class StoreProfileController extends Controller
         $storeData =  Store::find($id);
 
         //後に変更がしやすいよう一つ一つ代入していく
-        $storeData->name         = $request->name;
+        $storeData->store_name   = $request->store_name;
         $storeData->branch_name  = $request->branch_name;
         $storeData->email        = $request->email;
         $storeData->address      = $request->address;
         $storeData->password     = Hash::make($request->password);
 
 
-        $storeData->save();
+        $storeData->update();
         Log::info('保存する中身の確認：' . $storeData);
 
         return redirect('/store/home')->with('flash_message', __('Profile Updated'));

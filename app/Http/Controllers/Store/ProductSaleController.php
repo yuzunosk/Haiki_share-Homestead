@@ -27,8 +27,8 @@ class ProductSaleController extends Controller
 
 
         //現在ログインしているストアのデータを取得する
-        $storeData   = Auth::user();
-        $storeId          = $storeData->id;
+        $authData   = Auth::user();
+        $storeId     = $authData->id;
 
         Log::info("p=" . $p);
         // 現在のページ情報を取得
@@ -62,9 +62,9 @@ class ProductSaleController extends Controller
 
 
 
-        Log::info('プロダクトデータ中身:' . $storeData);
+        Log::info('プロダクトデータ中身:' . $authData);
         Log::info('プロダクトデータ中身:' . $saleData);
 
-        return view('product.sale', compact(['saleData', 'storeId', 'totalRecode', 'totalPageNum', 'currentPageNum', 'currentMinNum']));
+        return view('product.sale', compact(['saleData', 'authData', 'totalRecode', 'totalPageNum', 'currentPageNum', 'currentMinNum']));
     }
 }

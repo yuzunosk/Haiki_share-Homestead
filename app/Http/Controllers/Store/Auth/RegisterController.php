@@ -55,8 +55,8 @@ class RegisterController extends Controller
             'address'      => ['required', 'string', 'max:255'],
             'tel'          => ['required', 'numeric', 'regex:/^[a-zA-Z0-9-]+$/'],
             'manager_name' => ['required', 'string', 'max:255'],
-            'email'        => ['required', 'string', 'email', 'max:255', 'unique:stores'],
-            'password'     => ['required', 'string', 'min:8', 'confirmed'],
+            'email'        => ['required', 'string', 'email', 'max:255', 'unique:stores',  new AlphaNumHalf],
+            'password'     => ['required', 'string', 'min:6', 'confirmed',  new AlphaNumHalf],
         ]);
     }
 

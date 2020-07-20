@@ -12,7 +12,7 @@
 
 
         <div class="l_input__product--name  u_display--start--column">
-            <label class="u_ds--block" for="name" class="">{{ __('Product Name') }}</label>
+            <label class="u_ds--block" for="name" class="">{{ __('Product Name') }}</label><br>
             @error('name')
             <span class="c_input--error-msg" role="alert">
                 <strong>{{ $message }}</strong>
@@ -28,7 +28,7 @@
 
         <!-- カテゴリー -->
         <div class="l_input__product--category u_display--start--column">
-            <label for="category" class="">{{ __('category') }}</label>
+            <label for="category" class="">{{ __('category') }}</label><br>
             @error('category')
             <span class="c_input--error-msg" role="alert">
                 <strong>{{ $message }}</strong>
@@ -37,7 +37,7 @@
 
             <div class="">
                 <select class="c_input--default" name="category" id="category">
-                    <option value="999">-- 選択してください --</option>
+                    <option value="">-- 選択してください --</option>
                     <!-- ループ処理 -->
                     @foreach($categorys as $category)
                     <option value="{{ $category->name }}" @if(old('category')==$category->name) selected @endif">{{ $category->name }}</option>
@@ -54,13 +54,14 @@
         
         <!-- 通常 価格 -->
         <div class="l_input__product--r_price u_display--start--column">
-            <label for="regular_price" class="">{{ __('regular price') }}</label>
+            <label for="regular_price" class="">{{ __('regular price') }}</label><br>
+
             @error('regular_price')
             <span class="c_input--error-msg" role="alert">
                 <strong>{{ $message }}</strong>
             </span>
             @enderror
-            <div class="">
+            <div class="u_text--align-r">
                 <input class="c_input--default" id="regular_price" type="number" class=" @error('regular_price') is-invalid @enderror" name="regular_price" value="{{ old('regular_price') }}" autofocus min=0> 円
             </div>
         </div>
@@ -70,14 +71,15 @@
         <!-- 値段 -->
 
         <div class="l_input__product--price u_display--start--column">
-            <label for="price" class="">{{ __('Sale price') }}</label>
+            <label for="price" class="">{{ __('Sale price') }}</label><br>
+
             @error('price')
             <span class="c_input--error-msg" role="alert">
                 <strong>{{ $message }}</strong>
             </span>
             @enderror
 
-            <div class="">
+            <div class="u_text--align-r">
                 <input class="c_input--default" id="price" type="number" class=" @error('price') is-invalid @enderror" name="price" value="{{ old('price') }}" autofocus min=0> 円
 
 
@@ -89,7 +91,7 @@
 
         <!-- ストアID     -->
         <div class="l_input__product--store_id u_display--start--column">
-            <label for="store_id" class="">{{ __('Product store_id') }}</label>
+            <label for="store_id" class="">{{ __('Product store_id') }}</label><br>
             @error('store_id')
             <span class="c_input--error-msg" role="alert">
                 <strong>{{ $message }}</strong>
@@ -107,7 +109,7 @@
         <!-- 賞味期限 -->
 
         <div class="l_input__product--sellby u_display--start--column">
-            <label for="sellby" class="">{{ __('Product sellby') }}</label>
+            <label for="sellby" class="">{{ __('Product sellby') }}</label><br>
             @error('sellby')
             <span class="c_input--error-msg" role="alert">
                 <strong>{{ $message }}</strong>

@@ -27,8 +27,8 @@ class ProductExhibitionController extends Controller
 
 
         //現在ログインしているストアのデータを取得する
-        $storeData   = Auth::User();
-        $storeId    = $storeData->id;
+        $authData   = Auth::User();
+        $storeId    = $authData->id;
         //$idを使って、storeデータの中の$idが登録しているデータ取得
 
         Log::info("p=" . $p);
@@ -56,9 +56,9 @@ class ProductExhibitionController extends Controller
         Log::info("総ページ数:" . $totalPageNum);
 
 
-        Log::info('ストアデータ:' . $storeData);
+        Log::info('ストアデータ:' . $authData);
         Log::info('プロダクトデータ:' . $productDatas);
 
-        return view('product.exhibition', compact(['productDatas', 'storeId', 'totalRecode', 'totalPageNum', 'currentPageNum', 'currentMinNum']));
+        return view('product.exhibition', compact(['productDatas', 'authData', 'totalRecode', 'totalPageNum', 'currentPageNum', 'currentMinNum']));
     }
 }

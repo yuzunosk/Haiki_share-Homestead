@@ -48,8 +48,9 @@ class User_PassRemindRecieveController extends Controller
 
 
         $request->validate([
-            'token'    => 'required|max:255|string',
-            'password' => 'required|string|max:255',
+            'token'                 => 'required|max:255|string',
+            'password'              => 'required|string|max:255|confirmed',
+            'password_confirmation' => 'required|string|max:255'
 
         ], [
             'token.required'       => 'tokenは必須入力です',
@@ -58,6 +59,10 @@ class User_PassRemindRecieveController extends Controller
             'password.required'    => 'passwordは必須入力です',
             'password.max'         => 'passwordは255文字以内で入力して下さい',
             'password.string'      => 'passwordは文字で入力して下さい',
+            'password.confirmed'   => 'passwordが再入力と一致していません',
+            'password_confirmation.required'     => 'password_confirmationは必須入力です',
+            'password_confirmation..max'         => 'password_confirmationは255文字以内で入力して下さい',
+            'password_confirmation..string'      => 'password_confirmationは文字で入力して下さい',
         ]);
 
 
@@ -81,7 +86,7 @@ class User_PassRemindRecieveController extends Controller
 
         $userdata->password = Hash::make($request->password);
 
-        $userdata->save();
+        $userdata->update();
         Log::info('保存する中身の確認：' . $userdata);
 
 

@@ -23,6 +23,7 @@ if (clickDelete != null) {
     });
 }
 
+//画面を戻す処理
 if (clickReturn != null) {
     clickReturn.addEventListener("click", () => {
         // alert("クリックされました");
@@ -30,15 +31,15 @@ if (clickReturn != null) {
         window.location.href = "/store/product/index/";
     });
 }
-
+//画面を戻す処理
 if (clickReturnHome != null) {
     clickReturnHome.addEventListener("click", () => {
         // alert("クリックされました");
         //画面を遷移させる
-        window.location.href = "/store/home/";
+        window.location.href = "/store/home";
     });
 }
-
+//画面を戻す処理
 if (clickReturnUserHome != null) {
     clickReturnUserHome.addEventListener("click", () => {
         // alert("クリックされました");

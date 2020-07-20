@@ -13,13 +13,14 @@ class Store extends Authenticatable
 
     use Notifiable;
 
+
     /**
      * The attributes that are mass assignable.
      *
      * @var array
      */
     protected $fillable = [
-        'name', 'branch_name', 'email', 'password', 'address', 'zip', 'prefectural',
+        'store_name', 'branch_name', 'email', 'password', 'address', 'zip', 'prefectural',
         'tel', 'manager_name'
     ];
 

@@ -597,9 +597,9 @@
         grid-template:
             "...... ...... ......  ......   ......"
             "...... ......   top   ......   ......" 100px
-            "...... name   ......  category ......" 100px
-            "...... r_price ...... price    ......" 100px
-            "...... sellby ......  store_id ......" 100px
+            "...... name   ......  category ......" 130px
+            "...... r_price ...... price    ......" 130px
+            "...... sellby ......  store_id ......" 130px
             "...... pic    ......  ......   ......" 300px
             "..... submitA submitB submitC ......" 100px
             "...... ...... submitD ....... ......" 100px
@@ -613,12 +613,12 @@
             grid-template:
                 "......  ......   ......"
                 "......   top     ......" 100px
-                "......   name    ......" 100px
-                "......  category ......" 100px
-                "......  r_price  ......" 100px
-                "......   price   ......" 100px
-                "......   sellby  ......" 100px
-                "......  store_id ......" 100px
+                "......   name    ......" 130px
+                "......  category ......" 130px
+                "......  r_price  ......" 130px
+                "......   price   ......" 130px
+                "......   sellby  ......" 130px
+                "......  store_id ......" 130px
                 "......    pic    ......" 300px
                 "......  .....    ......" 100px
                 "......  submitA  ......" 100px
@@ -633,6 +633,7 @@
         grid-template:
             "box text" 50px
             / 15% 85%;
+        align-items: center;
     }
 
     &__product {
@@ -1479,5 +1480,158 @@
     &__paginate {
         grid-area: paginate;
         width: 100%;
+    }
+}
+// -------------------------
+// reminder
+// -------------------------
+
+.l_reminder {
+    &__container {
+        display: grid;
+        grid-template:
+            "...." 70px
+            "title" 100px
+            "main"
+            / 100%;
+        height: 100%;
+        width: 60%;
+        margin: 10vh auto;
+        border: 3px solid #333;
+        border-radius: 10px;
+        background: $sub-color__secondary;
+        font-size: 20px;
+
+        @include mq() {
+            border: 1px solid #333;
+            border-radius: 0;
+            width: 100%;
+            font-size: 16px;
+        }
+    }
+
+    &--title {
+        grid-area: title;
+    }
+
+    &--main {
+        grid-area: main;
+        display: grid;
+        grid-template:
+            "textA"
+            "textB"
+            "textC"
+            "submit";
+        padding: 40px;
+
+        &--textA {
+            grid-area: textA;
+        }
+
+        &--textB {
+            grid-area: textB;
+        }
+
+        &--textC {
+            grid-area: textC;
+        }
+
+        &--submit {
+            grid-area: submit;
+            margin-top: 70px;
+            margin-bottom: 70px;
+        }
+    }
+}
+
+// -------------------------
+// passreset
+// -------------------------
+
+.l_passreset {
+    &__container {
+        display: grid;
+        grid-template:
+            "...." 70px
+            "title" 100px
+            "main"
+            / 100%;
+        height: 100%;
+        width: 60%;
+        margin: 10vh auto;
+        border: 3px solid #333;
+        border-radius: 10px;
+        background: $sub-color__secondary;
+        font-size: 20px;
+
+        @include mq() {
+            width: 100%;
+            border: 1px solid #333;
+            border-radius: 0;
+        }
+    }
+
+    &--title {
+        grid-area: title;
+    }
+
+    &--main {
+        grid-area: main;
+        display: grid;
+        grid-template:
+            "textA formA"
+            "....  .... " 40px
+            "textB formB"
+            "....  .... " 40px
+            "textC formC"
+            "....  .... " 40px
+            "submit submit" 100px
+            /30% 70%;
+        padding: 40px;
+
+        @include mq() {
+            grid-template:
+                "textA"
+                "formA"
+                "...." 40px
+                "textB"
+                "formB"
+                "...." 40px
+                "textC"
+                "formC"
+                "...." 40px
+                "submit" 100px
+                /100%;
+        }
+
+        &--textA {
+            grid-area: textA;
+        }
+
+        &--formA {
+            grid-area: formA;
+        }
+
+        &--textB {
+            grid-area: textB;
+        }
+
+        &--formB {
+            grid-area: formB;
+        }
+
+        &--textC {
+            grid-area: textC;
+        }
+
+        &--formC {
+            grid-area: formC;
+        }
+
+        &--submit {
+            grid-area: submit;
+            margin-top: 70px;
+            margin-bottom: 70px;
+        }
     }
 }

@@ -43,7 +43,7 @@
                     @enderror
                 </div>
                 <div class="l_profile--form">
-                    <input class="c_input--default" id="email" type="text" class=" @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" autofocus>
+                    <input class="c_input--default" id="email" type="text" class=" @error('email') is-invalid @enderror" name="email" value="{{ old('email' , $userData->email) }}" autofocus>
                 </div>
             </div>
             <!-- email END  -->
@@ -71,7 +71,7 @@
             <div class="l_profile--pass   l_profile__form--unit">
                 <div class="l_profile--text">
                     <label class="u_ds--block" for="password" class="">{{ __('Password') }}</label>
-                    @error('name')
+                    @error('password')
                     <span class="c_input--error-msg" role="alert">
                         <strong>{{ $message }}</strong>
                     </span>

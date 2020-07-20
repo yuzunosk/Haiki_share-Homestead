@@ -76,10 +76,8 @@
                     </span>
                     @enderror
                 </div>
-
-
                 <div class="l_profile--form">
-                    <input class="c_input--default" id="password-confirm" type="password" name="password_confirmation" required>
+                    <input class="c_input--default" id="password-confirm" type="password" name="password_confirmation">
                 </div>
             </div>
             <!-- パスワード確認 END -->

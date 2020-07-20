@@ -7,7 +7,7 @@
 
     <div class="l_login__container u_font__default u_text--space">
 
-        <div class="l_login--title  u_display--center u_font__text--title">{{ __('User Login') }}</div>
+        <div class="l_login--title  u_display--center u_font__text--title">{{ __('Store Login') }}</div>
 
         <!-- 入力フォーム枠 -->
         <div class="l_login__form__container l_profile--main">

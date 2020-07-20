@@ -12287,7 +12287,7 @@ img {
   border-radius: 10px;
   background: #fffde5;
   margin: 10vh auto;
-  grid-template: "...... ...... ......  ......   ......" "...... ......   top   ......   ......" 100px "...... name   ......  category ......" 100px "...... r_price ...... price    ......" 100px "...... sellby ......  store_id ......" 100px "...... pic    ......  ......   ......" 300px "..... submitA submitB submitC ......" 100px "...... ...... submitD ....... ......" 100px/10% 30% 20% 30% 10%;
+  grid-template: "...... ...... ......  ......   ......" "...... ......   top   ......   ......" 100px "...... name   ......  category ......" 130px "...... r_price ...... price    ......" 130px "...... sellby ......  store_id ......" 130px "...... pic    ......  ......   ......" 300px "..... submitA submitB submitC ......" 100px "...... ...... submitD ....... ......" 100px/10% 30% 20% 30% 10%;
 }
 
 @media screen and (max-width: 414px) {
@@ -12296,13 +12296,14 @@ img {
     margin: 10vh 0;
     border: 1px solid #333;
     border-radius: 0;
-    grid-template: "......  ......   ......" "......   top     ......" 100px "......   name    ......" 100px "......  category ......" 100px "......  r_price  ......" 100px "......   price   ......" 100px "......   sellby  ......" 100px "......  store_id ......" 100px "......    pic    ......" 300px "......  .....    ......" 100px "......  submitA  ......" 100px "......  submitB  ......" 100px "......  submitC  ......" 100px " ...... submitD ......." 100px/5% 90% 5%;
+    grid-template: "......  ......   ......" "......   top     ......" 100px "......   name    ......" 130px "......  category ......" 130px "......  r_price  ......" 130px "......   price   ......" 130px "......   sellby  ......" 130px "......  store_id ......" 130px "......    pic    ......" 300px "......  .....    ......" 100px "......  submitA  ......" 100px "......  submitB  ......" 100px "......  submitC  ......" 100px " ...... submitD ......." 100px/5% 90% 5%;
   }
 }
 
 .l_input--check {
   display: grid;
   grid-template: "box text" 50px/15% 85%;
+  align-items: center;
 }
 
 .l_input__product--title {
@@ -13042,6 +13043,123 @@ img {
   width: 100%;
 }
 
+.l_reminder__container {
+  display: grid;
+  grid-template: "...." 70px "title" 100px "main"/100%;
+  height: 100%;
+  width: 60%;
+  margin: 10vh auto;
+  border: 3px solid #333;
+  border-radius: 10px;
+  background: #fffde5;
+  font-size: 20px;
+}
+
+@media screen and (max-width: 414px) {
+  .l_reminder__container {
+    border: 1px solid #333;
+    border-radius: 0;
+    width: 100%;
+    font-size: 16px;
+  }
+}
+
+.l_reminder--title {
+  grid-area: title;
+}
+
+.l_reminder--main {
+  grid-area: main;
+  display: grid;
+  grid-template: "textA" "textB" "textC" "submit";
+  padding: 40px;
+}
+
+.l_reminder--main--textA {
+  grid-area: textA;
+}
+
+.l_reminder--main--textB {
+  grid-area: textB;
+}
+
+.l_reminder--main--textC {
+  grid-area: textC;
+}
+
+.l_reminder--main--submit {
+  grid-area: submit;
+  margin-top: 70px;
+  margin-bottom: 70px;
+}
+
+.l_passreset__container {
+  display: grid;
+  grid-template: "...." 70px "title" 100px "main"/100%;
+  height: 100%;
+  width: 60%;
+  margin: 10vh auto;
+  border: 3px solid #333;
+  border-radius: 10px;
+  background: #fffde5;
+  font-size: 20px;
+}
+
+@media screen and (max-width: 414px) {
+  .l_passreset__container {
+    width: 100%;
+    border: 1px solid #333;
+    border-radius: 0;
+  }
+}
+
+.l_passreset--title {
+  grid-area: title;
+}
+
+.l_passreset--main {
+  grid-area: main;
+  display: grid;
+  grid-template: "textA formA" "....  .... " 40px "textB formB" "....  .... " 40px "textC formC" "....  .... " 40px "submit submit" 100px/30% 70%;
+  padding: 40px;
+}
+
+@media screen and (max-width: 414px) {
+  .l_passreset--main {
+    grid-template: "textA" "formA" "...." 40px "textB" "formB" "...." 40px "textC" "formC" "...." 40px "submit" 100px/100%;
+  }
+}
+
+.l_passreset--main--textA {
+  grid-area: textA;
+}
+
+.l_passreset--main--formA {
+  grid-area: formA;
+}
+
+.l_passreset--main--textB {
+  grid-area: textB;
+}
+
+.l_passreset--main--formB {
+  grid-area: formB;
+}
+
+.l_passreset--main--textC {
+  grid-area: textC;
+}
+
+.l_passreset--main--formC {
+  grid-area: formC;
+}
+
+.l_passreset--main--submit {
+  grid-area: submit;
+  margin-top: 70px;
+  margin-bottom: 70px;
+}
+
 .c_hero__top__container {
   background-color: rgba(255, 255, 255, 0.75);
   position: relative;
@@ -13181,6 +13299,17 @@ img {
   font-size: 16px;
   padding: 6px 20px;
   width: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn--Xlage {
+  border: 2px solid #333;
+  border-radius: 5px;
+  font-size: 16px;
+  padding: 10px 20px;
+  width: 300px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -13381,6 +13510,15 @@ img {
   text-align: left;
 }
 
+.c_input--password {
+  border: 2px solid #4a4a4a;
+  border-radius: 5px;
+  padding: 0 10px;
+  width: 100%;
+  height: 65px;
+  text-align: left;
+}
+
 .c_input--textArea {
   border: 2px solid #4a4a4a;
   border-radius: 5px;
@@ -13399,7 +13537,7 @@ img {
   background: #fffde5;
   color: #333;
   display: grid;
-  grid-template: ".....  .....  close" 20px ".....  head   ....." 40px ".....  .....  ....." 15px ".....  sort   ....." 50px ".....  .....  ....." 15px ".....  order  ....." 50px ".....  .....  ....." 15px ".....  submit ....." 40px ".....  .....  ....." 15px/15px 150px 25px;
+  grid-template: ".....  .....  close" 20px ".....  head   ....." 40px ".....  .....  ....." 15px ".....  prefecture ....." 50px ".....  .....  ....." 15px ".....  sort   ....." 50px ".....  .....  ....." 15px ".....  order  ....." 50px ".....  .....  ....." 15px ".....  radio  ....." 50px ".....  .....  ....." 15px ".....  submit ....." 40px ".....  .....  ....." 15px/15px 200px 25px;
   z-index: 3;
   text-align: center;
   border: 2px solid #333;
@@ -13448,6 +13586,15 @@ img {
   z-index: 100;
 }
 
+.c_serch--prefecture {
+  grid-area: prefecture;
+  border: 1px solid #333;
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .c_serch--sort {
   grid-area: sort;
   border: 1px solid #333;
@@ -13466,9 +13613,37 @@ img {
   align-items: center;
 }
 
+.c_serch--radio {
+  grid-area: radio;
+  display: grid;
+  grid-template: "radioA" "radioB";
+}
+
+.c_serch--radioA {
+  grid-area: radioA;
+}
+
+.c_serch--radioA--input {
+  margin-right: 10px;
+}
+
+.c_serch--radioB {
+  grid-area: radioB;
+}
+
+.c_serch--radioB--input {
+  margin-right: 10px;
+}
+
 .c_serch--submit {
   grid-area: submit;
   color: #f6f6f6;
+}
+
+.c_serch--select {
+  width: 100%;
+  height: 100%;
+  padding-left: 50px;
 }
 
 .c_input--drop-over {
@@ -13646,7 +13821,7 @@ img {
 }
 
 .u_alert--red {
-  height: 65px;
+  height: 0;
   line-height: 65px;
   background: #e42b2b;
   width: 100%;
@@ -13982,6 +14157,10 @@ img {
 
 .u_text--align {
   text-align: center;
+}
+
+.u_text--align-r {
+  text-align: right;
 }
 
 .u_display-show {

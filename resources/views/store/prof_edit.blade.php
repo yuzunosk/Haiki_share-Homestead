@@ -16,8 +16,8 @@
 
             <div class="l_profile--name   l_profile__form--unit">
                 <div class="l_profile--text">
-                    <label class="u_ds--block" for="name" class="">{{ __('Store Name') }}</label>
-                    @error('name')
+                    <label class="u_ds--block" for="store_name" class="">{{ __('Store Name') }}</label>
+                    @error('store_name')
                     <span class="c_input--error-msg" role="alert">
                         <strong>{{ $message }}</strong>
                     </span>
@@ -25,7 +25,7 @@
                 </div>
 
                 <div class="l_profile--form">
-                    <textarea class="c_input--textArea" id="name" class=" @error('name') is-invalid @enderror" name="name">{{ old('name' , $storeData->name) }}</textarea>
+                    <textarea class="c_input--textArea" id="store_name" class=" @error('store_name') is-invalid @enderror" name="store_name">{{ old('store_name' , $storeData->store_name) }}</textarea>
                 </div>
             </div>
             <!-- 名前 END  -->
@@ -36,7 +36,7 @@
 
                 <div class="l_profile--text">
                     <label class="u_ds--block" for="branch_name" class="">{{ __('Branch Name') }}</label>
-                    @error('name')
+                    @error('branch_name')
                     <span class="c_input--error-msg" role="alert">
                         <strong>{{ $message }}</strong>
                     </span>
@@ -89,7 +89,7 @@
             <div class="l_profile--pass   l_profile__form--unit">
                 <div class="l_profile--text">
                     <label class="u_ds--block" for="password" class="">{{ __('Password') }}</label>
-                    @error('name')
+                    @error('password')
                     <span class="c_input--error-msg" role="alert">
                         <strong>{{ $message }}</strong>
                     </span>
@@ -108,7 +108,7 @@
 
         <div class="l_profile--foot u_display--center">
             <button class="btn" type="submit" class="">
-                {{ __('Register') }}
+                {{ __('Update') }}
             </button>
         </div>
         <!-- 入力フォーム枠 END -->
@@ -116,7 +116,7 @@
  
         {{-- submit return --}}
         <div class="l_profile--return u_display--center">
-            <button id="js-click-return-home" class="btn btn--gray"typ="button" >
+            <button id="js-click-return-home" class="btn btn--gray" type="button" >
                 {{ __('Return') }}
             </button>
         </div>

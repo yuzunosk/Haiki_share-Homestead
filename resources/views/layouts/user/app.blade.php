@@ -49,7 +49,7 @@
 
                <!-- フラッシュメッセージ -->
                @if (session('flash_message'))
-        <div class="u_alert--red u_size__icon--label" role="alert">
+        <div  id="js-flash-message" class="u_alert--red u_size__icon--label" role="alert">
                    {{ session('flash_message') }}
                </div>
                @endif

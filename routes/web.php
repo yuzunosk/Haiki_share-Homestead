@@ -22,7 +22,7 @@ Route::get('/mail', 'MailSendController@sendPurchase');
 Route::get('/top', 'ShowTopController')->name('top');
 Route::get('/regist', 'show_RegistSelectController')->name('RegistSelect');
 Route::get('/login', 'show_LoginSelectController')->name('LoginSelect');
-Route::get('/index/{page?}/{sort?}/{order?}', 'showIndexController')->name('index');
+Route::get('/index/{page?}/{sort?}/{order?}/{expiration?}/{prefectural?}', 'showIndexController')->name('index');
 
 // buy関連
 Route::post('/buy', 'BuyController@store')->name('buy.store');
@@ -62,9 +62,9 @@ Route::namespace('User')->prefix('user')->name('user.')->group(function () {
         Route::get('/profile/{id}/delete', 'UserProfileController@destroy')->name('profile.delete');
 
         //ユーザーインデックス表示
-        Route::get('/index/{page?}/{sort?}/{order?}', 'userIndexController')->name('index');
+        Route::get('/index/{page?}/{sort?}/{order?}/{expiration?}/{prefectural?}', 'userIndexController')->name('index');
         Route::get('/product/show/{id}', 'userProductController@show')->name('product.show');
-        Route::get('/product/purchased', 'ProductPurchasedController')->name('product.purchased');
+        Route::get('/product/purchased/{page?}', 'ProductPurchasedController')->name('product.purchased');
     });
 });
 
@@ -80,10 +80,15 @@ Route::namespace('Store')->prefix('store')->name('store.')->group(function () {
     ]);
 
     //store password reset routes
-    Route::post('/password/email', 'Auth\StoreForgotPasswordController@sendResetLinkEmail')->name('password.email');
-    Route::get('/password/reset', 'Auth\StoreForgotPasswordController@showLinkRequestForm')->name('password.request');
-    // Route::post('/password/reset', 'Auth\StoreResetPasswordController@reset');
-    // Route::get('/password/reset/{token}', 'Auth\StoreResetPasswordController@showResetForm')->name('password.reset');
+    //リセットビュー表示
+    Route::get('/password/reset', 'Auth\Store_PassRemindSendController@show')->name('password.request');
+    // パスワードリセットメール送信
+    Route::post('/password/email', 'Auth\Store_PassRemindSendController@resetEmail')->name('password.email');
+    // パスワードリセットフォーム表示
+    Route::get('/password/reset{token}', 'Auth\Store_PassRemindRecieveController@show')->name('password.reset');
+    // パスワードリセット処理
+    Route::post('/password/update', 'Auth\Store_PassRemindRecieveController@update')->name('password.update');
+
 
     //ログイン認証後
     Route::middleware('auth:store',)->group(function () {
@@ -99,7 +104,7 @@ Route::namespace('Store')->prefix('store')->name('store.')->group(function () {
         Route::get('/product/new', 'ProductController@new')->name('product.new');
         Route::get('/product/show/{id}', 'ProductController@show')->name('product.show');
         Route::post('/product', 'ProductController@create')->name('product.create');
-        Route::get('/product/index/{page?}/{sort?}/{order?}', 'ProductController@index')->name('product.index');
+        Route::get('/product/index/{page?}/{sort?}/{order?}/{expiration?}/{prefectural?}', 'ProductController@index')->name('product.index');
         Route::get('/product/edit/{id}', 'ProductController@edit')->name('product.edit');
         Route::post('/product/{id}', 'ProductController@update')->name('product.update');
         Route::get('/product/delete/{id}', 'ProductController@destroy')->name('product.delete');

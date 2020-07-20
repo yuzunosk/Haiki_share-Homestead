@@ -4,7 +4,6 @@
             v-for="(productdata, i) in productdatas"
             :key="i"
             :p_data="productdata"
-            :m_id="myid"
             :buydatas="buydatas"
         ></IndexCard>
     </ui>
@@ -13,7 +12,7 @@
 <script>
 import IndexCard from "./indexCard.vue";
 export default {
-    props: ["productdatas", "myid", "buydatas"],
+    props: ["productdatas", "buydatas"],
     data() {
         return {};
     },

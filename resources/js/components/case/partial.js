@@ -4,6 +4,7 @@
 
 const dropArea = document.getElementById("js-dropArea");
 const changeFile = document.getElementById("js-changeFile");
+const OnFile = document.getElementById("js-check-img");
 // =================
 // 処理
 // =================
@@ -23,6 +24,7 @@ if (dropArea != null) {
         this.classList.remove("c_input--drop-over");
     });
 
+    //inputの内容が変化した場合発火する
     changeFile.addEventListener("change", function() {
         // alert("内容の変更がありました。");
         let file = this.files[0]; //変更されたファイル情報の取得

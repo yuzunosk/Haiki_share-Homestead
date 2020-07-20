@@ -37,7 +37,7 @@
 
             <div class="">
                 <select class="c_input--default" name="category" id="category">
-                    <option value="999">-- 選択してください --</option>
+                    <option value="">-- 選択してください --</option>
                     <!-- ループ処理 -->
                     @foreach($categorys as $category)
                     <option value="{{ $category->name }}" @if(old('category', $productData->category )==$category->name) selected @endif">{{ $category->name }}</option>
@@ -57,8 +57,8 @@
                 <strong>{{ $message }}</strong>
             </span>
             @enderror
-            <div class="">
-                <input class="c_input--default" id="regular_price" type="number" class=" @error('regular_price') is-invalid @enderror" name="regular_price" value="{{ old('regular_price') }}" autofocus min=0> 円
+            <div class="u_text--align-r">
+                <input class="c_input--default" id="regular_price" type="number" class=" @error('regular_price') is-invalid @enderror" name="regular_price" value="{{ old('regular_price', $productData->regular_price) }}" autofocus min=0> 円
             </div>
         </div>
         <!-- 通常 価格 END -->
@@ -67,14 +67,14 @@
         <!-- 値段 -->
 
         <div class="l_input__product--price u_display--start--column">
-            <label for="price" class="">{{ __('Product price') }}</label>
+            <label for="price" class="">{{ __('Sale price') }}</label>
             @error('price')
             <span class="c_input--error-msg" role="alert">
                 <strong>{{ $message }}</strong>
             </span>
             @enderror
 
-            <div class="">
+            <div class="u_text--align-r">
                 <input class="c_input--default" id="price" type="number" class=" @error('price') is-invalid @enderror" name="price" value="{{ old('price',  $productData->price ) }}" autofocus min=0> 円
 
 
@@ -130,7 +130,7 @@
 
                 <input type="hidden" name="MAX_FILE_SIZE">
                 <input id="js-changeFile" class="u_parent--100 u_display-n" type="file" name="pic" class="input-file">
-                <img src="{{ old('pic' ,  '/storage/' . $productData->pic) }}" alt="ドロップされた画像" class="c_input--prev-img">
+                <img id="js-check-img" src="{{ old('pic' ,  '/storage/' . $productData->pic) }}" alt="ドロップされた画像" class="c_input--prev-img">
 
             </label>
         </div>

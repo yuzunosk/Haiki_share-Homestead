@@ -26,7 +26,7 @@ class Hankaku implements Rule
     public function passes($attribute, $value)
     {
         // 達成条件
-        return preg_match('/^[a-zA-Z0-9]+$/', $value);
+        return preg_match('/^[a-zA-Z0-9_-.]+$/', $value);
     }
 
     /**

@@ -1,64 +1,56 @@
 @extends('layouts.user.app')
 
 @section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Reset Password') }}</div>
+<div class="l_passreset__container">
+    <h1 class="l_passreset--title u_display--center">{{ __('Reset Password') }}</h1>
 
-                <div class="card-body">
-                    <form method="POST" action="{{ route('user.password.update') }}">
+                    <form method="POST"  class="l_passreset--main u_font__text--title" action="{{ route('user.password.update') }}">
                         @csrf
 
+                        <p class="l_passreset--main--textA u_display--center">
+                            {{ __('Auth Key') }}</p>
 
-                        <div class="form-group row">
-                            <label for="token" class="col-md-4 col-form-label text-md-right">{{ __('Auth Key') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="token" type="text" class="form-control @error('token') is-invalid @enderror" name="token" value="" required autocomplete="token" autofocus>
-
+                            <label for="token" class="l_passreset--main--formA  ">
+                            
+                                
+                                <input id="token" type="text" class="c_input--default @error('token') is-invalid @enderror" name="token" value="{{old('token')}}" required autocomplete="token" autofocus>
+                                
                                 @error('token')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
                                 @enderror
-                            </div>
-                        </div>
+                            </label>
 
-                        <div class="form-group row">
-                            <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
+                            <p class="l_passreset--main--textB u_display--center">
+                                {{ __('Password') }}</p>
 
-                            <div class="col-md-6">
-                                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
-
+                            <label for="password" class="l_passreset--main--formB">
+                                
+                                <input id="password" type="password" class="c_input--default @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
+                                
                                 @error('password')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
                                 @enderror
-                            </div>
-                        </div>
+                            </label>
 
-                        <div class="form-group row">
-                            <label for="password-confirm" class="col-md-4 col-form-label text-md-right">{{ __('Confirm Password') }}</label>
+                            <p class="l_passreset--main--textC  u_display--center">
+                                {{ __('Confirm Password') }}</p>
+                            
+                        <label for="password-confirm" class="l_passreset--main--formC">
 
-                            <div class="col-md-6">
-                                <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
-                            </div>
-                        </div>
+                            
+                                <input id="password-confirm" type="password" class="c_input--default" name="password_confirmation" required autocomplete="new-password">
+                            </label>
 
-                        <div class="form-group row mb-0">
-                            <div class="col-md-6 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
+                        <div class="l_passreset--main--submit u_display--center">
+                                <button type="submit" class="btn--Xlage btn--gray ">
                                     {{ __('Reset Password') }}
                                 </button>
-                            </div>
                         </div>
+
                     </form>
-                </div>
-            </div>
-        </div>
-    </div>
 </div>
 @endsection

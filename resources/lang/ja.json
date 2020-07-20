@@ -5,9 +5,9 @@
     "User Register": "ユーザー新規登録",
     "Forgot Your Password?": "パスワードを忘れた場合",
     "Reset Password": "パスワード再設定",
-    "Send Password Reset Link": "パスワード再設定URLを送信",
-
+    "Send Password Reset Link": "パスワード再設定メールを送信",
     "Name": "お名前",
+    "E-Mail Address Input": "メールアドレス入力",
     "E-Mail Address": "メールアドレス",
     "Password": "パスワード",
     "Confirm Password": "パスワード(確認用)",
@@ -47,6 +47,7 @@
     "Return": "戻る",
     "User Name": "ユーザーネーム",
     "User Login": "ユーザーログイン",
+    "Store Login": "ストアーログイン",
     "Go Info": "詳細へ",
     "Go Edit": "編集する",
     "Go Delete": "削除する",
@@ -57,5 +58,8 @@
     "tel": "電話番号",
     "Purchase completed": "購入が完了しました",
     "This email address is not registered": "このEmailアドレスは登録されておりません",
-    "Auth Key": "認証キー"
+    "Auth Key": "認証キー",
+    "Registered": "登録しました",
+    "Deleted": "削除しました",
+    "Profile Updated": "プロフィールを更新しました"
 }

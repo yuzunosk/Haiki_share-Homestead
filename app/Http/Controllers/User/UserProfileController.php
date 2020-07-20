@@ -84,7 +84,7 @@ class UserProfileController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(UserProfileRequest $request, $id)
     {
         Log::info('「「「「「「「「「「「「「「「「「「「「');
         Log::info('----ユーザープロフィール更新処理開始----');
@@ -105,7 +105,7 @@ class UserProfileController extends Controller
         $userData->password     = Hash::make($request->password);
 
 
-        $userData->save();
+        $userData->update();
         Log::info('保存する中身の確認：' . $userData);
 
         return redirect('/user/home')->with('flash_message', __('Profile Updated'));

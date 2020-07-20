@@ -32,7 +32,7 @@
 
 <script>
 export default {
-    props: ["storedata"],
+    props: ["authdata"],
     deta() {
         return {};
     },
@@ -44,7 +44,7 @@ export default {
             return "/store/product/index";
         },
         profile_Link() {
-            return "/store/profile/edit/" + this.storedata.id;
+            return "/store/profile/edit/" + this.authdata.id;
         },
         exhibition_link() {
             return "/store/product/exhibition";
