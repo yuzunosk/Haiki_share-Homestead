@@ -21,7 +21,7 @@
 
 
     <!-- Styles -->
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/app.css' , true) }}" rel="stylesheet">
 </head>
 
 <body class="l_site__area">
@@ -84,7 +84,7 @@
     </div>
 
     <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-        <script src="{{ asset('js/app.js') }}"></script>
+        <script src="{{ asset('js/app.js' , true) }}"></script>
 </body>
 
 </html>
