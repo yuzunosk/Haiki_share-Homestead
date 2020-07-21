@@ -26,8 +26,6 @@ class CreateUsersTable extends Migration
             $table->rememberToken();
             $table->timestamps();
         });
-        // SET auto-increment start value
-        DB::statement("ALTER TABLE users AUTO_INCREMENT = 100000;");
     }
 
     /**
