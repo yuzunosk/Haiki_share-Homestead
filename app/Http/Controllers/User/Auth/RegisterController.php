@@ -59,9 +59,6 @@ class RegisterController extends Controller
     // 登録処理
     protected function create(array $data)
     {
-        // SET auto-increment start value
-        DB::statement("ALTER TABLE users AUTO_INCREMENT = 100000;");
-
         return User::create([
             'name'     => $data['name'],
             'email'    => $data['email'],
