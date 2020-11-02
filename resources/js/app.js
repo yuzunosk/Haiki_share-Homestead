@@ -11,6 +11,7 @@ require("./components/case/partial");
 require("./components/case/showSerch.js");
 require("./components/case/clickDelete.js");
 require("./components/case/flashmessage.js");
+require("./components/case/popup.js");
 
 window.Vue = require("vue");
 

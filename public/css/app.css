@@ -11677,7 +11677,7 @@ img {
   background-color: #4a4a4a;
   display: grid;
   grid-area: header;
-  grid-template: "left center right" 100%/33% 33% 34%;
+  grid-template: "left right" 100%/33% 67%;
   height: 70px;
   width: 100%;
   color: #f6f5f4;
@@ -11694,86 +11694,64 @@ img {
 }
 
 .l-header__right {
+  height: 100%;
   grid-area: right;
   display: grid;
-  grid-template: "iconA textA iconB textB" 100%/1fr 2fr 1fr 2fr;
+  grid-template: "..... ..... menu1 menu2 menu3" 100%/1fr 1fr 1fr 1fr 1fr;
   justify-content: center;
   align-items: center;
 }
 
 @media screen and (max-width: 414px) {
   .l-header__right {
-    grid-template: "iconA iconB" 65% "textA textB" 35%/1fr 1fr;
+    grid-template: ".... .... menu4" 100%/1fr 1fr 1fr;
   }
 }
 
-.l-header__right__iconA {
-  grid-area: iconA;
-  margin: 0 auto;
-}
-
-.l-header__right__textA {
-  grid-area: textA;
+.l-header__right__text {
   color: #f6f5f4;
   font-size: 16px;
-}
-
-@media screen and (max-width: 414px) {
-  .l-header__right__textA {
-    font-size: 12px;
-    text-align: center;
-  }
-}
-
-.l-header__right__iconB {
-  grid-area: iconB;
-  margin: 0 auto;
-}
-
-.l-header__right__iconB--logout {
-  grid-area: right;
-  display: grid;
-  grid-template: ".... iconC textC ...." 100%/35% 10% 25% 30%;
-  justify-content: center;
+  height: 100%;
+  display: flex;
   align-items: center;
 }
 
 @media screen and (max-width: 414px) {
-  .l-header__right__iconB--logout {
-    grid-area: right;
-    grid-template: ".... iconC" 65% ".... textC" 35%/60% 40%;
-  }
-}
-
-.l-header__right__textB {
-  grid-area: textB;
-  color: #f6f5f4;
-  font-size: 16px;
-}
-
-@media screen and (max-width: 414px) {
-  .l-header__right__textB {
+  .l-header__right__text {
     font-size: 12px;
     text-align: center;
   }
 }
 
-.l-header__right__iconC {
-  grid-area: iconC;
-  margin: 0 auto;
+.l-header__right__1 {
+  grid-area: menu1;
+  height: 100%;
 }
 
-.l-header__right__textC {
-  grid-area: textC;
-  color: #f6f5f4;
-  font-size: 16px;
+.l-header__right__2 {
+  grid-area: menu2;
+  height: 100%;
 }
 
-@media screen and (max-width: 414px) {
-  .l-header__right__textC {
-    font-size: 12px;
-    text-align: center;
-  }
+.l-header__right__3 {
+  grid-area: menu3;
+  height: 100%;
+}
+
+.l-header__right__4 {
+  grid-area: menu4;
+  height: 100%;
+}
+
+.l-header__popmenu {
+  position: absolute;
+  top: -100px;
+  width: 100%;
+  height: 70px;
+  background: #4c4a4a;
+  transition: 0.2s;
+  z-index: 10;
+  position: fixed;
 }
 
 .l_site__area {
@@ -12045,7 +12023,7 @@ img {
   border: 3px solid #333;
   border-radius: 10px;
   background: #fffde5;
-  grid-template: " head  " 160px " main  " 1fr " foot  " 80px/100%;
+  grid-template: " head  " 160px " main  " 1fr " foot  " 80px " submit " 80px " ..... " 40px/100%;
 }
 
 @media screen and (max-width: 414px) {
@@ -12233,7 +12211,7 @@ img {
   border: 3px solid #333;
   border-radius: 10px;
   background: #fffde5;
-  grid-template: " head  " 160px " main  " 1fr " foot  " 80px/100%;
+  grid-template: " head  " 160px " main  " 1fr " foot  " 80px " submit " 80px " .....  " 40px/100%;
 }
 
 @media screen and (max-width: 414px) {
@@ -12261,6 +12239,10 @@ img {
 
 .l_login--foot {
   grid-area: foot;
+}
+
+.l_login--submit {
+  grid-area: submit;
 }
 
 .l_login--email {
@@ -13664,6 +13646,39 @@ img {
   justify-content: space-evenly;
 }
 
+.c-header__popmenu {
+  height: 100%;
+  width: 100%;
+  display: grid;
+  grid-template: "left right" 100%/50% 50%;
+}
+
+.c-header__popmenu--list {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  color: #f6f5f4;
+}
+
+.c-header__popmenu--left {
+  grid-area: left;
+}
+
+.c-header__popmenu--right {
+  grid-area: right;
+}
+
+.c-header--mask {
+  display: none;
+  position: absolute;
+  top: 0;
+  background: #080707bf;
+  height: 2000px;
+  width: 100%;
+  transition: 0.1s;
+}
+
 .c_pagination__list--icon::before {
   border-right: 20px solid #c30064;
   right: 100%;
@@ -13780,8 +13795,16 @@ img {
   margin: 50px auto;
 }
 
+.ml-10 {
+  margin-left: 10px;
+}
+
 .ml-30 {
   margin-left: 30px;
+}
+
+.mr-10 {
+  margin-right: 10px;
 }
 
 .mr-20 {
@@ -13808,6 +13831,10 @@ img {
 
 .mb-30 {
   margin-bottom: 30px;
+}
+
+.mb-50 {
+  margin-bottom: 50px;
 }
 
 .mb-100 {
@@ -14161,6 +14188,26 @@ img {
 
 .u_text--align-r {
   text-align: right;
+}
+
+.display-pc {
+  display: block;
+}
+
+@media screen and (max-width: 414px) {
+  .display-pc {
+    display: none;
+  }
+}
+
+.display-sm {
+  display: none;
+}
+
+@media screen and (max-width: 414px) {
+  .display-sm {
+    display: block;
+  }
 }
 
 .u_display-show {

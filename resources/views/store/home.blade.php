@@ -9,7 +9,7 @@
 </div>
 @endif
 <div>
-    <!-- reactを読み込む -->
+    <!-- vue.jsを読み込む -->
     <div id="storeApp">
     <storehome-component :productDatas="{{ $productData }}" :storeData="{{ $storeData }}" :buyDatas="{{ $buyData }}" ></storehome-component>
     </div>

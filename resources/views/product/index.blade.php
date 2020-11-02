@@ -8,6 +8,7 @@ $_GET['sort'] = (isset($_GET['sort'])) ?   $_GET['sort'] : "";
 $_GET['order'] = (isset($_GET['order'])) ? $_GET['order'] : "";
 $_GET['prefectural'] = (isset($_GET['prefectural'])) ? $_GET['prefectural'] : "";
 $_GET['expiration'] = (isset($_GET['expiration'])) ? $_GET['expiration'] : "";
+
 @endphp
 
 @section('content')
@@ -68,16 +69,24 @@ $_GET['expiration'] = (isset($_GET['expiration'])) ? $_GET['expiration'] : "";
             <input class="c_serch--submit btn--mini btn--purpule" type="submit" value="検索">
         </form>
     </div>
-    
-    <div id="cardApp" class="l_index__main">
-        <productcardunit :productdatas="{{ $productDatas }}" :storeid="{{ $storeId }}" :buydatas="{{ $buyDatas }}" ></productcardunit>
-    </div>
+
+    @if ($productDatas !== null)
+        <div id="cardApp" class="l_index__main">
+            <productcardunit :productdatas="{{ $productDatas }}" :storeid="{{ $storeId }}" :buydatas="{{ $buyDatas }}" ></productcardunit>
+        </div>
+    @else
+        <div>
+            <p>まだデータがありません</p>
+        </div>
+    @endif
 
             {{-- ここからページネート --}}
-            <div class="l_index__paginate">
-                <ul  class="l_pagination__container u_display--center">
-    
-                    @php
+        @empty($productDatas)
+            
+        <div class="l_index__paginate">
+            <ul  class="l_pagination__container u_display--center">
+                
+                @php
                         //現在のページが総ページ数と同じかつ、総ページ数がページ表示数よりも多い場合、左にリンクを４つ表示する
                         if ($currentPageNum  == $totalPageNum && $totalPageNum >= $pageColNum){
                             $minPageNum = $currentPageNum-4;
@@ -105,14 +114,14 @@ $_GET['expiration'] = (isset($_GET['expiration'])) ? $_GET['expiration'] : "";
                         }
                     @endphp
             
-                        {{-- 現在のページ数が１以外の時表示する --}}
+            {{-- 現在のページ数が１以外の時表示する --}}
                         @if($currentPageNum != 1)
                                 <a class="c_pagination__list--prev c_pagination__list--text" href="{{route('store.product.index' , [1 , $sort , $order , $expiration, $prefectural ])}}">
                                     <i class="fas fa-chevron-left"></i>
                                 </a>
-                        @endif
+                                @endif
             
-                        @for($i = $minPageNum; $i <= $maxPageNum; $i++)
+                                @for($i = $minPageNum; $i <= $maxPageNum; $i++)
                                 <a  class="c_pagination__list--icon <?php if(($currentPageNum ) == $i ) echo "c_pagination--active" ?> c_pagination__list--text" href="{{route('store.product.index' ,[ $i , $sort , $order , $expiration, $prefectural ])}}">
                                     <?php echo $i ?>
                                 </a>
@@ -123,9 +132,10 @@ $_GET['expiration'] = (isset($_GET['expiration'])) ? $_GET['expiration'] : "";
                                 <a  class="c_pagination__list--text c_pagination__list--next" href="{{route('store.product.index' , [$maxPageNum ,  $sort , $order , $expiration, $prefectural ])}}">
                                     <i class="fas fa-chevron-right"></i>
                                 </a>
-                        @endif
-                </ul>
-            </div>
-            {{-- ここでページネート END --}}
+                                @endif
+                            </ul>
+                        </div>
+                        {{-- ここでページネート END --}}
+@endempty
 
-</div> @endsection
+                    </div> @endsection

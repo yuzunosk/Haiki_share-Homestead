@@ -7,3 +7,42 @@
     width: 100%;
     justify-content: space-evenly;
 }
+
+.c-header {
+
+&__popmenu {
+    height: 100%;
+    width: 100%;
+    display: grid;
+    grid-template: 
+    "left right" 100%
+    / 50% 50%;
+
+    &--list {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 18px;
+        color: #f6f5f4;
+    }
+
+    &--left {
+        grid-area: left;
+    }
+
+    &--right {
+        grid-area: right;
+    }
+
+  }
+
+  &--mask {
+    display: none;
+    position: absolute;
+    top: 0;
+    background: #080707bf;
+    height: 2000px;
+    width: 100%;
+    transition: .1s;
+  }
+}

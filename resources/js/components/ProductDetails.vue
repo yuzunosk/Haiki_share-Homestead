@@ -82,41 +82,41 @@
                 </div>
             </div>
         </div>
-        <div class="l_detail--info u_font__default">
+        <div class="l_detail--info">
             <!-- 店舗情報 -->
-            <h1 class="l_detail--info--head u_display--Jstart">店舗情報</h1>
+            <h1 class="l_detail--info--head u_display--Jstart u_font__detail--head">店舗情報</h1>
 
-            <h3 class="l_detail--info--textA u_display--Jstart">店舗名</h3>
-            <p class="l_detail--info--dataA u_display--Jstart">
+            <h3 class="l_detail--info--textA u_display--Jstart u_font__detail--info--title">店舗名</h3>
+            <p class="l_detail--info--dataA u_display--Jstart u_font__detail--default">
                 {{ storedata.store_name }}
             </p>
 
-            <h3 class="l_detail--info--textB u_display--Jstart">支店名</h3>
-            <p class="l_detail--info--dataB u_display--Jstart">
+            <h3 class="l_detail--info--textB u_display--Jstart  u_font__detail--info--title">支店名</h3>
+            <p class="l_detail--info--dataB u_display--Jstart u_font__detail--default">
                 {{ storedata.branch_name }}
             </p>
 
-            <h3 class="l_detail--info--textC u_display--Jstart">店長名</h3>
-            <p class="l_detail--info--dataC u_display--Jstart">
+            <h3 class="l_detail--info--textC u_display--Jstart u_font__detail--info--title">店長名</h3>
+            <p class="l_detail--info--dataC u_display--Jstart u_font__detail--default">
                 {{ storedata.manager_name }}
             </p>
 
-            <h3 class="l_detail--info--textE u_display--Jstart">郵便</h3>
-            <p class="l_detail--info--dataE u_display--Jstart">
+            <h3 class="l_detail--info--textE u_display--Jstart u_font__detail--info--title">郵便</h3>
+            <p class="l_detail--info--dataE u_display--Jstart u_font__detail--default">
                 〒 {{ storedata.zip }}
             </p>
 
-            <h3 class="l_detail--info--textF u_display--Jstart">住所</h3>
-            <p class="l_detail--info--dataF u_display--Jstart">
+            <h3 class="l_detail--info--textF u_display--Jstart u_font__detail--info--title">住所</h3>
+            <p class="l_detail--info--dataF u_display--Jstart u_font__detail--default">
                 {{ storedata.prefectural }}
             </p>
 
-            <p class="l_detail--info--dataG u_display--Jstart">
+            <p class="l_detail--info--dataG u_display--Jstart u_font__detail--default">
                 {{ storedata.address }}
             </p>
 
-            <h3 class="l_detail--info--textH u_display--Jstart">TEL</h3>
-            <p class="l_detail--info--dataH u_display--Jstart">
+            <h3 class="l_detail--info--textH u_display--Jstart u_font__detail--info--title">TEL</h3>
+            <p class="l_detail--info--dataH u_display--Jstart u_font__detail--default">
                 {{ storedata.tel }}
             </p>
         </div>

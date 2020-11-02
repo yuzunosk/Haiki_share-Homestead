@@ -28,26 +28,66 @@
     <div class="l-site__warapper">
 
         <nav class="l-header">
-                <a class="l-header__left  u_site--title u_site--title--bold u_display--center" href="{{ url('/top') }}">
+                <a class="l-header__left  u_site--title u_site--title--bold u_display--center" href="{{ url('/store/home') }}">
                     {{ config('app.name', 'Laravel') }}
                 </a>
                 <!-- ログインしてなければ表示 -->
                 @unless(Auth::guard('store')->check())
+                    <div class="display-pc">
                         <div class="l-header__right">
-                            <i class="l-header__right__iconA fas fa-sign-in-alt  fa-3x"></i>
-                            <a class="l-header__right__textA"l-header__right__textB" href="{{ route('LoginSelect') }}">{{ __('Login') }}</a>
-                            <i class="l-header__right__iconB fas fa-glass-cheers  fa-3x"></i>
-                            <a class="l-header__right__textB"l-header__right__textB" href="{{ route('RegistSelect') }}">{{ __('Singin') }}</a>
+                            <a class="l-header__right__text l-header__right__2" href="{{ route('LoginSelect') }}"><i class="fas fa-sign-in-alt  fa-2x mr-10"></i>{{ __('Login') }}</a>
+                            <a class="l-header__right__text l-header__right__3" href="{{ route('RegistSelect') }}"><i class="fas fa-glass-cheers  fa-2x mr-10"></i>{{ __('Singin') }}</a>
                         </div>
+                    </div>
+                    <div class="display-sm">
+                        <div class="l-header__right">
+                            <i class="fas fa-bars fa-5x l-header__right__4 u_display--center"></i>
+                        </div>
+                    </div>
                 @endunless
                     @if(Auth::guard('store')->check())
-                        <form id="logout-form" action="{{ route('store.logout') }}" method="POST" class="l-header__right__iconB--logout">
-                            @csrf
-                            <i class="l-header__right__iconC fas fa-sign-out-alt fa-3x"></i>
-                                <button type="submit" class="l-header__right__textC">{{ __('Logout') }}</button>
-                        </form>
-                    @endif
+                    {{-- PCからみた場合 --}}
+                    <div class="display-pc">
+                        <div class="l-header__right">
+                            {{-- <a class="l-header__right__text l-header__right__2" href="{{ route('home') }}"><i class="fas fa-store-alt fa-2x mr-10"></i>{{ $storeData->store_name }}</a> --}}
+                            <button type="button" id="js-click-return-home" class="l-header__right__text l-header__right__2"><i class="fas fa-store-alt fa-2x mr-10"></i>{{ $storeData->store_name }}</button>
+                            <form id="logout-form" action="{{ route('store.logout') }}" method="POST" class="l-header__right__3">
+                                @csrf
+                                <button type="submit" class="l-header__right__text" ><i class="fas fa-sign-out-alt fa-2x mr-10"></i>{{ __('Logout') }}</button>
+                            </form>
+                        </div>
+                    </div>
+                    {{-- スマホからみた場合 --}}
+                    <div class="display-sm">
+                        <div  id="js-click-popup" class="l-header__right">
+                            <i class="fas fa-bars fa-5x l-header__right__4 u_display--center"></i>
+                        </div>
+                    </div>
+                @endif
         </nav>
+
+        {{-- jsでポップアップさせるメニュー --}}
+        <nav id="js-popup-menu">
+            @unless(Auth::guard('store')->check())
+                <div class="c-header__popmenu">
+                    <a class="" href="{{ route('LoginSelect') }}"><i class="fas fa-sign-in-alt  fa-x mr-10"></i>{{ __('Login') }}</a>
+                    <a class="" href="{{ route('RegistSelect') }}"><i class="fas fa-glass-cheers  fa-x mr-10"></i>{{ __('Singin') }}</a>
+                </div>
+            @endunless
+
+            @if(Auth::guard('store')->check())
+            <div class="c-header__popmenu">
+                <button type="button" id="js-click-return-home" class=""><i class="fas fa-store-alt fa-x mr-10"></i>{{ $storeData->store_name }}</button>
+                <form id="logout-form" action="{{ route('store.logout') }}" method="POST" class="">
+                    @csrf
+                    <button type="submit" class="" ><i class="fas fa-sign-out-alt fa-x mr-10"></i>{{ __('Logout') }}</button>
+                </form>
+            </div>
+            @endif
+        </nav>
+        {{-- jsで現れる透明の幕 --}}
+            <div id="js-popup-mask" class="c-header--mask"></div>
+        {{-- jsでポップアップさせるメニュー end --}}
 
                 <!-- フラッシュメッセージ -->
                 @if (session('flash_message'))
@@ -84,7 +124,7 @@
     </div>
 
     <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-        <script src="{{ asset('js/app.js' , true) }}"></script>
+    <script src="{{ asset('js/app.js' , true) }}"></script>
 </body>
 
 </html>

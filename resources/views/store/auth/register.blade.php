@@ -16,8 +16,8 @@
 
             <div class="l_register--name   l_profile__form--unit">
                 <div class="l_profile--text">
-                    <label class="u_ds--block" for="name" class="">{{ __('Store Name') }}</label>
-                    @error('name')
+                    <label class="u_ds--block" for="store_name" class="">{{ __('Store Name') }}</label>
+                    @error('store_name')
                     <span class="c_input--error-msg" role="alert">
                         <strong>{{ $message }}</strong>
                     </span>
@@ -25,7 +25,7 @@
                 </div>
 
                 <div class="l_profile--form">
-                    <textarea class="c_input--textArea" id="name" class=" @error('name') is-invalid @enderror" name="name">{{ old('name') }}</textarea>
+                    <textarea class="c_input--textArea" id="store_name" class=" @error('store_name') is-invalid @enderror" name="store_name">{{ old('store_name') }}</textarea>
                 </div>
             </div>
             <!-- 名前 END  -->
@@ -215,6 +215,14 @@
             </button>
         </div>
         <!-- 入力フォーム枠 END -->
+
+        {{-- submit return --}}
+        <div id="js-click-return-top" class="l_login--submit  u_display--center">
+            <button class="btn btn--gray" type="button" >
+                {{ __('Return') }}
+            </button>
+        </div>
+        {{-- submit return END--}}
 
 
 

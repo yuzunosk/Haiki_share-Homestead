@@ -69,11 +69,19 @@ $_GET['expiration'] = (isset($_GET['expiration'])) ? $_GET['expiration'] : "";
         </form>
     </div>
     
+@if ($productDatas == null)
     <div id="cardApp" class="l_index__main">
         <indexcardunit :productdatas="{{ $productDatas }}" :buydatas="{{ $buyDatas }}" ></indexcardunit>
     </div>
+@else
+        <div>
+            <p>まだデータがありません</p>
+        </div>
+@endif
+
 
             {{-- ここからページネート --}}
+@empty($productDatas)
             <div class="l_index__paginate">
                 <ul  class="l_pagination__container u_display--center">
     
@@ -127,5 +135,7 @@ $_GET['expiration'] = (isset($_GET['expiration'])) ? $_GET['expiration'] : "";
                 </ul>
             </div>
             {{-- ここでページネート END --}}
+@endempty
+
 
 </div> @endsection

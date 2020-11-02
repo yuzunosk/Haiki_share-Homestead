@@ -1,4 +1,4 @@
-@extends('layouts.store.app')
+@extends('layouts.app')
 
 @section('content')
 
@@ -81,6 +81,14 @@
             </button>
         </div>
         <!-- 入力フォーム枠 END -->
+
+        {{-- submit return --}}
+        <div id="js-click-return-top" class="l_login--submit  u_display--center">
+            <button class="btn btn--gray" type="button" >
+                {{ __('Return') }}
+            </button>
+        </div>
+        {{-- submit return END--}}
 
 
 

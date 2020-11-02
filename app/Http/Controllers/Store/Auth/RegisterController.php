@@ -48,14 +48,14 @@ class RegisterController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            'name'         => ['required', 'string', 'max:255'],
+            'store_name'   => ['required', 'string', 'max:255'],
             'branch_name'  => ['required', 'string', 'max:255'],
             'zip'          => ['required', new AlphaNumHalf, 'numeric'],
             'prefectural'  => ['required', 'string'],
             'address'      => ['required', 'string', 'max:255'],
             'tel'          => ['required', 'numeric', 'regex:/^[a-zA-Z0-9-]+$/'],
             'manager_name' => ['required', 'string', 'max:255'],
-            'email'        => ['required', 'string', 'email', 'max:255', 'unique:stores',  new AlphaNumHalf],
+            'email'        => ['required', 'string', 'email', 'max:255', 'unique:stores'],
             'password'     => ['required', 'string', 'min:6', 'confirmed',  new AlphaNumHalf],
         ]);
     }
@@ -64,7 +64,7 @@ class RegisterController extends Controller
     protected function create(array $data)
     {
         return Store::create([
-            'name'         => $data['name'],
+            'store_name'   => $data['store_name'],
             'branch_name'  => $data['branch_name'],
             'zip'          => $data['zip'],
             'prefectural'  => $data['prefectural'],

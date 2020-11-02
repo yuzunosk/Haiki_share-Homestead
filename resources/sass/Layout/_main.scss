@@ -301,6 +301,8 @@
             " head  " 160px
             " main  " 1fr
             " foot  " 80px
+            " submit " 80px
+            " ..... " 40px
             / 100%;
 
         @include mq() {
@@ -531,6 +533,8 @@
             " head  " 160px
             " main  " 1fr
             " foot  " 80px
+            " submit " 80px
+            " .....  " 40px
             / 100%;
 
         @include mq() {
@@ -564,6 +568,10 @@
 
     &--foot {
         grid-area: foot;
+    }
+
+    &--submit {
+        grid-area: submit;
     }
 
     &--email {

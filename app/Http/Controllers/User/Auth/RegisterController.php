@@ -60,7 +60,9 @@ class RegisterController extends Controller
     protected function create(array $data)
     {
         return User::create([
-            'id'       => $data['id'] + 100000;
+            // SET auto-increment start value
+            'id' =>  DB::statement("ALTER TABLE users AUTO_INCREMENT = 10000;"),
+            // 'id'       => $data['id'] + 100000,
             'name'     => $data['name'],
             'email'    => $data['email'],
             'password' => Hash::make($data['password']),

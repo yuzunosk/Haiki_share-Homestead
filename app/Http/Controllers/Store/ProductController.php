@@ -32,6 +32,10 @@ class ProductController extends Controller
         Log::info('--------ストアー商品一覧編集ページ----------');
         Log::info('」」」」」」」」」」」」」」」」」」');
 
+        //ストアデータを取得
+        $storeData = Auth::user();
+        Log::info("ログインストアデータ" . $storeData);
+
         //ログインストアIDを取得
         $storeId = Auth::id();
         Log::info("ログインストアID" . $storeId);
@@ -201,7 +205,7 @@ class ProductController extends Controller
         $categorys = Category::all();
 
 
-        return view('product.index', compact(['productDatas', 'storeId', 'buyDatas', 'totalRecode', 'totalPageNum', 'currentPageNum', 'currentMinNum', 'sort', 'order', 'categorys', 'prefectural', 'expiration']));
+        return view('product.index', compact(['storeData', 'productDatas', 'storeId', 'buyDatas', 'totalRecode', 'totalPageNum', 'currentPageNum', 'currentMinNum', 'sort', 'order', 'categorys', 'prefectural', 'expiration']));
     }
 
     /**
@@ -302,8 +306,13 @@ class ProductController extends Controller
         Log::info('--------新規登録ページ----------');
         Log::info('」」」」」」」」」」」」」」」」」」');
         //productディレクトリのnewファイルを読み込む
+
+        //ストアデータを取得
+        $storeData = Auth::user();
+        Log::info("ログインストアデータ" . $storeData);
+
         $categorys = Category::all();
-        return view('product.new', compact('categorys'));
+        return view('product.new', compact('storeData', 'categorys'));
     }
 
     /**

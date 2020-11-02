@@ -56,14 +56,51 @@
                     <a class="l-header__left u_site--title u_site--title--bold u_display--center" href="{{ url('/top') }}">
                         {{ config('app.name', 'Laravel') }}
                     </a>
-                <div class="l-header__right">
-                    <!-- ログインしてなければ表示 -->
-                            <i class="l-header__right__iconA fas fa-sign-in-alt  fa-3x"></i>
-                            <a class="l-header__right__textA"l-header__right__textB" href="{{ route('LoginSelect') }}">{{ __('Login') }}</a>
-                            <i class="l-header__right__iconB fas fa-glass-cheers  fa-3x"></i>
-                            <a class="l-header__right__textB"l-header__right__textB" href="{{ route('RegistSelect') }}">{{ __('Singin') }}</a>
+                    <!--user or store ログインしてなければ表示 -->
+                {{-- @unless(Auth::guard('user')->check() || Auth::guard('store')->check()) --}}
+                <div class="display-pc">
+                    <div class="l-header__right">
+                        <a class="l-header__right__text l-header__right__2" href="{{ route('LoginSelect') }}"><i class="fas fa-sign-in-alt  fa-2x mr-10"></i>{{ __('Login') }}</a>
+                        <a class="l-header__right__text l-header__right__3" href="{{ route('RegistSelect') }}"><i class="fas fa-glass-cheers  fa-2x mr-10"></i>{{ __('Singin') }}</a>
+                    </div>
                 </div>
+                    {{-- スマホ画面の時はこちらを表示 --}}
+                <div class="display-sm">
+                    <div id="js-click-popup" class="l-header__right">
+                        <i class="fas fa-bars fa-5x l-header__right__4 u_display--center"></i>
+                    </div>
+                </div>
+                {{-- @endunless --}}
+                
+                {{-- user または store ログイン時 --}}
+                {{-- @if(Auth::guard('user')->check() || Auth::guard('store')->check()) --}}
+                {{-- pcからみた場合 --}}
+                    {{-- <div class="display-pc">
+                      <div class="l-header__right">
+                        <form id="logout-form" action="{{ route('home') }}" method="POST" class="l-header__right__3">
+                            @csrf
+                            <button type="submit" class="l-header__right__text"><i class="fas fa-sign-out-alt fa-2x mr-10"></i>{{ __('Logout') }}</button>
+                        </form>
+                      </div>
+                    </div> --}}
+                {{-- スマホからみた場合 --}}
+                    {{-- <div class="display-sm">
+                        <div class="l-header__right">
+                            <i class="fas fa-bars fa-5x l-header__right__4 u_display--center"></i>
+                        </div>
+                    </div>
+                @endif --}}
             </nav>
+         {{-- jsでポップアップさせるメニュー --}}
+         <nav id="js-popup-menu" class="l-header__popmenu">
+                 <div class="c-header__popmenu">
+                     <a class="c-header__popmenu--list c-header__popmenu--left" href="{{ route('LoginSelect') }}"><i class="fas fa-sign-in-alt  fa-2x mr-10"></i>{{ __('Login') }}</a>
+                     <a class="c-header__popmenu--list c-header__popmenu--right" href="{{ route('RegistSelect') }}"><i class="fas fa-glass-cheers  fa-2x mr-10"></i>{{ __('Singin') }}</a>
+                 </div>
+         </nav>
+         {{-- jsで現れる透明の幕 --}}
+             <div id="js-popup-mask" class="c-header--mask"></div>
+         {{-- jsでポップアップさせるメニュー end --}}
 
                     <!-- フラッシュメッセージ -->
         @if (session('flash_message'))
@@ -99,5 +136,8 @@
             </footer>
     
         </div>
+
+        <script src="{{ asset('js/app.js' , true) }}"></script>
+
     </body>
 </html>

@@ -126,6 +126,25 @@
 .u_text--align-r {
     text-align: right;
 }
+// ------------------------------
+// レスポンシブ対応
+// ------------------------------
+.display-pc {
+    display: block;
+
+    @include mq(sm) {
+    display: none;
+    }
+}
+
+.display-sm {
+    display: none;
+
+    @include mq(sm) {
+        display: block;
+    }
+
+}
 
 // -------------------------------
 // javascript animetion

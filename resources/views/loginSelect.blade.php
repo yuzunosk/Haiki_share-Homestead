@@ -7,7 +7,7 @@
 
     <div class="l_register__select__container u_font__default">
         <div class="l_register__select--head">
-            <h2 class="l_register__select--title u_display--center u_font__lage--text">{{ __('Register') }}</h2>
+            <h2 class="l_register__select--title u_display--center u_font__lage--text">{{ __('Login') }}</h2>
             <p  class="l_register__select--subtitle u_display--center">ログインするアカウントを選択してください</p>
         </div>
         <div class="l_register__select--main">

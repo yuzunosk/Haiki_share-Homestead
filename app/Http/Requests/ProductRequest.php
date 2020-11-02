@@ -29,7 +29,7 @@ class ProductRequest extends FormRequest
             'price'         => 'min:1|numeric|required|max:99999999|lte:regular_price',
             'regular_price' => 'min:1|numeric|required|max:99999999|gte:price',
             'sellby'        => 'date|required',
-            'pic'           => 'file|image|max:10240|nullable|mimes:jpg,png,png',
+            'pic'           => 'file|image|max:10240|nullable|mimes:jpeg,gif,png',
             'store_id'      => 'required'
 
         ];
@@ -58,7 +58,7 @@ class ProductRequest extends FormRequest
             'pic.max'                    => '画像サイズが大きすぎます',
             'pic.image'                  => 'ファイル形式が異なっています',
             'pic.file'                   => 'アップロードに失敗しました',
-            'pic.mimes'                  => 'ファイルは、jpg,png,pngのみ扱う事ができます',
+            'pic.mimes'                  => 'ファイルは、jpeg,gif,pngのみ扱う事ができます',
             'store_id'                   => 'ストアIDは必須入力です',
         ];
     }
