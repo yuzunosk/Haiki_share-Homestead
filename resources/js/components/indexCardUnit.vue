@@ -12,6 +12,7 @@
 <script>
 import IndexCard from "./indexCard.vue";
 export default {
+    name: "IndexCardUnit",
     props: ["productdatas", "buydatas"],
     data() {
         return {};

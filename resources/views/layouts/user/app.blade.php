@@ -117,7 +117,9 @@
                 <div class="l_footer__layout--bottom u_display--center--column">
                     <div class="u_img__unit">
                         <!-- 画像を作る -->
-                        <img class="img__icon u_size__icon--sm" src="/storage/img/email-iconA.png" alt="">
+                        <a href="{{ route('submit') }}">
+                           <img class="img__icon u_size__icon--sm" src="/storage/img/email-iconA.png" alt="">
+                        </a>
                         <span class="u_white--text text-size__def mb-30">contact</span>
                     </div>
                     <h5 class="u_white--text text-size__min mb-30">©︎2020 yuzunosk website, inc.</h5>
@@ -128,7 +130,6 @@
     </div>
 
     <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-    <script src="{{ asset('js/app.js' , true) }}"></script>
 
 </body>
 

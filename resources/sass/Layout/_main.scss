@@ -353,6 +353,20 @@
             /100%;
     }
 
+    &__info__container {
+        display: grid;
+        margin: 5vh 15%;
+        grid-template:
+        "name   " 50px
+        ".....  " 30px
+        "email  " 50px
+        ".....  " 30px
+        "subject" 50px
+        ".....  " 30px
+        "content" 200px
+        /100%;
+    }
+
     &--title {
         grid-area: head;
     }
@@ -361,20 +375,31 @@
         grid-area: main;
     }
 
+    &--subject {
+        grid-area: subject;
+    }
+
+    &--content {
+        grid-area: content;     
+    }
+
     &--foot {
         grid-area: foot;
     }
 
     &--name {
         grid-area: name;
+        align-items: center;
     }
 
     &--b_name {
         grid-area: b_name;
+        align-items: center;
     }
 
     &--zip {
         grid-area: zip;
+        align-items: center;
     }
 
     &--prefectural {
@@ -383,26 +408,35 @@
 
     &--address {
         grid-area: address;
+        align-items: center;
     }
 
     &--email {
         grid-area: email;
+        align-items: center;
     }
 
     &--tel {
         grid-area: tel;
+        align-items: center;
     }
 
     &--manager_name {
         grid-area: manager_name;
+        align-items: center;
+
     }
 
     &--pass {
         grid-area: pass;
+        align-items: center;
+
     }
 
     &--re_pass {
         grid-area: re_pass;
+        align-items: center;
+
     }
 
     &__select {
@@ -961,34 +995,45 @@
 
     &--return {
         grid-area: return;
+        align-items: center;
+
     }
 
     &--name {
         grid-area: name;
+        align-items: center;
     }
 
     &--b_name {
         grid-area: b_name;
+        align-items: center;
     }
 
     &--email {
         grid-area: email;
+        align-items: center;
     }
 
     &--address {
         grid-area: address;
+        align-items: center;
     }
 
     &--pass {
         grid-area: pass;
+        align-items: center;
     }
 
     &--text {
         grid-area: text;
+        align-items: center;
+
     }
 
     &--form {
         grid-area: form;
+        align-items: center;
+
     }
 }
 // -------------------------

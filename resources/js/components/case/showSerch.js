@@ -4,6 +4,12 @@
 const showSerch = document.getElementById("js-click-showSerch");
 const hideSerch = document.getElementById("js-click-hideSerch");
 const toggleDisplay = document.getElementById("js-toggle-display");
+
+console.log(showSerch);
+console.log(hideSerch);
+console.log(toggleDisplay);
+
+
 // =================
 // 処理
 // =================

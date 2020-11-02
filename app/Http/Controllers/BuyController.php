@@ -8,11 +8,8 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\sendPurchaseMail;
 
-
 use App\models\Store;
 use App\models\User;
-
-
 
 use App\models\Buy;
 

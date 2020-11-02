@@ -12047,6 +12047,12 @@ img {
   grid-template: "name        " 100px ".....       " 30px "b_name      " 100px ".....       " 30px "zip         " 50px ".....       " 30px "prefectural " 50px ".....       " 30px "address     " 100px ".....       " 30px "email       " 50px ".....       " 30px "tel         " 50px ".....       " 30px "manager_name" 50px ".....       " 30px "pass        " 50px ".....       " 30px "re_pass     " 50px/100%;
 }
 
+.l_register__info__container {
+  display: grid;
+  margin: 5vh 15%;
+  grid-template: "name   " 50px ".....  " 30px "email  " 50px ".....  " 30px "subject" 50px ".....  " 30px "content" 200px/100%;
+}
+
 .l_register--title {
   grid-area: head;
 }
@@ -12055,20 +12061,31 @@ img {
   grid-area: main;
 }
 
+.l_register--subject {
+  grid-area: subject;
+}
+
+.l_register--content {
+  grid-area: content;
+}
+
 .l_register--foot {
   grid-area: foot;
 }
 
 .l_register--name {
   grid-area: name;
+  align-items: center;
 }
 
 .l_register--b_name {
   grid-area: b_name;
+  align-items: center;
 }
 
 .l_register--zip {
   grid-area: zip;
+  align-items: center;
 }
 
 .l_register--prefectural {
@@ -12077,26 +12094,32 @@ img {
 
 .l_register--address {
   grid-area: address;
+  align-items: center;
 }
 
 .l_register--email {
   grid-area: email;
+  align-items: center;
 }
 
 .l_register--tel {
   grid-area: tel;
+  align-items: center;
 }
 
 .l_register--manager_name {
   grid-area: manager_name;
+  align-items: center;
 }
 
 .l_register--pass {
   grid-area: pass;
+  align-items: center;
 }
 
 .l_register--re_pass {
   grid-area: re_pass;
+  align-items: center;
 }
 
 .l_register__select__container {
@@ -12564,34 +12587,42 @@ img {
 
 .l_profile--return {
   grid-area: return;
+  align-items: center;
 }
 
 .l_profile--name {
   grid-area: name;
+  align-items: center;
 }
 
 .l_profile--b_name {
   grid-area: b_name;
+  align-items: center;
 }
 
 .l_profile--email {
   grid-area: email;
+  align-items: center;
 }
 
 .l_profile--address {
   grid-area: address;
+  align-items: center;
 }
 
 .l_profile--pass {
   grid-area: pass;
+  align-items: center;
 }
 
 .l_profile--text {
   grid-area: text;
+  align-items: center;
 }
 
 .l_profile--form {
   grid-area: form;
+  align-items: center;
 }
 
 .l_detail__container {
@@ -13507,6 +13538,15 @@ img {
   padding: 0 10px;
   width: 100%;
   height: 80px;
+  text-align: left;
+}
+
+.c_input--textArea--large {
+  border: 2px solid #4a4a4a;
+  border-radius: 5px;
+  padding: 0 10px;
+  width: 100%;
+  height: 200px;
   text-align: left;
 }
 

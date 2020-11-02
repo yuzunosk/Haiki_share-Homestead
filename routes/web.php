@@ -23,6 +23,9 @@ Route::get('/top', 'ShowTopController')->name('top');
 Route::get('/regist', 'show_RegistSelectController')->name('RegistSelect');
 Route::get('/login', 'show_LoginSelectController')->name('LoginSelect');
 Route::get('/index/{page?}/{sort?}/{order?}/{expiration?}/{prefectural?}', 'showIndexController')->name('index');
+Route::get('/submit', 'SubmissionController@show')->name('submit'); //投稿フォームへ
+Route::post('/submit/post', 'SubmissionController@post')->name('submit.post'); //投稿フォームへ
+
 
 // buy関連
 Route::post('/buy', 'BuyController@store')->name('buy.store');
