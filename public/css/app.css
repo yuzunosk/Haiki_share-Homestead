@@ -13679,6 +13679,16 @@ img {
      object-fit: cover;
 }
 
+.c_input__droparea {
+  position: relative;
+}
+
+.c_input__droparea--floating {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
 .c_nav-menu {
   display: flex;
   height: 100%;
@@ -14215,6 +14225,10 @@ img {
 
 .u_display-n {
   display: none;
+}
+
+.opacity-0 {
+  opacity: 0;
 }
 
 .bg-gray {

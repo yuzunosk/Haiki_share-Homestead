@@ -5,9 +5,9 @@ const showSerch = document.getElementById("js-click-showSerch");
 const hideSerch = document.getElementById("js-click-hideSerch");
 const toggleDisplay = document.getElementById("js-toggle-display");
 
-console.log(showSerch);
-console.log(hideSerch);
-console.log(toggleDisplay);
+// console.log(showSerch);
+// console.log(hideSerch);
+// console.log(toggleDisplay);
 
 
 // =================
@@ -16,16 +16,6 @@ console.log(toggleDisplay);
 // ポップアップメニュー 並び替え
 if (showSerch != null) {
     // ウインドウクリックで閉じる
-    // window.onclick = event => {
-    //     console.log("windowをクリック");
-    //     //ウインドウをクリックした際に、toggleDisplayが、u_display-nを持っていない場合、classをつけ外しする
-    //     if (toggleDisplay.classList.contains("u_display-hide")) {
-    //         return;
-    //     } else {
-    //         toggleDisplay.classList.remove("u_display-show");
-    //         toggleDisplay.classList.add("u_display-hide");
-    //     }
-    // };
 
     const $showfunction = showSerch.addEventListener("click", function() {
         console.log("showSerchをクリック");

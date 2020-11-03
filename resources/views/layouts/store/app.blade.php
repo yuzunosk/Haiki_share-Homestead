@@ -17,10 +17,6 @@
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
 
-
-
-
-    <!-- Styles -->
     <link href="{{ asset('css/app.css' , true) }}" rel="stylesheet">
 </head>
 
@@ -125,6 +121,7 @@
 
     <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
     <script src="{{ asset('js/app.js' , true) }}"></script>
+
 </body>
 
 </html>

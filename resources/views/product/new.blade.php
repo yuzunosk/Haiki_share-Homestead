@@ -134,11 +134,11 @@
                 <strong>{{ $message }}</strong>
             </span>
             @enderror
-            <label id="js-dropArea" class="u_parent--100 bg-gray <?php if (!empty($err_msg['pic'])) echo 'err'; ?>">
+            <label id="js-dropArea" class="u_parent--100 bg-gray<?php if (!empty($err_msg['pic'])) echo 'err'; ?>" style="z-index:3;">
 
                 <input type="hidden" name="MAX_FILE_SIZE">
-                <input id="js-changeFile" class="u_parent--100 u_display-n" type="file" name="pic" class="input-file">
-                <img src="/storage/img/cross-no_image.png" alt="ドロップされた画像" class="c_input--prev-img">
+                <input id="js-changeFile" class="u_parent--100 opacity-0" type="file" name="pic" class="input-file">
+                <img id="js-check-img" src="" alt="ドロップされた画像" class="c_input--prev-img u_display-n">
 
 
             </label>
