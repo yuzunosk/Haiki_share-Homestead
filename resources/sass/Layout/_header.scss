@@ -45,12 +45,23 @@
             height: 100%;
             display: flex;
             align-items: center;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
 
             @include mq() {
                 font-size: $font-size__sm;
                 text-align: center;
             }
 
+        }
+
+        &__icon {
+            transition: 0.2s;
+
+            &:hover {
+                transform: scale(1.1);
+            }
         }
 
         &__1 {
@@ -61,6 +72,7 @@
         &__2 {
             grid-area: menu2;
             height: 100%;
+            
         }
 
         &__3 {

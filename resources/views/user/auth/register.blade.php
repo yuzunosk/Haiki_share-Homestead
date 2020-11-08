@@ -7,7 +7,7 @@
 
     <div class="l_register__container u_font__default u_text--space">
 
-        <div class="l_register--title  u_display--center u_font__text--title">{{ __('User Register') }}</div>
+        <div class="l_register--title  u_display--center  u_font__lage--text">{{ __('User Register') }}</div>
 
         <!-- 入力フォーム枠 -->
         <div class="l_register__user__container l_profile--main">
@@ -24,9 +24,7 @@
                     @enderror
                 </div>
 
-                <div class="l_profile--form">
-                    <input class="c_input--default" id="name" class=" @error('name') is-invalid @enderror" name="name" value="{{ old('name' ) }}" autofocus>
-                </div>
+                    <input class="l_profile--form c_input--default" id="name" class=" @error('name') is-invalid @enderror" name="name" value="{{ old('name' ) }}" autofocus>
             </div>
             <!-- 名前 END  -->
 
@@ -42,9 +40,7 @@
                     </span>
                     @enderror
                 </div>
-                <div class="l_profile--form">
-                    <input class="c_input--default" id="email" type="text" class=" @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" autofocus>
-                </div>
+                    <input class="l_profile--form c_input--default" id="email" type="text" class=" @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" autofocus>
             </div>
             <!-- email END  -->
 
@@ -60,9 +56,7 @@
                     </span>
                     @enderror
                 </div>
-                <div class="l_profile--form">
-                    <input class="c_input--default" id="password" type="password" class=" @error('password') is-invalid @enderror" name="password" autofocus>
-                </div>
+                    <input class="l_profile--form c_input--default" id="password" type="password" class=" @error('password') is-invalid @enderror" name="password" autofocus>
             </div>
             <!-- パスワード  END   -->
 
@@ -76,9 +70,7 @@
                     </span>
                     @enderror
                 </div>
-                <div class="l_profile--form">
-                    <input class="c_input--default" id="password-confirm" type="password" name="password_confirmation">
-                </div>
+                    <input class="l_profile--form c_input--default" id="password-confirm" type="password" name="password_confirmation">
             </div>
             <!-- パスワード確認 END -->
 
@@ -90,16 +82,16 @@
 
 
         <div class="l_register--foot u_display--center">
-            <button class="btn" type="submit" class="">
-                {{ __('Register') }}
+            <button class="btn-3 btn--white" type="submit">
+                <p class="btn--text--blk">{{ __('Register') }}</p>
             </button>
         </div>
         <!-- 入力フォーム枠 END -->
 
         {{-- submit return --}}
         <div id="js-click-return-top" class="l_login--submit  u_display--center">
-            <button class="btn btn--gray" type="button" >
-                {{ __('Return') }}
+            <button class="btn__reverse btn--green" type="button" >
+                <p class="btn--text--reverse">{{ __('Return') }}</p>
             </button>
         </div>
         {{-- submit return END--}}

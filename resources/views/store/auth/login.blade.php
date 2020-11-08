@@ -7,7 +7,7 @@
 
     <div class="l_login__container u_font__default u_text--space">
 
-        <div class="l_login--title  u_display--center u_font__text--title">{{ __('Store Login') }}</div>
+        <div class="l_login--title  u_display--center  u_font__lage--text">{{ __('Store Login') }}</div>
 
         <!-- 入力フォーム枠 -->
         <div class="l_login__form__container l_profile--main">
@@ -16,7 +16,7 @@
             <!-- email     -->
 
             <div class="l_login--email   l_profile__form--unit">
-                <div class="l_profile--text">
+                <div class="l_profile--text u_display--center">
                     <label class="u_ds--block" for="email" class="">{{ __('Email') }}</label>
                     @error('email')
                     {{-- <span class="c_input--error-msg" role="alert"> --}}
@@ -34,7 +34,7 @@
             <!-- パスワード     -->
 
             <div class="l_login--pass l_profile__form--unit">
-                <div class="l_profile--text">
+                <div class="l_profile--text u_display--center">
                     <label class="u_ds--block" for="password" class="">{{ __('Password') }}</label>
                     @error('password')
                     {{-- <span class="c_input--error-msg" role="alert"> --}}
@@ -76,16 +76,19 @@
 
 
         <div class="l_login--foot u_display--center">
-            <button class="btn" type="submit" class="">
-                {{ __('Login') }}
+            {{-- <button class="btn btn-white" type="submit">
+                <p class="btn--text--blk">{{ __('Login') }}</p>
+            </button> --}}
+            <button class="btn-3 btn--white" type="submit">
+                <p class="btn--text--blk">{{ __('Login') }}</p>
             </button>
         </div>
         <!-- 入力フォーム枠 END -->
 
         {{-- submit return --}}
         <div id="js-click-return-top" class="l_login--submit  u_display--center">
-            <button class="btn btn--gray" type="button" >
-                {{ __('Return') }}
+            <button class="btn__reverse btn--green" type="button" >
+                <p class="btn--text--reverse">{{ __('Return') }}</p>
             </button>
         </div>
         {{-- submit return END--}}

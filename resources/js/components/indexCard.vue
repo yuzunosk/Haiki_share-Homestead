@@ -25,7 +25,7 @@ export default {
     data() {
         return {
             picData: "",
-            info_link: "/user/product/show/" + this.p_data.id,
+            info_link: "/user/product/usershow/" + this.p_data.id,
             isEdit: true
         };
     },

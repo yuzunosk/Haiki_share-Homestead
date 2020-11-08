@@ -28,7 +28,7 @@
                             data-size="large"
                             data-text="カスタムテキスト"
                             href="https://twitter.com/share?ref_src=twsrc%5Etfw"
-                            class="btn--blue btn--sns"
+                            class="btn--twitter--blue btn--sns"
                             data-show-count="false"
                         >
                             <i class="fab fa-twitter fa-2x"></i>
@@ -47,7 +47,7 @@
                     <p
                         class="l_detail--main--info__container--category u_display--Jstart"
                     >
-                        <span class="btn--mini btn--beige">{{
+                        <span class="btn--mini btn--blush">{{
                             productdata.category
                         }}</span>
                     </p>
@@ -75,14 +75,16 @@
                         @click="clickDone"
                         :disabled="isDisabled"
                     >
-                        {{ toggleText }}
+                        <p class="btn--text--blk">
+                            {{ toggleText }}
+                        </p>
                     </button>
                     <!-- 状況で変化するボタンのコンポーネント：if文 編集可能か：購入可能か-->
                     <component :is="isWhich"></component>
                 </div>
             </div>
         </div>
-        <div class="l_detail--info">
+        <div class="l_detail--info u_font--info--text">
             <!-- 店舗情報 -->
             <h1 class="l_detail--info--head u_display--Jstart u_font__detail--head">店舗情報</h1>
 
@@ -230,7 +232,8 @@ export default {
         },
         changeClassBtn() {
             return {
-                btn: true,
+                btn_4: !this.isBuy,
+                btn_5: this.isBuy,
                 "btn--transition": true,
                 "l_detail--main--info--btn": true,
                 "btn--blue": !this.isBuy,

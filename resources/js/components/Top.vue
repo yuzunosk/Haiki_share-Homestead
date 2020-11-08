@@ -69,7 +69,9 @@
                 <NavgateCard></NavgateCard>
             </div>
             <div class="l_top--process--btn">
-                <a :href="login_link" class="btn--lage btn--white">登録する</a>
+                <a :href="login_link" class="btn-2 btn--white">
+                <p class="btn--text--blk">登録してみる</p>
+                </a>
             </div>
         </div>
     </div>

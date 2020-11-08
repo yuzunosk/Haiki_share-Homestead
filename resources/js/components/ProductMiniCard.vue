@@ -3,11 +3,9 @@
         <img
             class="l_product__miniCard--image u_img__fit--cover100"
             :src="picData"
-            alt=" サンプル画像"
-        />
+            alt=" サンプル画像"/>
         <p
-            class="l_product__miniCard--title u_display--center u_font__text--title"
-        >
+            class="l_product__miniCard--title u_display--center u_font__text--title">
             {{ data.name }}
         </p>
     </div>

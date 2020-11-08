@@ -44,5 +44,9 @@
     height: 2000px;
     width: 100%;
     transition: .1s;
+
+    @include mq() {
+        height: 4370px;
+    }
   }
 }

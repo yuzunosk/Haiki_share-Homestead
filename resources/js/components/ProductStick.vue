@@ -20,7 +20,7 @@
 
 <script>
 export default {
-    props: ["data"],
+    props: ["data", "authid"],
     data() {
         return {
             picData: "/storage/img/no-image.png",
@@ -38,10 +38,10 @@ export default {
         },
         judgUser() {
             //ログインIDがユーザーかストアーか判定する
-            if (this.data.buy_user_id < 100000) {
+            if (this.authid < 10000 ) {
                 return (this.isUrl = "/store/product/show/" + this.data.id);
             } else {
-                return (this.isUrl = "/user/product/show/" + this.data.id);
+                return (this.isUrl = "/user/product/usershow/" + this.data.id);
             }
         }
     },

@@ -19,13 +19,13 @@
         </a>
 
         <p class="l_home__menu--link-left u_display--center">
-            <a :href="register_Link">出品する</a>
+            <a class="btn--green--top u_display--center" :href="register_Link">出品する</a>
         </p>
         <p class="l_home__menu--link-center u_display--center">
-            <a :href="list_Link">出品した商品一覧</a>
+            <a class="btn--green--top u_display--center" :href="list_Link">出品した商品一覧</a>
         </p>
         <p class="l_home__menu--link-right u_display--center">
-            <a :href="profile_Link">プロフィール編集</a>
+            <a class="btn--green--top u_display--center" :href="profile_Link">プロフィール編集</a>
         </p>
     </div>
 </template>

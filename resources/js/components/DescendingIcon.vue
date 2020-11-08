@@ -1,6 +1,6 @@
 <template>
   <div class="c_new__Arrival--unit">
-    <span class="c_new__Arrival--unit--text u_display--Jstart--Astart u_text--align">{{ data.name }}</span>
+    <span class="c_new__Arrival--unit--text u_display--Jstart--Astart u_text--align u_text--gurad">{{ data.name }}</span>
     <a :href="info_link">
       <img class="c_new__Arrival--unit--img u_display--center" :src="picData" />
     </a>

@@ -7,10 +7,9 @@
 
     <div class="l_input__container u_font__default u_text--space ">
 
-        <div class="l_input__product--title  u_display--center u_fs__text--title">{{ __('Product New') }}</div>
+        <div class="l_input__product--title  u_display--center u_font__lage--text">{{ __('Product New') }}</div>
+
         <!-- 名前     -->
-
-
         <div class="l_input__product--name  u_display--start--column">
             <label class="u_ds--block" for="name" class="">{{ __('Product Name') }}</label><br>
             @error('name')
@@ -19,9 +18,7 @@
             </span>
             @enderror
 
-            <div class="">
                 <input class="c_input--default" id="name" type="text" class=" @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
-            </div>
         </div>
         <!-- 名前 END  -->
 
@@ -35,7 +32,6 @@
             </span>
             @enderror
 
-            <div class="">
                 <select class="c_input--default" name="category" id="category">
                     <option value="">-- 選択してください --</option>
                     <!-- ループ処理 -->
@@ -44,8 +40,6 @@
                     @endforeach
                 </select>
 
-
-            </div>
         </div>
         <!-- カテゴリー END -->
 
@@ -61,9 +55,8 @@
                 <strong>{{ $message }}</strong>
             </span>
             @enderror
-            <div class="u_text--align-r">
-                <input class="c_input--default" id="regular_price" type="number" class=" @error('regular_price') is-invalid @enderror" name="regular_price" value="{{ old('regular_price') }}" autofocus min=0> 円
-            </div>
+                <input class="c_input--default" id="regular_price" type="number" class=" @error('regular_price') is-invalid @enderror" name="regular_price" value="{{ old('regular_price') }}" autofocus min=0>
+                <span>円</span>
         </div>
         <!-- 通常 価格 END -->
 
@@ -79,11 +72,8 @@
             </span>
             @enderror
 
-            <div class="u_text--align-r">
-                <input class="c_input--default" id="price" type="number" class=" @error('price') is-invalid @enderror" name="price" value="{{ old('price') }}" autofocus min=0> 円
-
-
-            </div>
+                <input class="c_input--default" id="price" type="number" class=" @error('price') is-invalid @enderror" name="price" value="{{ old('price') }}" autofocus min=0>
+                <span>円</span>
         </div>
 
         <!-- 値段 END -->
@@ -98,11 +88,8 @@
             </span>
             @enderror
 
-            <div class="">
                 <input class="c_input--default" id="store_id" type="text" class=" @error('store_id') is-invalid @enderror" name="store_id" value="{{ Auth::user()->id }}" readonly>
 
-
-            </div>
         </div>
         <!-- ストアID END  -->
 
@@ -116,10 +103,7 @@
             </span>
             @enderror
 
-            <div class="">
                 <input class="c_input--default" id="sellby" type="date" class=" @error('sellby') is-invalid @enderror" name="sellby" value="{{ old('sellby') }}" autofocus>
-
-            </div>
         </div>
 
         <!-- 賞味期限 END -->
@@ -148,18 +132,18 @@
 
 {{-- submit save --}}
         <div class="l_input__product--submitB u_display--center">
-            <button class="btn" type="submit" class="">
-                {{ __('Register') }}
+            <button class="btn-3 btn--white" type="submit">
+                <p class="btn--text--blk">{{ __('Register') }}</p>
             </button>
         </div>
 {{-- submit save END--}}
 
 
 {{-- submit return --}}
-    <div class="l_input__product--submitD u_display--center">
-        <button id="js-click-return-home" class="btn" type="button" >
-            {{ __('Return') }}
-        </button>
+    <div id="js-click-return-home2" class="l_input__product--submitD u_display--center">
+            <button class="btn__reverse btn--green" type="button" >
+                <p class="btn--text--reverse">{{ __('Return') }}</p>
+            </button>
     </div>
 {{-- submit return END--}}
     </div>

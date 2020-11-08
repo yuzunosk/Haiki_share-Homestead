@@ -1,6 +1,6 @@
 <template>
     <div class="l_home__container u_font__default">
-        <div class="l_home__menu">
+        <div class="l_home__menu2">
             <h1
                 class="l_home__menu--title u_display--center u_font__text--title"
             >
@@ -15,10 +15,10 @@
                 <i class="far fa-address-card fa-3x"></i>
             </a>
             <p class="l_home__menu--link-left u_display--center">
-                <a :href="list_Link">商品一覧</a>
+                <a class="btn--green--top u_display--center" :href="list_Link">商品一覧</a>
             </p>
             <p class="l_home__menu--link-right u_display--center">
-                <a :href="profile_Link">プロフィール編集</a>
+                <a class=" btn--green--top u_display--center" :href="profile_Link">プロフィール編集</a>
             </p>
         </div>
         <div class="l_home__main">
@@ -26,7 +26,7 @@
                 <span class="c_new__Arrival--title u_display--Jstart"
                     >最近購入した商品</span
                 >
-                <a v-if="judgBuyDone" :href="buy_Link" class="c_new__Arrival--info u_display--end"
+                <a v-if="judgBuyDone" :href="buy_Link" class="c_new__Arrival--info btn--blue--top u_display--center"
                     >全ての商品をみる</a
                 >
                 <div  v-if="judgBuyDone" class="u_display--Jstart--wrap c_new__Arrival--group">

@@ -40,7 +40,7 @@ $_GET['expiration'] = (isset($_GET['expiration'])) ? $_GET['expiration'] : "";
 
             <div class="c_serch--sort">
                 {{-- カテゴリーからデータを取得してループ処理をする  --}}
-                <select name="sort">
+                <select name="sort" class="c_serch--select">
                     <option value=""         @if($sort == "id")       selected @endif>-選択して下さい-</option>
                     <option value="category" @if($sort == "category") selected @endif>-カテゴリー順-</option>
                     <option value="price"    @if($sort == "price")    selected @endif>-値段順-</option>
@@ -48,7 +48,7 @@ $_GET['expiration'] = (isset($_GET['expiration'])) ? $_GET['expiration'] : "";
                 </select>
             </div>
             <div class="c_serch--order">
-                <select name="order">
+                <select name="order" class="c_serch--select">
                     <option value=""     @if($sort == "")      selected @endif>-選択して下さい-</option>
                     <option value="asc"  @if($order == "asc")  selected @endif>-昇順-</option>
                     <option value="desc" @if($order == "desc") selected @endif>-降順-</option>

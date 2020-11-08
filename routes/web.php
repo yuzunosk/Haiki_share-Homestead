@@ -66,7 +66,7 @@ Route::namespace('User')->prefix('user')->name('user.')->group(function () {
 
         //ユーザーインデックス表示
         Route::get('/index/{page?}/{sort?}/{order?}/{expiration?}/{prefectural?}', 'userIndexController')->name('index');
-        Route::get('/product/show/{id}', 'userProductController@show')->name('product.show');
+        Route::get('/product/usershow/{id}', 'userProductController@show')->name('product.usershow');
         Route::get('/product/purchased/{page?}', 'ProductPurchasedController')->name('product.purchased');
     });
 });

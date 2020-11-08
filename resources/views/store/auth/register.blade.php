@@ -7,7 +7,7 @@
 
     <div class="l_register__container u_font__default u_text--space">
 
-        <div class="l_profile--title  u_display--center u_font__text--title">{{ __('Store Register') }}</div>
+        <div class="l_profile--title  u_display--center  u_font__lage--text">{{ __('Store Register') }}</div>
 
         <!-- 入力フォーム枠 -->
         <div class="l_register__store__container l_profile--main">
@@ -48,22 +48,19 @@
             </div>
             <!-- 支店名 END  -->
 
-
             <!-- 郵便番号 zip    -->
 
             <div class="l_register--zip   l_profile__form--unit">
 
                 <div class="l_profile--text">
-                    <label class="u_ds--block" for="zip" class="">{{ __('zip') }}</label>
+                    <label class="u_ds--block" for="zip">{{ __('zip') }}</label>
                     @error('zip')
                     <span class="c_input--error-msg" role="alert">
                         <strong>{{ $message }}</strong>
                     </span>
                     @enderror
                 </div>
-                <div class="l_profile--form">
                     <input class="c_input--default" id="zip" type="text" class=" @error('zip') is-invalid @enderror" name="zip" value="{{ old('zip') }}" autofocus>
-                </div>
             </div>
             <!-- 郵便番号 zip END  -->
 
@@ -122,9 +119,7 @@
                     </span>
                     @enderror
                 </div>
-                <div class="l_profile--form">
                     <input class="c_input--default" id="email" type="email" class=" @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" autofocus>
-                </div>
             </div>
             <!-- email END  -->
 
@@ -140,10 +135,8 @@
                     </span>
                     @enderror
                 </div>
-                <div class="l_profile--form">
                     <input class="c_input--default" id="tel" type="text" class=" @error('tel') is-invalid @enderror" name="tel" value="{{ old('tel') }}" autofocus 
                     pattern="\d{2,4}-?\d{2,4}-?\d{3,4}">
-                </div>
             </div>
             <!-- tel END  -->
 
@@ -159,9 +152,7 @@
                     </span>
                     @enderror
                 </div>
-                <div class="l_profile--form">
                     <input class="c_input--default" id="manager_name" type="text" class=" @error('manager_name') is-invalid @enderror" name="manager_name" value="{{ old('manager_name') }}" autofocus>
-                </div>
             </div>
             <!-- manager_name 店長名  END  -->
 
@@ -177,9 +168,7 @@
                     </span>
                     @enderror
                 </div>
-                <div class="l_profile--form">
                     <input class="c_input--default" id="password" type="password" class=" @error('password') is-invalid @enderror" name="password" autofocus>
-                </div>
             </div>
             <!-- パスワード  END   -->
 
@@ -194,11 +183,7 @@
                     </span>
                     @enderror
                 </div>
-
-
-                <div class="l_profile--form">
                     <input class="c_input--default" id="password-confirm" type="password" name="password_confirmation" >
-                </div>
             </div>
             <!-- パスワード確認 END -->
 
@@ -210,16 +195,16 @@
 
 
         <div class="l_register--foot u_display--center">
-            <button class="btn" type="submit" class="">
-                {{ __('Register') }}
+            <button class="btn-3 btn--white" type="submit">
+                <p class="btn--text--blk">{{ __('Register') }}</p>
             </button>
         </div>
         <!-- 入力フォーム枠 END -->
 
         {{-- submit return --}}
         <div id="js-click-return-top" class="l_login--submit  u_display--center">
-            <button class="btn btn--gray" type="button" >
-                {{ __('Return') }}
+            <button class="btn__reverse btn--green" type="button" >
+                <p class="btn--text--reverse">{{ __('Return') }}</p>
             </button>
         </div>
         {{-- submit return END--}}

@@ -103,6 +103,7 @@
 .u_parent--100 {
     width: 100%;
     height: 100%;
+    display: block;
 }
 // -------------------------------
 // ディスプレイ none
@@ -130,6 +131,16 @@
 .u_text--align-r {
     text-align: right;
 }
+// -------------------------------
+// テキスト はみ出し防止
+// -------------------------------
+.u_text--gurad {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    margin-right: 5px;
+}
+
 // ------------------------------
 // レスポンシブ対応
 // ------------------------------

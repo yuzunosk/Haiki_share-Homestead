@@ -80,7 +80,7 @@ class userProductController extends Controller
         Log::info('購入データ中身:' . $buyData);
 
 
-        return view('product.show', compact(['productData', 'storeData', 'buyData']));
+        return view('product.usershow', compact(['productData', 'storeData', 'buyData']));
     }
     /**
      * Show the form for editing the specified resource.

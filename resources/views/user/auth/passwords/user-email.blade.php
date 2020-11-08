@@ -19,7 +19,7 @@
                             </label>
 
                             <div class="l_reminder--main--submit u_display--center">
-                                <button type="submit" class="btn--Xlage btn--gray ">
+                                <button type="submit" class="btn--Xlage btn--green ">
                                     {{ __('Send Password Reset Link') }}
                                 </button>
                             </div>

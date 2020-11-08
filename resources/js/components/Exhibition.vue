@@ -2,11 +2,12 @@
     <div class="l_home__container u_font__default">
         <StoreHomeMenu :authdata="authdata"></StoreHomeMenu>
         <div class="l_home__main__stick--unit">
-            <h1 class="my-50">{{ title }}</h1>
+            <h2 class="my-50  u_font__lage--text">{{ title }}</h2>
             <ProductStick
                 v-for="(data, i) in datas"
                 :key="i"
                 :data="data"
+                :authid="authdata.id"
             ></ProductStick>
         </div>
     </div>

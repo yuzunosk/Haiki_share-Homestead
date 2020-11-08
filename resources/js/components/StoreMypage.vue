@@ -6,12 +6,13 @@
                 <span class="c_new__Arrival--title u_display--Jstart"
                     >最近出品した商品</span
                 >
+                <div class="c_new__Arrival--info u_display--end">
                 <a
                     v-if="judgProductDone"
                     :href="exhibition_link"
-                    class="c_new__Arrival--info u_display--end"
-                    >全ての商品をみる</a
-                >
+                    class="btn--blue--top u_display--center"
+                    >全ての商品をみる</a>
+                </div>
                 <div v-if="judgProductDone" class="u_display--Jstart--wrap c_new__Arrival--group">
                     <DescendingIcon
                         v-for="(productdata, i) in productdatas"
@@ -24,12 +25,11 @@
                 </div>
             </div>
             <div class="l_home__main--setB c_new__Arrival__list">
-                <span class="c_new__Arrival--title u_display--Jstart"
-                    >最近売れた商品</span
-                >
-                <a v-if="judgBuyDone" :href="sale_link" class="c_new__Arrival--info u_display--end"
-                    >全ての商品をみる</a
-                >
+                <span class="c_new__Arrival--title u_display--Jstart">最近売れた商品</span>
+                <div class="c_new__Arrival--info u_display--end">
+                <a v-if="judgBuyDone" :href="sale_link" class="c_new__Arrival--info btn--blue--top u_display--center"
+                    >全ての商品をみる</a>
+                </div>
                 <div v-if="judgBuyDone" class="u_display--Jstart--wrap c_new__Arrival--group">
                     <DescendingIcon
                         v-for="(buydata, i) in buydatas"

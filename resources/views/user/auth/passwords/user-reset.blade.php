@@ -46,7 +46,7 @@
                             </label>
 
                         <div class="l_passreset--main--submit u_display--center">
-                                <button type="submit" class="btn--Xlage btn--gray ">
+                                <button type="submit" class="btn--Xlage btn--green ">
                                     {{ __('Reset Password') }}
                                 </button>
                         </div>

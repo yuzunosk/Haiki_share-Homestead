@@ -33,8 +33,8 @@
                      @unless(Auth::guard('user')->check())
                      <div class="display-pc">
                          <div class="l-header__right">
-                             <a class="l-header__right__text l-header__right__2" href="{{ route('LoginSelect') }}"><i class="fas fa-sign-in-alt  fa-2x mr-10"></i>{{ __('Login') }}</a>
-                             <a class="l-header__right__text l-header__right__3" href="{{ route('RegistSelect') }}"><i class="fas fa-glass-cheers  fa-2x mr-10"></i>{{ __('Singin') }}</a>
+                             <a class="l-header__right__text l-header__right__2" href="{{ route('LoginSelect') }}"><i class="l-header__right__icon fas fa-sign-in-alt  fa-2x mr-10"></i>{{ __('Login') }}</a>
+                             <a class="l-header__right__text l-header__right__3" href="{{ route('RegistSelect') }}"><i class="l-header__right__icon fas fa-glass-cheers  fa-2x mr-10"></i>{{ __('Singin') }}</a>
                          </div>
                      </div>
                      <div class="display-sm">
@@ -49,10 +49,10 @@
                     <div class="display-pc">
                      <div class="l-header__right">
                          {{-- <a class="l-header__right__text l-header__right__2" href="{{ route('LoginSelect') }}"><i class="fas fa-user-friends fa-2x mr-10"></i>{{ Auth::user()->name }}</a> --}}
-                         <button type="button" id="js-click-return-userhome" class="l-header__right__text l-header__right__2"><i class="fas fa-user-friends fa-2x mr-10"></i>{{ Auth::user()->name }}</button>
+                         <button type="button" id="js-click-return-userhome" class="l-header__right__text l-header__right__2 u_text--gurad"><i class="l-header__right__icon fas fa-user-friends fa-2x mr-10"></i>{{ Auth::user()->name }}</button>
                          <form id="logout-form" action="{{ route('user.logout') }}" method="POST" class="l-header__right__3">
                              @csrf
-                                 <button type="submit" class="l-header__right__text "><i class="fas fa-sign-out-alt fa-2x mr-10"></i>{{ __('Logout') }}</button>
+                                 <button type="submit" class="l-header__right__text "><i class="l-header__right__icon fas fa-sign-out-alt fa-2x mr-10"></i>{{ __('Logout') }}</button>
                          </form>
                      </div>
                     </div>
@@ -67,19 +67,19 @@
 
         {{-- jsでポップアップさせるメニュー --}}
         <nav id="js-popup-menu" class="l-header__popmenu">
-            @unless(Auth::guard('store')->check())
+            @unless(Auth::guard('user')->check())
                 <div class="c-header__popmenu">
                     <a class="c-header__popmenu--list c-header__popmenu--left" href="{{ route('LoginSelect') }}"><i class="fas fa-sign-in-alt  fa-2x mr-10"></i>{{ __('Login') }}</a>
                     <a class="c-header__popmenu--list c-header__popmenu--right" href="{{ route('RegistSelect') }}"><i class="fas fa-glass-cheers  fa-2x mr-10"></i>{{ __('Singin') }}</a>
                 </div>
             @endunless
 
-            @if(Auth::guard('store')->check())
+            @if(Auth::guard('user')->check())
             <div class="c-header__popmenu">
                 <button type="button" id="js-click-return-home" class="c-header__popmenu--list c-header__popmenu--left"><i class="fas fa-store-alt fa-2x mr-10"></i>{{ Auth::user()->name }}</button>
-                <form id="logout-form" action="{{ route('store.logout') }}" method="POST" class="">
+                <form id="logout-form" action="{{ route('store.logout') }}" method="POST" class="c-header__popmenu--list">
                     @csrf
-                    <button type="submit" class="c-header__popmenu--list c-header__popmenu--right" ><i class="fas fa-sign-out-alt fa-x mr-10"></i>{{ __('Logout') }}</button>
+                    <button type="submit" class="c-header__popmenu--list c-header__popmenu--right" ><i class="fas fa-sign-out-alt fa-2x mr-10"></i>{{ __('Logout') }}</button>
                 </form>
             </div>
             @endif

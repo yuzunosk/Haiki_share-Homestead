@@ -7,14 +7,14 @@
 
     <div class="l_profile__container u_font__default u_text--space">
 
-        <div class="l_profile--title  u_display--center u_font__text--title">{{ __('Profile Edit') }}</div>
+        <div class="l_profile--title  u_display--center  u_font__lage--text">{{ __('Profile Edit') }}</div>
 
         <!-- 入力フォーム枠 -->
         <div class="l_profile__user_form__container l_profile--main">
 
             <!-- 名前     -->
 
-            <div class="l_profile--name   l_profile__form--unit">
+            <div class="l_profile--name   l_profile__form--unit u_display--center">
                 <div class="l_profile--text">
                     <label class="u_ds--block" for="name" class="">{{ __('User Name') }}</label>
                     @error('name')
@@ -89,17 +89,17 @@
 
 
         <div class="l_profile--foot u_display--center">
-            <button class="btn btn--gray" type="submit" class="">
-                {{ __('Update') }}
+            <button class="btn-3 btn--white" type="submit">
+                <p class="btn--text--blk">{{ __('Update') }}</p>
             </button>
         </div>
         <!-- 入力フォーム枠 END -->
 
 
         {{-- submit return --}}
-        <div class="l_profile--return u_display--center">
-            <button id="js-click-return-userhome" class="btn btn--gray" type="button" >
-                {{ __('Return') }}
+        <div id="js-click-return-userhome2"  class="l_profile--return u_display--center">
+            <button class="btn__reverse btn--green" type="button" >
+                <p class="btn--text--reverse">{{ __('Return') }}</p>
             </button>
         </div>
         {{-- submit return END--}}

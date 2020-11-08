@@ -25,6 +25,7 @@ class ProductExhibitionController extends Controller
         Log::info('--------出品商品一覧ページ--------');
         Log::info('」」」」」」」」」」」」」」」」」」');
 
+        $storeData  = Auth::User();
 
         //現在ログインしているストアのデータを取得する
         $authData   = Auth::User();
@@ -59,6 +60,6 @@ class ProductExhibitionController extends Controller
         Log::info('ストアデータ:' . $authData);
         Log::info('プロダクトデータ:' . $productDatas);
 
-        return view('product.exhibition', compact(['productDatas', 'authData', 'totalRecode', 'totalPageNum', 'currentPageNum', 'currentMinNum']));
+        return view('product.exhibition', compact(['storeData' ,'productDatas', 'authData', 'totalRecode', 'totalPageNum', 'currentPageNum', 'currentMinNum']));
     }
 }

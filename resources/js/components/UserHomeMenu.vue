@@ -1,5 +1,5 @@
 <template>
-    <div class="l_home__menu">
+    <div class="l_home__menu2">
         <h1 class="l_home__menu--title u_display--center u_font__text--title">
             マイページ
         </h1>
@@ -14,10 +14,10 @@
         </a>
 
         <p class="l_home__menu--link-left u_display--center">
-            <a :href="list_Link">商品一覧</a>
+            <a class="btn--green--top u_display--center" :href="list_Link">商品一覧</a>
         </p>
         <p class="l_home__menu--link-right u_display--center">
-            <a :href="profile_Link">プロフィール編集</a>
+            <a class="btn--green--top u_display--center" :href="profile_Link">プロフィール編集</a>
         </p>
     </div>
 </template>

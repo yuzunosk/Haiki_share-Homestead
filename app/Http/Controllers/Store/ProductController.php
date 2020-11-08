@@ -327,6 +327,8 @@ class ProductController extends Controller
         Log::info('----------更新ページ------------');
         Log::info('」」」」」」」」」」」」」」」」」」');
 
+        $storeData = Auth::user();
+
         //idを元にDBからproductデータを検出し、変数へ収納
         $productData = Product::find($id);
         // Log::info('プロダクトデータ:' . $productData);
@@ -335,7 +337,7 @@ class ProductController extends Controller
         // Log::info('カテゴリーデータ:' . $categorys);
 
 
-        return view('product.edit', compact(['productData', 'categorys']));
+        return view('product.edit', compact(['storeData', 'productData', 'categorys']));
     }
 
     /**
