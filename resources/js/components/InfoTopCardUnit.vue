@@ -30,7 +30,7 @@ export default {
   data() {
     return {
       productDatas: [
-        { name: "パン", image: "/storage/img/パン背景A.jpg", id: 1 },
+        { name: "パン", image: "/storage/img/panatumari.jpg", id: 1 },
         { name: "お弁当", image: "/storage/img/onigiriTop.jpg", id: 2 },
         { name: "惣菜", image: "/storage/img/sousaiTop.jpg", id: 3 },
         { name: "スイーツ", image: "/storage/img/sweetTop.jpg", id: 4 },
