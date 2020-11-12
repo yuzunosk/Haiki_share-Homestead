@@ -108,10 +108,11 @@
 
                 </div>
                 <div class="l_footer__layout--bottom u_display--center--column">
-                    <div class="u_img__unit">
+                    {{-- コンタクトを隠す --}}
+                    {{-- <div class="u_img__unit">
                         <img class="img__icon u_size__icon--sm" src="/storage/img/email-iconA.png" alt="">
                         <span class="u_white--text text-size__def mb-30">contact</span>
-                    </div>
+                    </div> --}}
                     <h5 class="u_white--text text-size__min mb-30">©︎2020 yuzunosk website, inc. <a href="https://icons8.jp/license">icons.8</a></h5>
                 </div>
             </div>

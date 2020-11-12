@@ -24,9 +24,7 @@
                     @enderror
                 </div>
 
-                <div class="l_profile--form">
                     <input class="c_input--default" id="name" class=" @error('name') is-invalid @enderror" name="name" value="{{ old('name' ) }}" autofocus>
-                </div>
             </div>
             <!-- 名前 END  -->
 
@@ -42,9 +40,7 @@
                     </span>
                     @enderror
                 </div>
-                <div class="l_profile--form">
                     <input class="c_input--default" id="email" type="text" class=" @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" autofocus>
-                </div>
             </div>
             <!-- email END  -->
 
@@ -59,9 +55,7 @@
                     </span>
                     @enderror
                 </div>
-                <div class="l_profile--form">
                     <input class="c_input--default" id="subject" type="text" class=" @error('subject') is-invalid @enderror" name="subject" value="{{ old('subject') }}" autofocus>
-                </div>
             </div>
             <!-- Subject END  -->
 
@@ -77,25 +71,23 @@
                     </span>
                     @enderror
                 </div>
-                <div class="l_profile--form">
                         <textarea class="c_input--textArea--large @error('content') is-invalid @enderror" name="content" id="content" cols="30" rows="10"></textarea>
-                </div>
             </div>
             <!--  content END  -->
 
         </div>
 
         <div class="l_register--foot u_display--center">
-            <button class="btn" type="submit" class="">
-                {{ __('Send') }}
+            <button class="btn-3 btn--white" type="submit" >
+                <p class="btn--text--blk">{{ __('Send') }}</p>
             </button>
         </div>
         <!-- 入力フォーム枠 END -->
 
         {{-- submit return --}}
         <div id="js-click-return-top" class="l_login--submit  u_display--center">
-            <button class="btn btn--green" type="button" >
-                {{ __('Return') }}
+            <button class="btn__reverse btn--green" type="button" >
+                <p class="btn--text--reverse">{{ __('Return') }}</p>
             </button>
         </div>
         {{-- submit return END--}}
