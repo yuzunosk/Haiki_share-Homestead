@@ -8,7 +8,7 @@ const clickReturnHome2 = document.getElementById("js-click-return-home2");
 const clickReturnUserHome = document.getElementById("js-click-return-userhome");
 const clickReturnUserHome2 = document.getElementById("js-click-return-userhome2");
 const clickReturnTop = document.getElementById("js-click-return-top");
-console.log(clickReturnUserHome);
+// console.log(clickReturnUserHome);
 
 // =================
 // 処理
@@ -16,7 +16,7 @@ console.log(clickReturnUserHome);
 // --- delete処理 ---
 if (clickDelete != null) {
     const $ProductId = document.getElementById("js-click-delete").dataset.id;
-    console.log($ProductId);
+    // console.log($ProductId);
 
     clickDelete.addEventListener("click", function() {
         // alert("クリックされました");

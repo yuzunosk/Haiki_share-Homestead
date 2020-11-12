@@ -12,14 +12,14 @@ if (clickpopup != null) {
     // alert('clickpopupがあります。');
 
     const $clickPopfunction = clickpopup.addEventListener("click", function() {
-        console.log("clickpopupをクリック");
+        // console.log("clickpopupをクリック");
         popupheadNav.style.top = "0px";
         popupmask.style.zIndex = "5";
         popupmask.style.display = "block";
     });
 
     const $clickPopUpMaskfc = popupmask.addEventListener("click", function() {
-        console.log("popupmaskをクリック");
+        // console.log("popupmaskをクリック");
         popupheadNav.style.top = "-70px";
         popupmask.style.zIndex = "0";
         popupmask.style.display = "none";

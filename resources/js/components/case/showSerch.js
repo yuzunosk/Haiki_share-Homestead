@@ -18,7 +18,7 @@ if (showSerch != null) {
     // ウインドウクリックで閉じる
 
     const $showfunction = showSerch.addEventListener("click", function() {
-        console.log("showSerchをクリック");
+        // console.log("showSerchをクリック");
         //toggleDisplayが、u_display-nを保持している場合、クラスをつけ外しする
         if (toggleDisplay.classList.contains("u_display-hide")) {
             toggleDisplay.classList.remove("u_display-hide");
@@ -30,9 +30,9 @@ if (showSerch != null) {
     });
 
     const $hidefunction = hideSerch.addEventListener("click", e => {
-        console.log("閉じるをクリックしました");
+        // console.log("閉じるをクリックしました");
         //toggleDisplayが、u_display-nを持っていない場合、クラスをつけ外しする
-        console.log(!toggleDisplay.classList.contains("u_display-hide"));
+        // console.log(!toggleDisplay.classList.contains("u_display-hide"));
         if (!toggleDisplay.classList.contains("u_display-hide")) {
             toggleDisplay.classList.remove("u_display-show");
             toggleDisplay.classList.add("u_display-hide");
