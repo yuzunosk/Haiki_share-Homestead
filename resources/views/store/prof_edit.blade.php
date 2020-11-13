@@ -61,7 +61,7 @@
                     @enderror
                 </div>
                 <div class="l_profile--form">
-                    <input class="c_input--default" id="email" type="text" class=" @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" autofocus>
+                    <input class="c_input--default" id="email" type="text" class=" @error('email') is-invalid @enderror" name="email" value="{{ old('email' , $storeData->email) }}" autofocus>
                 </div>
             </div>
             <!-- email END  -->
@@ -77,7 +77,7 @@
                     </span>
                     @enderror
                 </div>
-                    <input class="c_input--default" id="tel" type="text" class=" @error('tel') is-invalid @enderror" name="tel" value="{{ old('tel') }}" autofocus 
+                    <input class="c_input--default" id="tel" type="text" class=" @error('tel') is-invalid @enderror" name="tel" value="{{ old('tel' , $storeData->tel) }}" autofocus 
                     pattern="\d{2,4}-?\d{2,4}-?\d{3,4}">
             </div>
             <!-- tel END  -->
@@ -94,7 +94,7 @@
                     </span>
                     @enderror
                 </div>
-                    <input class="c_input--default" id="zip" type="text" class=" @error('zip') is-invalid @enderror" name="zip" value="{{ old('zip') }}" autofocus>
+                    <input class="c_input--default" id="zip" type="text" class=" @error('zip') is-invalid @enderror" name="zip" value="{{ old('zip' , $storeData->zip) }}" autofocus>
             </div>
             <!-- 郵便番号 zip END  -->
 
