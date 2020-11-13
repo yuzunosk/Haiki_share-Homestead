@@ -153,7 +153,7 @@
                     </span>
                     @enderror
                 </div>
-                    <input class="c_input--default" id="manager_name" type="text" class=" @error('manager_name') is-invalid @enderror" name="manager_name" value="{{ old('manager_name') }}" autofocus>
+                    <input class="c_input--default" id="manager_name" type="text" class=" @error('manager_name') is-invalid @enderror" name="manager_name" value="{{ old('manager_name' , $storeData->manager_name) }}" autofocus>
             </div>
             <!-- manager_name 店長名  END  -->
 
