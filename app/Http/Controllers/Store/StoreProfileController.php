@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Store;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
-use App\models\Store;
+use App\Models\Store;
 
 use Illuminate\Support\Facades\Log;
 use App\Http\Requests\StoreProfileRequest;

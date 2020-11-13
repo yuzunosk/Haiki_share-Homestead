@@ -14,10 +14,10 @@ use App\Http\Requests\ProductRequest;
 use Carbon\Carbon;
 
 
-use App\models\Product;
-use App\models\Store;
-use App\models\Category;
-use App\models\Buy;
+use App\Models\Product;
+use App\Models\Store;
+use App\Models\Category;
+use App\Models\Buy;
 
 class ProductController extends Controller
 {

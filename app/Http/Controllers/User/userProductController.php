@@ -12,10 +12,10 @@ use Illuminate\Support\Facades\Session;
 
 use App\Http\Requests\ProductRequest;
 
-use App\models\Product;
-use App\models\Store;
-use App\models\Category;
-use App\models\Buy;
+use App\Models\Product;
+use App\Models\Store;
+use App\Models\Category;
+use App\Models\Buy;
 
 class userProductController extends Controller
 {

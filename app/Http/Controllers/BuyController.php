@@ -8,10 +8,10 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\sendPurchaseMail;
 
-use App\models\Store;
-use App\models\User;
+use App\Models\Store;
+use App\Models\User;
 
-use App\models\Buy;
+use App\Models\Buy;
 
 class BuyController extends Controller
 {
