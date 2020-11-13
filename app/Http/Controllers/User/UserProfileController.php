@@ -5,7 +5,7 @@ namespace App\Http\Controllers\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
-use App\models\User;
+use App\Models\User;
 
 use Illuminate\Support\Facades\Log;
 use App\Http\Requests\UserProfileRequest;

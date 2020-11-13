@@ -5,9 +5,9 @@ namespace App\Http\Controllers\Store;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
-use App\models\Product;
-use App\models\Store;
-use App\models\Buy;
+use App\Models\Product;
+use App\Models\Store;
+use App\Models\Buy;
 use Illuminate\Support\Facades\Log;
 
 class HomeController extends Controller

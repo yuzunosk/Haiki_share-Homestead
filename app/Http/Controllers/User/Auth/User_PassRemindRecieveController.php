@@ -10,7 +10,7 @@ use App\Rules\AlphaNumHalf;
 use App\Rules\Hankaku;
 
 use Illuminate\Support\Facades\Hash;
-use App\models\User;
+use App\Models\User;
 
 class User_PassRemindRecieveController extends Controller
 {
