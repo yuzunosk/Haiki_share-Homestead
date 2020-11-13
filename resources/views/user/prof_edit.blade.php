@@ -14,7 +14,7 @@
 
             <!-- 名前     -->
 
-            <div class="l_profile--name   l_profile__form--unit u_display--center">
+            <div class="l_profile--name   l_profile__form--unit">
                 <div class="l_profile--text">
                     <label class="u_ds--block" for="name" class="">{{ __('User Name') }}</label>
                     @error('name')
