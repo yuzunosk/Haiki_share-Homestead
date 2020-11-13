@@ -10,7 +10,7 @@
             <a :href="isUrl">
                 <img
                     class="l_product--icon u_img__fit--cover100 u_size__icon--radius"
-                    src="/storage/img/データアイコン.png"
+                    src="/storage/img/detaicon.png"
                     alt="詳細ボタン"
                 />
             </a>
